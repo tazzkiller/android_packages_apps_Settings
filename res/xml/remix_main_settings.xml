@@ -47,6 +47,14 @@
         android:icon="@drawable/ic_settings_navbar"
         android:fragment="com.android.settings.simpleaosp.NavigationBarSettings" /> -->
 
+        <!-- Performance -->
+        <PreferenceScreen
+                android:id="@+id/performance_settings"
+                android:title="@string/performance_settings_title"
+                android:fragment="com.android.settings.cyanogenmod.PerformanceSettings"
+                android:icon="@drawable/ic_settings_performance"
+                />
+
     <!-- Voice wakeup -->
     <PreferenceScreen
         android:id="@+id/voice_wakeup_settings"
