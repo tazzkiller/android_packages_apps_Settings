@@ -612,6 +612,10 @@
     <!-- Performance menu, graphics options category -->
     <string name="graphics_title">Graphics and rendering</string>
 
+
+    <!-- Gesture Settings -->
+    <!-- Settings main menu entry -->
+    <string name="gesture_settings_title">Gestures</string>
     <!-- WiFi Ad-Hoc mode -->
     <string name="wifi_mode">Mode</string>
     <string name="wifi_mode_ibss">Ad-Hoc (IBSS) Network</string>
