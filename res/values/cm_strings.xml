@@ -442,4 +442,8 @@
     <string name="changelog_title">Changelog</string>
     <string name="changelog_error">Unable to load changelog</string>
 
+    <!-- Volume rocker music seek options -->
+    <string name="volbtn_music_controls_title">Volume rocker music controls</string>
+    <string name="volbtn_music_controls_summary">When screen off, long-pressing the volume rockers will seek music tracks</string>
+
 </resources>
