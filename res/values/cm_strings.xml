@@ -404,6 +404,9 @@
     <string name="hex_hint">#ff000000</string>
     <string name="set">Set</string>
     <string name="color_default">Default</string>
+    <!-- High touch sensitivity -->
+    <string name="high_touch_sensitivity_title">High touch sensitivity</string>
+    <string name="high_touch_sensitivity_summary">Increase touchscreen sensitivity so it can be used while wearing gloves</string>
 
     <!-- Status bar -->
     <string name="status_bar_title">Status bar</string>	
