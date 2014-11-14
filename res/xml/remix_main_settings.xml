@@ -54,4 +54,9 @@
                 android:fragment="com.android.settings.cyanogenmod.StatusBarSettings"
                 android:icon="@drawable/ic_settings_interface" />
 
+    <PreferenceScreen
+        android:key="hfm_settings"
+        android:title="@string/hfm_pref_screen_title"
+        android:fragment="com.android.settings.liquid.hfm.HfmSettings" />
+
 </PreferenceScreen>
