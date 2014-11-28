@@ -104,7 +104,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
         findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
         setValueSummary(KEY_PA_VERSION, "ro.pa.version");
-        setValueSummary(KEY_PSD_VERSION, "ro.psd.version");
+        setValueSummary(KEY_PSD_VERSION, "ro.psd.modversion");
 
         if (!SELinux.isSELinuxEnabled()) {
             String status = getResources().getString(R.string.selinux_status_disabled);
