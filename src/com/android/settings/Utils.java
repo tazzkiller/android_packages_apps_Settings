@@ -576,18 +576,6 @@ public final class Utils {
                 .getUsers().size() > 1;
     }
 
-    public static boolean isPhone(Context context) {
-        return getScreenType(context) == DEVICE_PHONE;
-    }
-
-    public static boolean isHybrid(Context context) {
-        return getScreenType(context) == DEVICE_HYBRID;
-    }
-
-    public static boolean isTablet(Context context) {
-        return getScreenType(context) == DEVICE_TABLET;
-    }
-
     /* returns whether the device has volume rocker or not. */
     public static boolean hasVolumeRocker(Context context) {
         return context.getResources().getBoolean(R.bool.has_volume_rocker);
