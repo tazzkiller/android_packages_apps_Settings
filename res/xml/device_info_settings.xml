@@ -121,6 +121,11 @@
                 android:title="@string/psd_version"
                 android:summary="@string/psd_version_default" />
 
+        <!-- Device SM version -->
+        <Preference android:key="sm_version"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/sm_version"
+                android:summary="@string/sm_version_default" />
 
         <!-- Device FCC equipment id -->
         <Preference android:key="fcc_equipment_id"
