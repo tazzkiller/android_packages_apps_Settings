@@ -50,7 +50,7 @@ import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.hardware.usb.UsbManager;
-import android.preference.CheckBoxPreference;
+import android.preference.SwitchPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -196,43 +196,43 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private boolean mHaveDebugSettings;
     private boolean mDontPokeProperties;
 
-    private CheckBoxPreference mEnableAdb;
-    private CheckBoxPreference mAdbNotify;
-    private CheckBoxPreference mAdbOverNetwork;
-    private CheckBoxPreference mShowUnacAndOvercounted;
+    private SwitchPreference mEnableAdb;
+    private SwitchPreference mAdbNotify;
+    private SwitchPreference mAdbOverNetwork;
+    private SwitchPreference mShowUnacAndOvercounted;
     private Preference mClearAdbKeys;
-    private CheckBoxPreference mEnableTerminal;
+    private SwitchPreference mEnableTerminal;
     private Preference mBugreport;
-    private CheckBoxPreference mBugreportInPower;
-    private CheckBoxPreference mKeepScreenOn;
-    private CheckBoxPreference mBtHciSnoopLog;
-    private CheckBoxPreference mEnableOemUnlock;
-    private CheckBoxPreference mQuickBoot;
-    private CheckBoxPreference mAllowMockLocation;
-    private CheckBoxPreference mDebugViewAttributes;
+    private SwitchPreference mBugreportInPower;
+    private SwitchPreference mKeepScreenOn;
+    private SwitchPreference mBtHciSnoopLog;
+    private SwitchPreference mEnableOemUnlock;
+    private SwitchPreference mQuickBoot;
+    private SwitchPreference mAllowMockLocation;
+    private SwitchPreference mDebugViewAttributes;
 
     private PreferenceScreen mPassword;
     private String mDebugApp;
     private Preference mDebugAppPref;
-    private CheckBoxPreference mWaitForDebugger;
-    private CheckBoxPreference mVerifyAppsOverUsb;
-    private CheckBoxPreference mWifiDisplayCertification;
-    private CheckBoxPreference mWifiVerboseLogging;
-    private CheckBoxPreference mWifiAggressiveHandover;
+    private SwitchPreference mWaitForDebugger;
+    private SwitchPreference mVerifyAppsOverUsb;
+    private SwitchPreference mWifiDisplayCertification;
+    private SwitchPreference mWifiVerboseLogging;
+    private SwitchPreference mWifiAggressiveHandover;
 
-    private CheckBoxPreference mWifiAllowScansWithTraffic;
-    private CheckBoxPreference mStrictMode;
-    private CheckBoxPreference mPointerLocation;
-    private CheckBoxPreference mShowTouches;
-    private CheckBoxPreference mShowScreenUpdates;
-    private CheckBoxPreference mDisableOverlays;
-    private CheckBoxPreference mShowCpuUsage;
-    private CheckBoxPreference mForceHardwareUi;
-    private CheckBoxPreference mForceMsaa;
-    private CheckBoxPreference mShowHwScreenUpdates;
-    private CheckBoxPreference mShowHwLayersUpdates;
-    private CheckBoxPreference mDebugLayout;
-    private CheckBoxPreference mForceRtlLayout;
+    private SwitchPreference mWifiAllowScansWithTraffic;
+    private SwitchPreference mStrictMode;
+    private SwitchPreference mPointerLocation;
+    private SwitchPreference mShowTouches;
+    private SwitchPreference mShowScreenUpdates;
+    private SwitchPreference mDisableOverlays;
+    private SwitchPreference mShowCpuUsage;
+    private SwitchPreference mForceHardwareUi;
+    private SwitchPreference mForceMsaa;
+    private SwitchPreference mShowHwScreenUpdates;
+    private SwitchPreference mShowHwLayersUpdates;
+    private SwitchPreference mDebugLayout;
+    private SwitchPreference mForceRtlLayout;
     private ListPreference mDebugHwOverdraw;
     private ListPreference mLogdSize;
     private ListPreference mTrackFrameTime;
@@ -245,24 +245,24 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
 
     private ListPreference mSimulateColorSpace;
 
-    private CheckBoxPreference mUseNuplayer;
-    private CheckBoxPreference mUSBAudio;
-    private CheckBoxPreference mImmediatelyDestroyActivities;
+    private SwitchPreference mUseNuplayer;
+    private SwitchPreference mUSBAudio;
+    private SwitchPreference mImmediatelyDestroyActivities;
 
     private ListPreference mAppProcessLimit;
 
-    private CheckBoxPreference mShowAllANRs;
-    private CheckBoxPreference mKillAppLongpressBack;
+    private SwitchPreference mShowAllANRs;
+    private SwitchPreference mKillAppLongpressBack;
 
     private PreferenceScreen mProcessStats;
     private PreferenceScreen mDevelopmentTools;
 
-    private CheckBoxPreference mAdvancedReboot;
+    private SwitchPreference mAdvancedReboot;
 
     private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
 
-    private final ArrayList<CheckBoxPreference> mResetCbPrefs
-            = new ArrayList<CheckBoxPreference>();
+    private final ArrayList<SwitchPreference> mResetCbPrefs
+            = new ArrayList<SwitchPreference>();
 
     private final HashSet<Preference> mDisabledPrefs = new HashSet<Preference>();
     // To track whether a confirmation dialog was clicked.
@@ -296,15 +296,15 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
 
         addPreferencesFromResource(R.xml.development_prefs);
 
-        mShowUnacAndOvercounted = findAndInitCheckboxPref(SHOW_UNAC_AND_OVERCOUNTED_STATS);
+        mShowUnacAndOvercounted = findAndInitSwitchPref(SHOW_UNAC_AND_OVERCOUNTED_STATS);
 
         final PreferenceGroup debugDebuggingCategory = (PreferenceGroup)
                 findPreference(DEBUG_DEBUGGING_CATEGORY_KEY);
 
-        mEnableAdb = findAndInitCheckboxPref(ENABLE_ADB);
-        mAdbNotify = (CheckBoxPreference) findPreference(ADB_NOTIFY);
+        mEnableAdb = findAndInitSwitchPref(ENABLE_ADB);
+        mAdbNotify = (SwitchPreference) findPreference(ADB_NOTIFY);
         mAllPrefs.add(mAdbNotify);
-        mAdbOverNetwork = findAndInitCheckboxPref(ADB_TCPIP);
+        mAdbOverNetwork = findAndInitSwitchPref(ADB_TCPIP);
         mClearAdbKeys = findPreference(CLEAR_ADB_KEYS);
         if (!SystemProperties.getBoolean("ro.adb.secure", false)) {
             if (debugDebuggingCategory != null) {
@@ -312,27 +312,27 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
             }
         }
         mAllPrefs.add(mClearAdbKeys);
-        mEnableTerminal = findAndInitCheckboxPref(ENABLE_TERMINAL);
+        mEnableTerminal = findAndInitSwitchPref(ENABLE_TERMINAL);
         if (!isPackageInstalled(getActivity(), TERMINAL_APP_PACKAGE)) {
             debugDebuggingCategory.removePreference(mEnableTerminal);
             mEnableTerminal = null;
         }
 
         mBugreport = findPreference(BUGREPORT);
-        mBugreportInPower = findAndInitCheckboxPref(BUGREPORT_IN_POWER_KEY);
-        mKeepScreenOn = findAndInitCheckboxPref(KEEP_SCREEN_ON);
-        mBtHciSnoopLog = findAndInitCheckboxPref(BT_HCI_SNOOP_LOG);
-        mEnableOemUnlock = findAndInitCheckboxPref(ENABLE_OEM_UNLOCK);
+        mBugreportInPower = findAndInitSwitchPref(BUGREPORT_IN_POWER_KEY);
+        mKeepScreenOn = findAndInitSwitchPref(KEEP_SCREEN_ON);
+        mBtHciSnoopLog = findAndInitSwitchPref(BT_HCI_SNOOP_LOG);
+        mEnableOemUnlock = findAndInitSwitchPref(ENABLE_OEM_UNLOCK);
         if (!showEnableOemUnlockPreference()) {
             removePreference(mEnableOemUnlock);
             mEnableOemUnlock = null;
         }
-        mQuickBoot= findAndInitCheckboxPref(ENABLE_QUICKBOOT);
-        mAllowMockLocation = findAndInitCheckboxPref(ALLOW_MOCK_LOCATION);
-        mDebugViewAttributes = findAndInitCheckboxPref(DEBUG_VIEW_ATTRIBUTES);
+        mQuickBoot= findAndInitSwitchPref(ENABLE_QUICKBOOT);
+        mAllowMockLocation = findAndInitSwitchPref(ALLOW_MOCK_LOCATION);
+        mDebugViewAttributes = findAndInitSwitchPref(DEBUG_VIEW_ATTRIBUTES);
         mPassword = (PreferenceScreen) findPreference(LOCAL_BACKUP_PASSWORD);
         mAllPrefs.add(mPassword);
-        mAdvancedReboot = findAndInitCheckboxPref(ADVANCED_REBOOT_KEY);
+        mAdvancedReboot = findAndInitSwitchPref(ADVANCED_REBOOT_KEY);
 
 
         if (!android.os.Process.myUserHandle().equals(UserHandle.OWNER)) {
@@ -345,8 +345,8 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
 
         mDebugAppPref = findPreference(DEBUG_APP_KEY);
         mAllPrefs.add(mDebugAppPref);
-        mWaitForDebugger = findAndInitCheckboxPref(WAIT_FOR_DEBUGGER_KEY);
-        mVerifyAppsOverUsb = (CheckBoxPreference) findPreference(VERIFY_APPS_OVER_USB_KEY);
+        mWaitForDebugger = findAndInitSwitchPref(WAIT_FOR_DEBUGGER_KEY);
+        mVerifyAppsOverUsb = (SwitchPreference) findPreference(VERIFY_APPS_OVER_USB_KEY);
         mAllPrefs.add(mVerifyAppsOverUsb);
         if (!showVerifierSetting()) {
             if (debugDebuggingCategory != null) {
@@ -355,25 +355,25 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
                 mVerifyAppsOverUsb.setEnabled(false);
             }
         }
-        mStrictMode = findAndInitCheckboxPref(STRICT_MODE_KEY);
-        mPointerLocation = findAndInitCheckboxPref(POINTER_LOCATION_KEY);
-        mShowTouches = findAndInitCheckboxPref(SHOW_TOUCHES_KEY);
-        mShowScreenUpdates = findAndInitCheckboxPref(SHOW_SCREEN_UPDATES_KEY);
-        mDisableOverlays = findAndInitCheckboxPref(DISABLE_OVERLAYS_KEY);
-        mShowCpuUsage = findAndInitCheckboxPref(SHOW_CPU_USAGE_KEY);
-        mForceHardwareUi = findAndInitCheckboxPref(FORCE_HARDWARE_UI_KEY);
-        mForceMsaa = findAndInitCheckboxPref(FORCE_MSAA_KEY);
+        mStrictMode = findAndInitSwitchPref(STRICT_MODE_KEY);
+        mPointerLocation = findAndInitSwitchPref(POINTER_LOCATION_KEY);
+        mShowTouches = findAndInitSwitchPref(SHOW_TOUCHES_KEY);
+        mShowScreenUpdates = findAndInitSwitchPref(SHOW_SCREEN_UPDATES_KEY);
+        mDisableOverlays = findAndInitSwitchPref(DISABLE_OVERLAYS_KEY);
+        mShowCpuUsage = findAndInitSwitchPref(SHOW_CPU_USAGE_KEY);
+        mForceHardwareUi = findAndInitSwitchPref(FORCE_HARDWARE_UI_KEY);
+        mForceMsaa = findAndInitSwitchPref(FORCE_MSAA_KEY);
         mTrackFrameTime = addListPreference(TRACK_FRAME_TIME_KEY);
         mShowNonRectClip = addListPreference(SHOW_NON_RECTANGULAR_CLIP_KEY);
-        mShowHwScreenUpdates = findAndInitCheckboxPref(SHOW_HW_SCREEN_UPDATES_KEY);
-        mShowHwLayersUpdates = findAndInitCheckboxPref(SHOW_HW_LAYERS_UPDATES_KEY);
-        mDebugLayout = findAndInitCheckboxPref(DEBUG_LAYOUT_KEY);
-        mForceRtlLayout = findAndInitCheckboxPref(FORCE_RTL_LAYOUT_KEY);
+        mShowHwScreenUpdates = findAndInitSwitchPref(SHOW_HW_SCREEN_UPDATES_KEY);
+        mShowHwLayersUpdates = findAndInitSwitchPref(SHOW_HW_LAYERS_UPDATES_KEY);
+        mDebugLayout = findAndInitSwitchPref(DEBUG_LAYOUT_KEY);
+        mForceRtlLayout = findAndInitSwitchPref(FORCE_RTL_LAYOUT_KEY);
         mDebugHwOverdraw = addListPreference(DEBUG_HW_OVERDRAW_KEY);
-        mWifiDisplayCertification = findAndInitCheckboxPref(WIFI_DISPLAY_CERTIFICATION_KEY);
-        mWifiVerboseLogging = findAndInitCheckboxPref(WIFI_VERBOSE_LOGGING_KEY);
-        mWifiAggressiveHandover = findAndInitCheckboxPref(WIFI_AGGRESSIVE_HANDOVER_KEY);
-        mWifiAllowScansWithTraffic = findAndInitCheckboxPref(WIFI_ALLOW_SCAN_WITH_TRAFFIC_KEY);
+        mWifiDisplayCertification = findAndInitSwitchPref(WIFI_DISPLAY_CERTIFICATION_KEY);
+        mWifiVerboseLogging = findAndInitSwitchPref(WIFI_VERBOSE_LOGGING_KEY);
+        mWifiAggressiveHandover = findAndInitSwitchPref(WIFI_AGGRESSIVE_HANDOVER_KEY);
+        mWifiAllowScansWithTraffic = findAndInitSwitchPref(WIFI_ALLOW_SCAN_WITH_TRAFFIC_KEY);
         mLogdSize = addListPreference(SELECT_LOGD_SIZE_KEY);
 
         mWindowAnimationScale = addListPreference(WINDOW_ANIMATION_SCALE_KEY);
@@ -382,23 +382,23 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         mOverlayDisplayDevices = addListPreference(OVERLAY_DISPLAY_DEVICES_KEY);
         mOpenGLTraces = addListPreference(OPENGL_TRACES_KEY);
         mSimulateColorSpace = addListPreference(SIMULATE_COLOR_SPACE);
-        mUseNuplayer = (CheckBoxPreference) findPreference(USE_NUPLAYER_KEY);
+        mUseNuplayer = (SwitchPreference) findPreference(USE_NUPLAYER_KEY);
         mAllPrefs.add(mUseNuplayer);
-        mUSBAudio = findAndInitCheckboxPref(USB_AUDIO_KEY);
+        mUSBAudio = findAndInitSwitchPref(USB_AUDIO_KEY);
 
-        mImmediatelyDestroyActivities = (CheckBoxPreference) findPreference(
+        mImmediatelyDestroyActivities = (SwitchPreference) findPreference(
                 IMMEDIATELY_DESTROY_ACTIVITIES_KEY);
         mAllPrefs.add(mImmediatelyDestroyActivities);
         mResetCbPrefs.add(mImmediatelyDestroyActivities);
 
         mAppProcessLimit = addListPreference(APP_PROCESS_LIMIT_KEY);
 
-        mShowAllANRs = (CheckBoxPreference) findPreference(
+        mShowAllANRs = (SwitchPreference) findPreference(
                 SHOW_ALL_ANRS_KEY);
         mAllPrefs.add(mShowAllANRs);
         mResetCbPrefs.add(mShowAllANRs);
 
-        mKillAppLongpressBack = findAndInitCheckboxPref(KILL_APP_LONGPRESS_BACK);
+        mKillAppLongpressBack = findAndInitSwitchPref(KILL_APP_LONGPRESS_BACK);
 
         Preference hdcpChecking = findPreference(HDCP_CHECKING_KEY);
         if (hdcpChecking != null) {
@@ -427,8 +427,8 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         }
     }
 
-    private CheckBoxPreference findAndInitCheckboxPref(String key) {
-        CheckBoxPreference pref = (CheckBoxPreference) findPreference(key);
+    private SwitchPreference findAndInitSwitchPref(String key) {
+        SwitchPreference pref = (SwitchPreference) findPreference(key);
         if (pref == null) {
             throw new IllegalArgumentException("Cannot find preference with key = " + key);
         }
@@ -534,7 +534,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         mSwitchBar.hide();
     }
 
-    void updateCheckBox(CheckBoxPreference checkBox, boolean value) {
+    void updateCheckBox(SwitchPreference checkBox, boolean value) {
         checkBox.setChecked(value);
         mHaveDebugSettings |= value;
     }
@@ -645,7 +645,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private void resetDangerousOptions() {
         mDontPokeProperties = true;
         for (int i=0; i<mResetCbPrefs.size(); i++) {
-            CheckBoxPreference cb = mResetCbPrefs.get(i);
+            SwitchPreference cb = mResetCbPrefs.get(i);
             if (cb.isChecked()) {
                 cb.setChecked(false);
                 onPreferenceTreeClick(null, cb);
