@@ -422,4 +422,10 @@
 
     <string name="auto_brightness_reset_button">Reset</string>
 
+<!-- Lockscreen shortcuts Slim --
+    <string name="help">Help</string>
+    <string name="lockscreen_shortcuts_title">Shortcuts</string>
+    <string name="lockscreen_shortcuts_summary">View or change custom lock screen shortcuts</string>
+    <string name="lockscreen_shorcuts_longpress_title">Shortcuts longpress</string>
+    <string name="lockscreen_shorcuts_longpress_summary">Open custom lock screen shortcuts on longpress</string>
 </resources>
