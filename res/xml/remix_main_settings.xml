@@ -40,6 +40,13 @@
         android:title="@string/notification_settings_title"
         android:fragment="com.android.settings.liquid.NotificationSettings" /> -->
 
+    <!--Button Settings -->
+    <PreferenceScreen
+                android:id="@+id/button_settings"
+                android:title="@string/button_pref_title"
+                android:fragment="com.android.settings.ButtonSettings"
+                android:icon="@drawable/ic_settings_buttons" />
+
     <!-- Status bar -->
     <PreferenceScreen
                 android:id="@+id/status_bar_settings"
