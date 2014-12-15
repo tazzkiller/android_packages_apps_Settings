@@ -2032,6 +2032,21 @@
                 android:resource="@id/sim_settings" />
         </activity>
 
+        <!-- REMIX Main Settings -->
+        <activity android:name="Settings$MainSettingsActivity"
+            android:label="@string/remix_settings_title"
+            android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.remix.MainSettings" />
+        </activity>
+
+        <activity
+             android:name=".remix.MainSettings" />
+
         <provider
             android:name=".search.SettingsSearchIndexablesProvider"
             android:authorities="com.android.settings"
