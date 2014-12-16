@@ -49,6 +49,9 @@ import com.android.settings.wifi.AdvancedWifiSettings;
 import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.WifiSettings;
 import com.android.settings.remix.MainSettings;
+import com.android.settings.cyanogenmod.StatusBarSettings;
+import com.android.settings.ButtonSettings;
+import com.android.settings.liquid.hfm.HfmSettings;
 
 
 import java.util.Collection;
@@ -271,6 +274,29 @@ public final class SearchIndexableResources {
                         NO_DATA_RES_ID,
                         DeviceInfoSettings.class.getName(),
                         R.drawable.ic_settings_about));
+
+        sResMap.put(StatusBarSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(StatusBarSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        StatusBarSettings.class.getName(),
+                        R.drawable.ic_settings_interface));
+
+        sResMap.put(ButtonSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(ButtonSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        ButtonSettings.class.getName(),
+                        R.drawable.ic_settings_buttons));
+
+        sResMap.put(HfmSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(HfmSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        HfmSettings.class.getName(),
+                        R.drawable.ic_adblock));
+
+
     }
 
     private SearchIndexableResources() {

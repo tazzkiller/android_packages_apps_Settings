@@ -47,6 +47,10 @@ import com.android.settings.wifi.AdvancedWifiSettings;
 import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.WifiSettings;
 import com.android.settings.remix.MainSettings;
+import com.android.settings.cyanogenmod.StatusBarSettings;
+import com.android.settings.ButtonSettings;
+import com.android.settings.liquid.hfm.HfmSettings;
+
 
 import java.util.HashMap;
 
@@ -60,7 +64,7 @@ public final class Ranking {
     public static final int RANK_SIM = 3;
     public static final int RANK_DATA_USAGE = 4;
     public static final int RANK_WIRELESS = 5;
-    public static final int RANK_REMIX = 6;
+    public static final int RANK_MAIN = 6;
     public static final int RANK_HOME = 7;
     public static final int RANK_DISPLAY = 8;
     public static final int RANK_WALLPAPER = 9;
@@ -77,6 +81,9 @@ public final class Ranking {
     public static final int RANK_PRINTING = 20;
     public static final int RANK_DEVELOPEMENT = 21;
     public static final int RANK_DEVICE_INFO = 22;
+    public static final int RANK_BUTTONS = 23;
+    public static final int RANK_STATUSBAR = 24;
+    public static final int RANK_ADBLOCK = 25;
     public static final int RANK_UNDEFINED = -1;
     public static final int RANK_OTHERS = 1024;
     public static final int BASE_RANK_DEFAULT = 2048;
@@ -106,7 +113,7 @@ public final class Ranking {
         sRankMap.put(WirelessSettings.class.getName(), RANK_WIRELESS);
 
         // Remix
-        sRankMap.put(MainSettings.class.getName(), RANK_REMIX);
+        sRankMap.put(MainSettings.class.getName(), RANK_MAIN);
 
         // Home
         sRankMap.put(HomeSettings.class.getName(), RANK_HOME);
@@ -161,6 +168,17 @@ public final class Ranking {
 
         // Device infos
         sRankMap.put(DeviceInfoSettings.class.getName(), RANK_DEVICE_INFO);
+
+        // Buttons
+        sRankMap.put(ButtonSettings.class.getName(), RANK_BUTTONS);
+
+        // Statusbar
+        sRankMap.put(StatusBarSettings.class.getName(), RANK_STATUSBAR);
+
+	// Adblock
+        sRankMap.put(HfmSettings.class.getName(), RANK_ADBLOCK);
+
+
 
         sBaseRankMap.put("com.android.settings", 0);
     }
