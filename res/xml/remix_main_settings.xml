@@ -19,26 +19,12 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/remix_settings_title" >
 
-    <!-- Interface
-    <PreferenceScreen
-        android:id="@+id/interface_settings"
-        android:title="@string/interface_settings_title"
-        android:fragment="com.android.settings.liquid.InterfaceSettings"
-        android:icon="@drawable/ic_liquid_interface" /> -->
-
-    <!-- Lock screen
+    <!-- Sound Settings -->
     <PreferenceScreen
         android:id="@+id/remix_sound_settings"
-        android:title="@string/sound_settings_title"
+        android:title="@string/remix_sound_settings_title"
         android:fragment="com.android.settings.remix.SoundSettings"
         android:icon="@drawable/ic_settings_sound" />
-
-    <!-- NavigationBar settings -->
-    <PreferenceScreen
-        android:id="@+id/navbar_settings"
-        android:icon="@drawable/ic_settings_navbar"
-        android:title="@string/navigation_bar_title"
-        android:fragment="com.android.settings.simpleaosp.NavigationBarSettings" />
 
     <!--Button Settings -->
     <PreferenceScreen
@@ -53,6 +39,13 @@
         android:title="@string/status_bar_title"
         android:fragment="com.android.settings.cyanogenmod.StatusBarSettings"
         android:icon="@drawable/ic_settings_interface" />
+
+    <!-- NavigationBar settings -->
+    <PreferenceScreen
+        android:id="@+id/navigation_bar_settings"
+        android:title="@string/navigation_bar_title"
+        android:icon="@drawable/ic_settings_navbar"
+        android:fragment="com.android.settings.simpleaosp.NavigationBarSettings" />
 
     <PreferenceScreen
         android:key="hfm_settings"

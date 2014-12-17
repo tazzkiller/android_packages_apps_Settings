@@ -13,7 +13,7 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/advanced_sound_title"
+    android:title="@string/remix_sound_settings_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <SwitchPreference
@@ -22,5 +22,12 @@
         android:summary="@string/volbtn_music_controls_summary"
         android:persistent="false"
         android:defaultValue="true" />
+
+    <SwitchPreference
+        android:key="volume_keys_control_media_stream"
+        android:title="@string/volume_keys_control_media_stream"
+        android:summary="@string/volume_keys_control_media_stream_summary"
+        android:defaultValue="false"
+        android:persistent="false" />
 
 </PreferenceScreen>
