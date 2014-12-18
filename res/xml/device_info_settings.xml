@@ -21,20 +21,19 @@
                           android:enabled="false"
                           android:layout="@layout/psdbanner_row" />
 
-        <!-- System update settings - launches activity -->
+        <!-- System update settings - launches activity 
         <PreferenceScreen android:key="system_update_settings"
                 android:title="@string/system_update_settings_list_item_title" 
                 android:summary="@string/system_update_settings_list_item_summary">
             <intent android:action="android.settings.SYSTEM_UPDATE_SETTINGS" />
         </PreferenceScreen>
 
-
         <PreferenceScreen android:key="additional_system_update_settings"
                           android:title="@string/additional_system_update_settings_list_item_title">
             <intent android:action="android.intent.action.MAIN"
                     android:targetPackage="@string/additional_system_update"
                     android:targetClass="@string/additional_system_update_menu" />
-        </PreferenceScreen>
+        </PreferenceScreen>  -->
 
         <!-- Device status - launches activity -->
         <PreferenceScreen android:key="status_info"
@@ -90,11 +89,12 @@
             <intent android:action="android.settings.SAFETY" />
         </PreferenceScreen>
 
+        <!-- Remove regulatory info
         <PreferenceScreen
                 android:key="regulatory_info"
                 android:title="@string/regulatory_information">
             <intent android:action="android.settings.SHOW_REGULATORY_INFO" />
-        </PreferenceScreen>
+        </PreferenceScreen> -->
 
         <!-- Change Log -->
         <PreferenceScreen android:key="changelog"
