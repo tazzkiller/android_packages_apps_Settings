@@ -16,14 +16,21 @@
     android:title="@string/remix_sound_settings_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <SwitchPreference
-        android:key="volbtn_music_controls"
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="safe_headset_volume"
+        android:title="@string/safe_headset_volume_title"
+        android:summary="@string/safe_headset_volume_summary"
+        android:persistent="false"
+        android:defaultValue="true" />
+
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="volume_music_controls"
         android:title="@string/volbtn_music_controls_title"
         android:summary="@string/volbtn_music_controls_summary"
         android:persistent="false"
         android:defaultValue="true" />
 
-    <SwitchPreference
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="volume_keys_control_media_stream"
         android:title="@string/volume_keys_control_media_stream"
         android:summary="@string/volume_keys_control_media_stream_summary"

@@ -53,4 +53,16 @@
         android:fragment="com.android.settings.liquid.hfm.HfmSettings"
         android:icon="@drawable/ic_adblock" />
 
+    <PreferenceCategory
+        android:key="misc_prefs"
+        android:title="@string/misc_prefs">
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="recents_show_hide_search_bar"
+            android:title="@string/recents_show_searchbar"
+            android:summary="@string/recents_show_searchbar_summary"
+            settings:keywords="@string/keywords_recents_show_searchbar"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
 </PreferenceScreen>
