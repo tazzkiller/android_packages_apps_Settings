@@ -24,7 +24,7 @@
         android:defaultValue="true" />
 
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="volume_music_controls"
+        android:key="volbtn_music_controls"
         android:title="@string/volbtn_music_controls_title"
         android:summary="@string/volbtn_music_controls_summary"
         android:persistent="false"

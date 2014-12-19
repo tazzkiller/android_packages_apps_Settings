@@ -42,7 +42,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
 
     private static final String KEY_SAFE_HEADSET_VOLUME = "safe_headset_volume";
     private static final String KEY_VOL_MEDIA = "volume_keys_control_media_stream";
-    private static final String KEY_VOLBTN_MUSIC_CTRL = "volume_music_controls";
+    private static final String KEY_VOLBTN_MUSIC_CTRL = "volbtn_music_controls";
 
     private SwitchPreference mSafeHeadsetVolume;
     private SwitchPreference mVolumeKeysControlMedia;
@@ -66,7 +66,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
 
         mVolBtnMusicCtrl = (SwitchPreference) findPreference(KEY_VOLBTN_MUSIC_CTRL);
         mVolBtnMusicCtrl.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.VOLUME_MUSIC_CONTROLS, 1) != 0);
+                Settings.System.VOLBTN_MUSIC_CONTROLS, 1) != 0);
         mVolBtnMusicCtrl.setOnPreferenceChangeListener(this);
     }
 
@@ -98,7 +98,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         }
         if (KEY_VOLBTN_MUSIC_CTRL.equals(key)) {
             Settings.System.putInt(getContentResolver(),
-                    Settings.System.VOLUME_MUSIC_CONTROLS,
+                    Settings.System.VOLBTN_MUSIC_CONTROLS,
                     (Boolean) objValue ? 1 : 0);
         }
         return true;
