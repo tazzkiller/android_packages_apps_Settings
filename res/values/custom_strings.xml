@@ -38,4 +38,7 @@
     <string name="lock_clock_title">Clock and weather widget</string>
     <string name="lock_clock_summary">View or change how the \'cLock\' Home  widget will display</string>
 
+    <!-- Clear all recents on navbar enabler strings -->
+    <string name="clear_all_recents_navbar_enabled_title">Clear all recents button on Navbar</string>
+    <string name="clear_all_recents_navbar_enabled_summary">Show clear all recents button in navigation bar</string>
 </resources>
