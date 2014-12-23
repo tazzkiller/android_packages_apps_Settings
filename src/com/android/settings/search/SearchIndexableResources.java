@@ -49,7 +49,7 @@ import com.android.settings.wifi.AdvancedWifiSettings;
 import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.WifiSettings;
 import com.android.settings.remix.MainSettings;
-import com.android.settings.cyanogenmod.StatusBarSettings;
+import com.android.settings.remix.InterfaceSettings;
 import com.android.settings.ButtonSettings;
 import com.android.settings.liquid.hfm.HfmSettings;
 
@@ -275,11 +275,11 @@ public final class SearchIndexableResources {
                         DeviceInfoSettings.class.getName(),
                         R.drawable.ic_settings_about));
 
-        sResMap.put(StatusBarSettings.class.getName(),
+        sResMap.put(InterfaceSettings.class.getName(),
                 new SearchIndexableResource(
-                        Ranking.getRankForClassName(StatusBarSettings.class.getName()),
+                        Ranking.getRankForClassName(InterfaceSettings.class.getName()),
                         NO_DATA_RES_ID,
-                        StatusBarSettings.class.getName(),
+                        InterfaceSettings.class.getName(),
                         R.drawable.ic_settings_interface));
 
         sResMap.put(ButtonSettings.class.getName(),

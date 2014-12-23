@@ -47,7 +47,7 @@ import com.android.settings.wifi.AdvancedWifiSettings;
 import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.WifiSettings;
 import com.android.settings.remix.MainSettings;
-import com.android.settings.cyanogenmod.StatusBarSettings;
+import com.android.settings.remix.InterfaceSettings;
 import com.android.settings.ButtonSettings;
 import com.android.settings.liquid.hfm.HfmSettings;
 
@@ -173,7 +173,7 @@ public final class Ranking {
         sRankMap.put(ButtonSettings.class.getName(), RANK_BUTTONS);
 
         // Statusbar
-        sRankMap.put(StatusBarSettings.class.getName(), RANK_STATUSBAR);
+        sRankMap.put(InterfaceSettings.class.getName(), RANK_STATUSBAR);
 
 	// Adblock
         sRankMap.put(HfmSettings.class.getName(), RANK_ADBLOCK);
