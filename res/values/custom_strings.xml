@@ -34,4 +34,8 @@
     <string name="hfm_dialog_success">/4 hosts sources successfully applied!</string>
     <string name="hfm_dialog_conn_error">Error: No network connectivity</string>
 
+    <!-- Lock clock -->
+    <string name="lock_clock_title">Clock and weather widget</string>
+    <string name="lock_clock_summary">View or change how the \'cLock\' Home  widget will display</string>
+
 </resources>
