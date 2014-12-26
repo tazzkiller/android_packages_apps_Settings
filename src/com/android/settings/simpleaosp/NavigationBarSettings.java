@@ -7,6 +7,7 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
+import android.preference.SlimSeekBarPreference;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
 
@@ -19,7 +20,7 @@ OnPreferenceChangeListener {
     private static final String KEY_NAVIGATION_BAR_HEIGHT = "navigation_bar_height";
     private static final String KEY_CLEAR_ALL_RECENTS_NAVBAR_ENABLED = "clear_all_recents_navbar_enabled";
 
-    private ListPreference mNavigationBarHeight;
+    private SlimSeekBarPreference mNavigationBarHeight;
     private SwitchPreference mClearAllRecentsNavbar;
 
     @Override
@@ -30,13 +31,12 @@ OnPreferenceChangeListener {
 	PreferenceScreen prefs = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
 
-        mNavigationBarHeight = (ListPreference) findPreference(KEY_NAVIGATION_BAR_HEIGHT);
+        mNavigationBarHeight = (SlimSeekBarPreference) findPreference(KEY_NAVIGATION_BAR_HEIGHT);
+        mNavigationBarHeight.setDefault(48);
+        mNavigationBarHeight.setInterval(2);
+        mNavigationBarHeight.minimumValue(2);
+        mNavigationBarHeight.maximumValue(48);
         mNavigationBarHeight.setOnPreferenceChangeListener(this);
-        int statusNavigationBarHeight = Settings.System.getInt(getActivity().getApplicationContext()
-                .getContentResolver(),
-                Settings.System.NAVIGATION_BAR_HEIGHT, 48);
-        mNavigationBarHeight.setValue(String.valueOf(statusNavigationBarHeight));
-        mNavigationBarHeight.setSummary(mNavigationBarHeight.getEntry());
 
 	mClearAllRecentsNavbar = (SwitchPreference) prefs.findPreference(KEY_CLEAR_ALL_RECENTS_NAVBAR_ENABLED);
         mClearAllRecentsNavbar.setChecked(Settings.System.getInt(resolver,
@@ -45,11 +45,9 @@ OnPreferenceChangeListener {
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         if (preference == mNavigationBarHeight) {
-            int statusNavigationBarHeight = Integer.valueOf((String) objValue);
-            int index = mNavigationBarHeight.findIndexOfValue((String) objValue);
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.NAVIGATION_BAR_HEIGHT, statusNavigationBarHeight);
-            mNavigationBarHeight.setSummary(mNavigationBarHeight.getEntries()[index]);
+	int navbarheight = Integer.valueOf((String) objValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NAVIGATION_BAR_HEIGHT, navbarheight);
         }
         return true;
     }
