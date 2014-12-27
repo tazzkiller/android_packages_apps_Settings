@@ -33,19 +33,19 @@
         android:fragment="com.android.settings.ButtonSettings"
         android:icon="@drawable/ic_settings_buttons" />
 
-    <!-- SInterface Settings -->
+    <!-- Interface Settings -->
     <PreferenceScreen
         android:id="@+id/interface_settings"
         android:title="@string/interface_settings_title"
         android:fragment="com.android.settings.remix.InterfaceSettings"
         android:icon="@drawable/ic_settings_interface" />
 
-    <!-- NavigationBar settings -->
+    <!-- NavigationBar settings
     <PreferenceScreen
         android:id="@+id/navigation_bar_settings"
         android:title="@string/navigation_bar_title"
         android:icon="@drawable/ic_settings_navbar"
-        android:fragment="com.android.settings.simpleaosp.NavigationBarSettings" />
+        android:fragment="com.android.settings.simpleaosp.NavigationBarSettings" /> -->
 
     <PreferenceScreen
         android:key="hfm_settings"
@@ -57,12 +57,6 @@
         android:key="misc_prefs"
         android:title="@string/misc_prefs">
 
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-            android:key="recents_show_hide_search_bar"
-            android:title="@string/recents_show_searchbar"
-            android:summary="@string/recents_show_searchbar_summary"
-            settings:keywords="@string/keywords_recents_show_searchbar"
-            android:defaultValue="false" />
     <PreferenceScreen
         android:key="lock_clock"
         android:summary="@string/lock_clock_summary"
