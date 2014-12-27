@@ -29,6 +29,7 @@ import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
+import android.preference.SlimSeekBarPreference;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
 
@@ -58,6 +59,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String DISABLE_NAV_KEYS = "disable_nav_keys";
     private static final String KEY_POWER_END_CALL = "power_end_call";
     private static final String KEY_HOME_ANSWER_CALL = "home_answer_call";
+
+    private static final String KEY_NAVIGATION_BAR_HEIGHT = "navigation_bar_height";
+    private static final String KEY_CLEAR_ALL_RECENTS_NAVBAR_ENABLED = "clear_all_recents_navbar_enabled";
 
     private static final String CATEGORY_POWER = "power_key";
     private static final String CATEGORY_HOME = "home_key";
@@ -103,6 +107,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private SwitchPreference mDisableNavigationKeys;
     private SwitchPreference mPowerEndCall;
     private SwitchPreference mHomeAnswerCall;
+
+    private SlimSeekBarPreference mNavigationBarHeight;
+    private SwitchPreference mClearAllRecentsNavbar;
 
     private PreferenceCategory mNavigationPreferencesCat;
 
@@ -161,6 +168,16 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         // Force Navigation bar related options
         mDisableNavigationKeys = (SwitchPreference) findPreference(DISABLE_NAV_KEYS);
 
+
+        mNavigationBarHeight = (SlimSeekBarPreference) findPreference(KEY_NAVIGATION_BAR_HEIGHT);
+        mNavigationBarHeight.setDefault(48);
+        mNavigationBarHeight.setInterval(2);
+        mNavigationBarHeight.minimumValue(2);
+        mNavigationBarHeight.maximumValue(48);
+        mNavigationBarHeight.setOnPreferenceChangeListener(this);
+
+        mClearAllRecentsNavbar = (SwitchPreference) prefScreen.findPreference(KEY_CLEAR_ALL_RECENTS_NAVBAR_ENABLED);
+        mClearAllRecentsNavbar = (SwitchPreference) prefScreen.findPreference(KEY_CLEAR_ALL_RECENTS_NAVBAR_ENABLED);
         // Only visible on devices that does not have a navigation bar already,
         // and don't even try unless the existing keys can be disabled
         boolean needsNavigationBar = false;
@@ -284,6 +301,25 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         } else {
             prefScreen.removePreference(volumeCategory);
         }
+
+        try {
+            // Only show the navigation bar category on devices that have a navigation bar
+            // unless we are forcing it via development settings
+            boolean forceNavbar = android.provider.Settings.System.getInt(getContentResolver(),
+                    android.provider.Settings.System.DEV_FORCE_SHOW_NAVBAR, 0) == 1;
+            boolean hasNavBar = WindowManagerGlobal.getWindowManagerService().hasNavigationBar()
+                    || forceNavbar;
+
+            if (hasNavBar) {
+                if (!Utils.isPhone(getActivity())) {
+                }
+            } else if (needsNavigationBar || !isKeyDisablerSupported()) {
+                // Hide navigation bar category
+                prefScreen.removePreference(mNavigationPreferencesCat);
+            }
+        } catch (RemoteException e) {
+            Log.e(TAG, "Error getting navigation bar status");
+        }
     }
 
     @Override
@@ -357,6 +393,10 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             handleActionListChange(mVolumeKeyCursorControl, newValue,
                     Settings.System.VOLUME_KEY_CURSOR_CONTROL);
             return true;
+        } else if (preference == mNavigationBarHeight) {
+            int statusNavigationBarHeight = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.NAVIGATION_BAR_HEIGHT, statusNavigationBarHeight);
         }
         return false;
     }
@@ -444,9 +484,21 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         } else if (preference == mHomeAnswerCall) {
             handleToggleHomeButtonAnswersCallPreferenceClick();
             return true;
-        }
-
+        } else if (preference == mClearAllRecentsNavbar) {
+	    ContentResolver resolver = getActivity().getContentResolver();
+            Settings.System.putInt(resolver, Settings.System.CLEAR_ALL_RECENTS_NAVBAR_ENABLED,
+                    mClearAllRecentsNavbar.isChecked() ? 1 : 0);
+	}
         return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+
+    private static boolean isKeyDisablerSupported() {
+        try {
+            return KeyDisabler.isSupported();
+        } catch (NoClassDefFoundError e) {
+            // Hardware abstraction framework not installed
+            return false;
+        }
     }
 
     private void handleTogglePowerButtonEndsCallPreferenceClick() {

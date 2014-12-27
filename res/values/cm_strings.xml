@@ -161,7 +161,7 @@
     <string name="toggleNfc">NFC</string>
 
     <!-- Hardware keys -->
-    <string name="button_pref_title">Buttons</string>
+    <string name="button_pref_title">Buttons and soft keys</string>
     <string name="hardware_keys_power_key_title">Power button</string>
     <string name="hardware_keys_home_key_title">Home button</string>
     <string name="hardware_keys_back_key_title">Back button</string>
@@ -469,4 +469,5 @@
     <string name="safe_headset_volume_summary">Prevent loud volume levels when headset is first plugged in</string>
     <string name="safe_headset_volume_warning_dialog_text">Listening at high volume for long periods may damage your hearing. Disable it with caution.</string>
 
+    <string name="navigation_bar_category">Navigation bar</string>
 </resources>
