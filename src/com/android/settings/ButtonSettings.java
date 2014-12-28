@@ -168,15 +168,14 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         // Force Navigation bar related options
         mDisableNavigationKeys = (SwitchPreference) findPreference(DISABLE_NAV_KEYS);
 
+        mNavigationPreferencesCat = (PreferenceCategory) findPreference(CATEGORY_NAVBAR);
 
         mNavigationBarHeight = (SlimSeekBarPreference) findPreference(KEY_NAVIGATION_BAR_HEIGHT);
-        mNavigationBarHeight.setDefault(48);
         mNavigationBarHeight.setInterval(2);
         mNavigationBarHeight.minimumValue(2);
         mNavigationBarHeight.maximumValue(48);
         mNavigationBarHeight.setOnPreferenceChangeListener(this);
 
-        mClearAllRecentsNavbar = (SwitchPreference) prefScreen.findPreference(KEY_CLEAR_ALL_RECENTS_NAVBAR_ENABLED);
         mClearAllRecentsNavbar = (SwitchPreference) prefScreen.findPreference(KEY_CLEAR_ALL_RECENTS_NAVBAR_ENABLED);
         // Only visible on devices that does not have a navigation bar already,
         // and don't even try unless the existing keys can be disabled
@@ -397,6 +396,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             int statusNavigationBarHeight = Integer.valueOf((String) newValue);
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.NAVIGATION_BAR_HEIGHT, statusNavigationBarHeight);
+            return true;
         }
         return false;
     }
@@ -435,6 +435,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 Settings.System.DEV_FORCE_SHOW_NAVBAR, 0) != 0;
 
         mDisableNavigationKeys.setChecked(enabled);
+	mNavigationBarHeight.setEnabled(enabled);
 
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
@@ -451,6 +452,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         /* Toggle hardkey control availability depending on navbar state */
         if (homeCategory != null) {
             homeCategory.setEnabled(!enabled);
+            mNavigationBarHeight.setEnabled(enabled);
         }
         if (menuCategory != null) {
             menuCategory.setEnabled(!enabled);
