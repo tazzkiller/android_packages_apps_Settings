@@ -57,6 +57,7 @@
 
     <!-- Voice wakeup -->
     <PreferenceScreen
+        android:key="voice_wakeup"
         android:id="@+id/voice_wakeup_settings"
         android:fragment="com.android.settings.voicewakeup.VoiceWakeupSettings"
         android:title="@string/voice_wakeup_settings_title"

@@ -31,6 +31,8 @@ import java.util.List;
 
 public class MainSettings extends SettingsPreferenceFragment {
     private static final String KEY_LOCK_CLOCK = "lock_clock";
+    private static final String KEY_VOICE_WAKEUP = "voice_wakeup";
+    private static final String VOICE_WAKEUP_PACKAGE_NAME = "com.cyanogenmod.voicewakeup";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,9 +42,14 @@ public class MainSettings extends SettingsPreferenceFragment {
         // Remove the lock clock preference if its not installed
         if (!isPackageInstalled("com.cyanogenmod.lockclock")) {
             removePreference(KEY_LOCK_CLOCK);
-        }
+        } else
+             if (!isPackageInstalled("com.cyanogenmod.voicewakeup")) {
+		PreferenceScreen screen = getPreferenceScreen();
+		Preference pref = getPreferenceManager().findPreference(KEY_VOICE_WAKEUP);
+		screen.removePreference(pref);
+                }
+	}
 
-    }
     private boolean isPackageInstalled(String packageName) {
         PackageManager pm = getPackageManager();
         boolean installed = false;
