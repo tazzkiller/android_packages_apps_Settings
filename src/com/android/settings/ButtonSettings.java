@@ -29,7 +29,8 @@ import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
-import android.preference.SlimSeekBarPreference;
+import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.SeekBarPreference;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
 
@@ -108,7 +109,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private SwitchPreference mPowerEndCall;
     private SwitchPreference mHomeAnswerCall;
 
-    private SlimSeekBarPreference mNavigationBarHeight;
+    private SeekBarPreference mNavigationBarHeight;
     private SwitchPreference mClearAllRecentsNavbar;
 
     private PreferenceCategory mNavigationPreferencesCat;
@@ -170,10 +171,10 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         mNavigationPreferencesCat = (PreferenceCategory) findPreference(CATEGORY_NAVBAR);
 
-        mNavigationBarHeight = (SlimSeekBarPreference) findPreference(KEY_NAVIGATION_BAR_HEIGHT);
-        mNavigationBarHeight.setInterval(2);
-        mNavigationBarHeight.minimumValue(2);
-        mNavigationBarHeight.maximumValue(48);
+        mNavigationBarHeight = (SeekBarPreference) findPreference(KEY_NAVIGATION_BAR_HEIGHT);
+        mNavigationBarHeight.setProgress((int)(Settings.System.getFloat(getContentResolver(),
+                    Settings.System.NAVIGATION_BAR_HEIGHT, 1f) * 100));
+        mNavigationBarHeight.setTitle(getResources().getText(R.string.navigation_bar_height) + " " + mNavigationBarHeight.getProgress() + "%");
         mNavigationBarHeight.setOnPreferenceChangeListener(this);
 
         mClearAllRecentsNavbar = (SwitchPreference) prefScreen.findPreference(KEY_CLEAR_ALL_RECENTS_NAVBAR_ENABLED);
@@ -393,12 +394,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                     Settings.System.VOLUME_KEY_CURSOR_CONTROL);
             return true;
         } else if (preference == mNavigationBarHeight) {
-            int statusNavigationBarHeight = Integer.valueOf((String) newValue);
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.NAVIGATION_BAR_HEIGHT, statusNavigationBarHeight);
-            return true;
-        }
-        return false;
+            Settings.System.putFloat(getActivity().getContentResolver(),
+                    Settings.System.NAVIGATION_BAR_HEIGHT, (Integer)newValue / 100f);
+            mNavigationBarHeight.setTitle(getResources().getText(R.string.navigation_bar_height) + " " + (Integer)newValue + "%");
+        } else { return false;
+	} return true;
     }
 
     private static void writeDisableNavkeysOption(Context context, boolean enabled) {
