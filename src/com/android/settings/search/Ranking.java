@@ -47,9 +47,6 @@ import com.android.settings.wifi.AdvancedWifiSettings;
 import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.WifiSettings;
 import com.android.settings.remix.MainSettings;
-import com.android.settings.remix.InterfaceSettings;
-import com.android.settings.ButtonSettings;
-import com.android.settings.liquid.hfm.HfmSettings;
 
 
 import java.util.HashMap;
@@ -81,9 +78,6 @@ public final class Ranking {
     public static final int RANK_PRINTING = 20;
     public static final int RANK_DEVELOPEMENT = 21;
     public static final int RANK_DEVICE_INFO = 22;
-    public static final int RANK_BUTTONS = 23;
-    public static final int RANK_STATUSBAR = 24;
-    public static final int RANK_ADBLOCK = 25;
     public static final int RANK_UNDEFINED = -1;
     public static final int RANK_OTHERS = 1024;
     public static final int BASE_RANK_DEFAULT = 2048;
@@ -168,17 +162,6 @@ public final class Ranking {
 
         // Device infos
         sRankMap.put(DeviceInfoSettings.class.getName(), RANK_DEVICE_INFO);
-
-        // Buttons
-        sRankMap.put(ButtonSettings.class.getName(), RANK_BUTTONS);
-
-        // Statusbar
-        sRankMap.put(InterfaceSettings.class.getName(), RANK_STATUSBAR);
-
-	// Adblock
-        sRankMap.put(HfmSettings.class.getName(), RANK_ADBLOCK);
-
-
 
         sBaseRankMap.put("com.android.settings", 0);
     }

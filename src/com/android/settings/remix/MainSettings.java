@@ -16,6 +16,7 @@
 
 package com.android.settings.remix;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -27,9 +28,16 @@ import android.preference.PreferenceScreen;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Index;
+import com.android.settings.search.Indexable;
+import android.provider.SearchIndexableResource;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import java.util.List;
 
-public class MainSettings extends SettingsPreferenceFragment {
+public class MainSettings extends SettingsPreferenceFragment implements Indexable {
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_VOICE_WAKEUP = "voice_wakeup";
     private static final String VOICE_WAKEUP_PACKAGE_NAME = "com.cyanogenmod.voicewakeup";
@@ -61,4 +69,27 @@ public class MainSettings extends SettingsPreferenceFragment {
         }
         return installed;
     }
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+           Index.getInstance(
+           getActivity().getApplicationContext()).updateFromClassNameResource(
+           MainSettings.class.getName(), true, true);
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+
+    /**
+     * For Search.
+     */
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        new BaseSearchIndexProvider() {
+
+            @Override
+            public List<SearchIndexableResource> getXmlResourcesToIndex(
+                    Context context, boolean enabled) {
+                final SearchIndexableResource sir = new SearchIndexableResource(context);
+                sir.xmlResId = R.xml.remix_main_settings;
+                return Arrays.asList(sir);
+            }
+	};
 }

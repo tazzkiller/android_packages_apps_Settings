@@ -21,6 +21,7 @@
 
     <!-- Sound Settings -->
     <PreferenceScreen
+        android:key="remix_sound_settings"
         android:id="@+id/remix_sound_settings"
         android:title="@string/remix_sound_settings_title"
         android:fragment="com.android.settings.remix.SoundSettings"
@@ -28,6 +29,7 @@
 
     <!--Button Settings -->
     <PreferenceScreen
+        android:key="remix_button_settings"
         android:id="@+id/button_settings"
         android:title="@string/button_pref_title"
         android:fragment="com.android.settings.ButtonSettings"
@@ -35,6 +37,7 @@
 
     <!-- Interface Settings -->
     <PreferenceScreen
+        android:key="remix_interface_settings"
         android:id="@+id/interface_settings"
         android:title="@string/interface_settings_title"
         android:fragment="com.android.settings.remix.InterfaceSettings"
@@ -42,6 +45,7 @@
 
     <!-- NavigationBar settings
     <PreferenceScreen
+        android:key="remix_navbar_settings"
         android:id="@+id/navigation_bar_settings"
         android:title="@string/navigation_bar_title"
         android:icon="@drawable/ic_settings_navbar"
@@ -49,6 +53,7 @@
 
         <!-- Performance -->
         <PreferenceScreen
+        android:key="remix_performance_settings"
                 android:id="@+id/performance_settings"
                 android:title="@string/performance_settings_title"
                 android:fragment="com.android.settings.cyanogenmod.PerformanceSettings"
