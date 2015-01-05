@@ -49,6 +49,7 @@ import com.android.settings.wifi.AdvancedWifiSettings;
 import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.WifiSettings;
 import com.android.settings.remix.MainSettings;
+import com.android.settings.remix.InterfaceSettings;
 
 
 import java.util.Collection;
@@ -131,6 +132,14 @@ public final class SearchIndexableResources {
                         NO_DATA_RES_ID,
                         MainSettings.class.getName(),
                         R.drawable.ic_remix_theme_settings));
+
+        sResMap.put(InterfaceSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(MainSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        InterfaceSettings.class.getName(),
+                        R.drawable.ic_settings_interface));
+
 
         sResMap.put(DisplaySettings.class.getName(),
                 new SearchIndexableResource(

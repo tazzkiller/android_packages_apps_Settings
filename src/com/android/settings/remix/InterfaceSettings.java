@@ -15,6 +15,7 @@
 */
 package com.android.settings.remix;
 
+import android.content.Context;
 import android.content.ContentResolver;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -28,11 +29,19 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
 
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Index;
+import com.android.settings.search.Indexable;
+import android.provider.SearchIndexableResource;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 public class InterfaceSettings extends SettingsPreferenceFragment
-        implements OnPreferenceChangeListener {
+        implements OnPreferenceChangeListener, Indexable {
 
     private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
     private static final String SHOW_CLEAR_ALL_RECENTS = "show_clear_all_recents";
@@ -120,5 +129,27 @@ public class InterfaceSettings extends SettingsPreferenceFragment
         if (mRecentsClearAllLocation != null && summary != -1) {
             mRecentsClearAllLocation.setSummary(res.getString(summary));
         }
+                    Index.getInstance(
+                            getActivity().getApplicationContext()).updateFromClassNameResource(
+                                    InterfaceSettings.class.getName(), true, true);
     }
+
+    /**
+     * For Search.
+     */
+    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                        boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.interface_settings;
+                    result.add(sir);
+
+                    return result;
+                }
+     };
 }

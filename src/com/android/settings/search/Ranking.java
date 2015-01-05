@@ -47,6 +47,7 @@ import com.android.settings.wifi.AdvancedWifiSettings;
 import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.WifiSettings;
 import com.android.settings.remix.MainSettings;
+import com.android.settings.remix.InterfaceSettings;
 
 
 import java.util.HashMap;
@@ -78,6 +79,7 @@ public final class Ranking {
     public static final int RANK_PRINTING = 20;
     public static final int RANK_DEVELOPEMENT = 21;
     public static final int RANK_DEVICE_INFO = 22;
+    public static final int RANK_INTERFACE = 23;
     public static final int RANK_UNDEFINED = -1;
     public static final int RANK_OTHERS = 1024;
     public static final int BASE_RANK_DEFAULT = 2048;
@@ -108,6 +110,7 @@ public final class Ranking {
 
         // Remix
         sRankMap.put(MainSettings.class.getName(), RANK_MAIN);
+        sRankMap.put(InterfaceSettings.class.getName(), RANK_INTERFACE);
 
         // Home
         sRankMap.put(HomeSettings.class.getName(), RANK_HOME);
