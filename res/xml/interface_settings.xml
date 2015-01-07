@@ -82,10 +82,54 @@
         android:entries="@array/status_bar_battery_percentage_entries"
         android:entryValues="@array/status_bar_battery_percentage_values" />
 
+    <PreferenceCategory
+        android:key="more_cat_lock_clock"
+        android:title="@string/lock_clock_title">
+
+
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="status_bar_show_weather"
         android:title="@string/status_bar_show_weather_title"
         android:summary="@string/status_bar_show_weather_summary"
         android:defaultValue="false" />
 
+        <PreferenceScreen
+            android:key="lock_clock_clock_section"
+            android:title="@string/lock_clock_clock_section_title"
+            android:summary="@string/lock_clock_clock_section_summary" >
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="com.cyanogenmod.lockclock.preference.Preferences"
+                android:targetPackage="com.cyanogenmod.lockclock" >
+                <extra android:name=":android:show_fragment"
+                    android:value="com.cyanogenmod.lockclock.preference.ClockPreferences" />
+            </intent>
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            android:key="lock_clock_weather_section"
+            android:title="@string/lock_clock_weather_section_title"
+            android:summary="@string/lock_clock_weather_section_summary" >
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="com.cyanogenmod.lockclock.preference.Preferences"
+                android:targetPackage="com.cyanogenmod.lockclock" >
+                <extra android:name=":android:show_fragment"
+                    android:value="com.cyanogenmod.lockclock.preference.WeatherPreferences" />
+            </intent>
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            android:key="lock_clock_calendar_section"
+            android:title="@string/lock_clock_calendar_section_title"
+            android:summary="@string/lock_clock_calendar_section_summary" >
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="com.cyanogenmod.lockclock.preference.Preferences"
+                android:targetPackage="com.cyanogenmod.lockclock" >
+                <extra android:name=":android:show_fragment"
+                    android:value="com.cyanogenmod.lockclock.preference.CalendarPreferences" />
+            </intent>
+        </PreferenceScreen>
+    </PreferenceCategory>
 </PreferenceScreen>
