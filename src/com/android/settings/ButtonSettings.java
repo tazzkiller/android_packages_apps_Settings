@@ -45,10 +45,18 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import com.android.settings.cyanogenmod.ButtonBacklightBrightness;
 
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Index;
+import com.android.settings.search.Indexable;
+import android.provider.SearchIndexableResource;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.cyanogenmod.hardware.KeyDisabler;
 
 public class ButtonSettings extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
+        Preference.OnPreferenceChangeListener, Indexable {
     private static final String TAG = "SystemSettings";
 
     private static final String KEY_BUTTON_BACKLIGHT = "button_backlight";
@@ -557,6 +565,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(resolver, Settings.System.CLEAR_ALL_RECENTS_NAVBAR_ENABLED,
                     mClearAllRecentsNavbar.isChecked() ? 1 : 0);
 	}
+        Index.getInstance(
+        getActivity().getApplicationContext()).updateFromClassNameResource(
+        ButtonSettings.class.getName(), true, true);
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
@@ -582,4 +593,22 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                         ? Settings.Secure.RING_HOME_BUTTON_BEHAVIOR_ANSWER
                         : Settings.Secure.RING_HOME_BUTTON_BEHAVIOR_DO_NOTHING));
     }
+    /**
+     * For Search.
+     */
+    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                        boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.interface_settings;
+                    result.add(sir);
+
+                    return result;
+                }
+     };
 }

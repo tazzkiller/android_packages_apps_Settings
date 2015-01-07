@@ -16,6 +16,7 @@
 
 package com.android.settings.remix;
 
+import android.content.Context;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -31,11 +32,20 @@ import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.util.Log;
 
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Index;
+import com.android.settings.search.Indexable;
+import android.provider.SearchIndexableResource;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 public class SoundSettings extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
+        Preference.OnPreferenceChangeListener, Indexable {
     private static final String TAG = "SoundSettings";
 
     private static final int DLG_SAFE_HEADSET_VOLUME = 0;
@@ -78,7 +88,11 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         // If we didn't handle it, let preferences handle it.
+        Index.getInstance(
+        getActivity().getApplicationContext()).updateFromClassNameResource(
+        SoundSettings.class.getName(), true, true);
         return super.onPreferenceTreeClick(preferenceScreen, preference);
+
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
@@ -161,4 +175,22 @@ public class SoundSettings extends SettingsPreferenceFragment implements
             }
         }
     }
+    /**
+     * For Search.
+     */
+    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                        boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.remix_sound_settings;
+                    result.add(sir);
+
+                    return result;
+                }
+     };
 }

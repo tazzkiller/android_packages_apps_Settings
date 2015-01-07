@@ -50,6 +50,9 @@ import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.WifiSettings;
 import com.android.settings.remix.MainSettings;
 import com.android.settings.remix.InterfaceSettings;
+import com.android.settings.remix.SoundSettings;
+import com.android.settings.ButtonSettings;
+
 
 
 import java.util.Collection;
@@ -140,6 +143,19 @@ public final class SearchIndexableResources {
                         InterfaceSettings.class.getName(),
                         R.drawable.ic_settings_interface));
 
+        sResMap.put(SoundSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(SoundSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        SoundSettings.class.getName(),
+                        R.drawable.ic_settings_sound));
+
+        sResMap.put(ButtonSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(ButtonSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        ButtonSettings.class.getName(),
+                        R.drawable.ic_settings_buttons));
 
         sResMap.put(DisplaySettings.class.getName(),
                 new SearchIndexableResource(
