@@ -18,6 +18,7 @@
 
     <!-- Screen recorder -->
     <string name="screen_recorder_title">Screen recorder</string>
+    <string name="power_menu_screenrecord_title">Screen record</string>
     <string name="screen_recorder_summary">Adjust screen recorder settings</string>
     <string name="screen_recorder_video_dimensions_title">Video size</string>
     <string name="screen_recorder_video_bitrate_title">Bitrate</string>
