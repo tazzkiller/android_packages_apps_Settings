@@ -80,7 +80,7 @@
          android:key="screen_recorder"
          android:title="@string/screen_recorder_title"
          android:fragment="com.android.settings.remix.ScreenRecorderSettings"
-         android:icon="@*android:drawable/ic_lock_screen_record" />
+         android:icon="@drawable/ic_lock_screen_record" />
 
 <!--    <PreferenceCategory
         android:key="misc_prefs"
