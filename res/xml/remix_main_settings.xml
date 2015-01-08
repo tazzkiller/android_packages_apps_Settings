@@ -82,19 +82,9 @@
          android:fragment="com.android.settings.remix.ScreenRecorderSettings"
          android:icon="@*android:drawable/ic_lock_screen_record" />
 
-    <PreferenceCategory
+<!--    <PreferenceCategory
         android:key="misc_prefs"
         android:title="@string/misc_prefs">
 
-    <PreferenceScreen
-        android:key="lock_clock"
-        android:summary="@string/lock_clock_summary"
-        android:title="@string/lock_clock_title" >
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetClass="com.cyanogenmod.lockclock.preference.Preferences"
-            android:targetPackage="com.cyanogenmod.lockclock" />
-    </PreferenceScreen>
-
-    </PreferenceCategory>
+    </PreferenceCategory> -->
 </PreferenceScreen>
