@@ -622,4 +622,6 @@
     <string name="wifi_channel">Channel</string>
     <string name="wifi_mhz">MHz</string>
 
+    <string name="link_volume_option_title">Link ringtone &amp; notification volumes</string>
+    <string name="notification_volume_option_title">Notification volume</string>
 </resources>
