@@ -25,7 +25,120 @@
     <string name="show_dev_on_cm">You have enabled development settings!</string>
     <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
     <string name="show_dev_already_cm">No need, you have already enabled development settings.</string>
+    <!-- string resources for USB OTG & UICC features -->
+    <string name="storage_usb">USB storage</string>
+    <string name="storage_uicc">UICC storage</string>
+    <string name="usb_eject" product="default">Unmount USB storage</string>
+    <string name="usb_eject_summary" product="default">Unmount the USB storage so you can safely remove it</string>
+    <string name="usb_format" product="default">Erase USB storage</string>
+    <string name="usb_format_summary" product="default">Erases all data on the USB storage, such as music and photos</string>
+    <string name="usb_mount" product="default">Mount USB storage</string>
+    <string name="usb_mount_summary" product="default"></string>
+    <string name="usb_insert_summary" product="default">Insert an USB storage for mounting</string>
+    <string name="uicc_eject" product="default">Unmount UICC storage</string>
+    <string name="uicc_eject_summary" product="default">Unmount the UICC storage so you can safely remove it</string>
+    <string name="uicc_format" product="default">Erase UICC storage</string>
+    <string name="uicc_format_summary" product="default">Erases all data on the UICC storage, such as music and photos</string>
+    <string name="uicc_mount" product="default">Mount UICC storage</string>
+    <string name="uicc_mount_summary" product="default"></string>
+    <string name="uicc_insert_summary" product="default">Insert an UICC storage for mounting</string>
+    <!-- Title of dialog asking user to confirm before enabling UMS. [CHAR LIMIT=48] -->
+    <string name="usb_settings_enable_ums_title">Enable USB storage?</string>
+    <!-- Message of dialog asking user to confirm before enabling UMS. [CHAR LIMIT=NONE] -->
+    <string name="usb_settings_enable_ums_message">System components and apps rely on primary storage always being available. This feature breaks that functionality. It is strongly recommended to use MTP instead. Are you sure you want to enable USB storage?</string>
 
+    <string name="dlg_confirm_usb_unmount_title" product="default">Unmount USB storage?</string>
+    <string name="dlg_confirm_uicc_unmount_title" product="default">Unmount UICC storage?</string>
+    <string name="dlg_confirm_usb_unmount_text" product="default">If you unmount the USB storage, some apps you are using will stop and may be unavailable until you remount the USB storage.</string>
+    <string name="dlg_confirm_uicc_unmount_text" product="default">If you unmount the UICC storage, some apps you are using will stop and may be unavailable until you remount the UICC storage.</string>
+    <string name="dlg_error_usb_unmount_text" product="default">Couldn\'t unmount USB storage. Try again later.</string>
+    <string name="dlg_error_uicc_unmount_text" product="default">Couldn\'t unmount UICC storage. Try again later.</string>
+    <string name="usb_unmount_inform_text" product="default">USB storage will be unmounted.</string>
+    <string name="uicc_unmount_inform_text" product="default">UICC storage will be unmounted.</string>
+
+    <string name="usb_media_format_title" product="default">Erase USB storage</string>
+    <string name="uicc_media_format_title" product="default">Erase UICC storage</string>
+    <string name="usb_media_format_summary" product="default">Erases all data on the USB storage</string>
+    <string name="uicc_media_format_summary" product="default">Erases all data on the UICC storage</string>
+    <string name="usb_media_format_desc" product="default">Erase the USB storage? You will lose <b>all</b> data on the storage!</string>
+    <string name="uicc_media_format_desc" product="default">Erase the UICC storage? You will lose <b>all</b> data on the storage!</string>
+    <string name="usb_media_format_button_text" product="default">Erase USB storage</string>
+    <string name="uicc_media_format_button_text" product="default">Erase UICC storage</string>
+    <string name="usb_media_format_final_desc" product="default">Erase the USB storage, deleting all files stored there? You can\'t reverse this action!</string>
+    <string name="uicc_media_format_final_desc" product="default">Erase the UICC storage, deleting all files stored there? You can\'t reverse this action!</string>
+    <string name="usb_media_format_gesture_explanation" product="default">You need to draw your unlock pattern to confirm that you want to erase the USB storage.</string>
+    <string name="uicc_media_format_gesture_explanation" product="default">You need to draw your unlock pattern to confirm that you want to erase the UICC storage.</string>
+
+    <!-- [CHAR LIMIT=130] Location mode screen, sub category for IZat Location -->
+    <string name="location_category_enhanced_location">Enhanced location</string>
+
+    <!-- [CHAR LIMIT=NONE] App ops settings summary, on main settings screen. If clicked, the user is taken to a settings screen for app operations -->
+    <string name="app_ops_settings_summary">View or change app permissions</string>
+
+    <!-- Setting checkbox summary when device is in Charging mode -->
+    <string name="enable_adb_summary_charging">Device is in Charging mode, USB debugging is disabled</string>
+
+    <!-- Title of checkbox setting that enable quickboot. [CHAR LIMIT=32] -->
+    <string name="enable_quickboot_title">Enable QuickBoot mode</string>
+    <!-- Summary of checkbox setting that enable quickboot. [CHAR LIMIT=64] -->
+    <string name="enable_quickboot_summary">Put device into QuickBoot mode instead of normal power off</string>
+
+    <string name="data_usage_tab_slot">SIM </string>
+    <!-- SIM lock settings title  [CHAR LIMIT=40] -->
+    <string name="sim_lock_settings_cm">SIM/RUIM card lock settings</string>
+    <!-- Security & location settings screen, setting option name  [CHAR LIMIT=40] -->
+    <string name="sim_lock_settings_category_cm">Set up SIM/RUIM card lock</string>
+    <!-- Security & location settings screen, section heading for settings related to sim card locking  [CHAR LIMIT=40] -->
+    <string name="sim_lock_settings_title_cm">SIM/RUIM card lock</string>
+
+    <!-- SIM card lock settings screen, SIM PIN dialog message when SIM card is absent-->
+    <string name="sim_absent">No SIM/RUIM</string>
+
+    <!-- SIM card lock settings screen, SIM PIN dialog message when PIN disable fails-->
+    <string name="sim_pin_disable_failed">Can\'t disable PIN.</string>
+    <!-- SIM card lock settings screen, SIM PIN dialog message when PIN enable fails-->
+    <string name="sim_pin_enable_failed">Can\'t enable PIN.</string>
+
+    <!-- SIM password can't be changed as SIM LOCK is not enabled: -->
+    <string name="sim_pin_change_failed_enable_sim_lock">To change SIM/RUIM PIN, enable SIM/RUIM lock first.</string>
+    <!-- SIM lock can't be changed - not supported -->
+    <string name="sim_enable_disable_lock_not_supported">SIM/RUIM lock is not supported by the card.</string>
+    <!-- SIM card lock settings screen, toast displayed on wrong PIN1: -->
+    <string name="sim_pin_attempts">\nAttempts remaining:</string>
+    <!-- SIM card lock settings screen, toast displayed on PIN1 enable: -->
+    <string name="sim_pin_enabled">PIN1 enabled</string>
+    <!-- SIM card lock settings screen, toast displayed on PIN1 disable: -->
+    <string name="sim_pin_disabled">PIN1 disabled</string>
+    <!-- MultiSim Settings changes-->
+    <string name="close_dialog">OK</string>
+    <string name="sim_enabler_title">SIM status</string>
+    <string name="sim_enabler_summary">SIM is %1$s</string>
+    <string name="sim_enabled">enabled</string>
+    <string name="sim_disabled">disabled</string>
+    <string name="sim_missing">missing or faulty</string>
+    <string name="sim_enabler_need_enable_sim">SIM card will be activated. Do you want to continue?</string>
+    <string name="sim_enabler_need_disable_sim">SIM card will be deactivated. Do you want to continue?</string>
+    <string name="sim_enabler_airplane_on">Unable to perform the operation while airplane mode is on.</string>
+    <string name="sim_enabler_in_call">Unable to perform the operation while in call.</string>
+    <string name="sim_enabler_both_inactive">"Can't disable all SIM cards"</string>
+    <string name="sim_enabler_enabling">Activating\2026</string>
+    <string name="sim_enabler_disabling">Deactivating\2026</string>
+    <string name="sub_activate_success">SIM activated.</string>
+    <string name="sub_activate_failed">Activation failed.</string>
+    <string name="sub_deactivate_success">SIM deactivated.</string>
+    <string name="sub_deactivate_failed">Deactivation failed.</string>
+    <string name="sub_deactivate_not_supported">Deactivation not supported</string>
+    <string name="sub_activate_not_supported">Activation not supported</string>
+    <string name="slot_name">SIM <xliff:g id="sub">%d</xliff:g></string>
+
+    <string name="usb_charging_title">Charge only</string>
+    <string name="usb_charging_summary">Disables all data transfers with computer and charges device over USB port</string>
+    <string name="primary_sub_select_title">Default 4G/3G subscription</string>
+
+    <string name="usb_sdcard_summary">Lets you transfer media files in the SD card on computer</string>
+    <string name="usb_sdcard_title">USB storage</string>
+    <string name="external_storage_turn_on">External storage has been turned on</string>
+    <string name="external_storage_turn_off">External storage has been turned off</string>
     <!-- Launch Dev Tools -->
     <string name="development_tools_title">Development tools</string>
 
@@ -45,83 +158,6 @@
     <string name="ring_mode_mute">Mute</string>
 
     <string name="ring_mode_unchanged">Unchanged</string>
-
-    <!-- Profiles settings  -->
-    <string name="profiles_settings_title">Profiles</string>
-    <string name="profiles_add">Add</string>
-    <string name="profile_menu_delete">Delete</string>
-    <string name="profile_settings_title">Profile</string>
-    <string name="profile_empty_list_profiles_off">To configure and use system profiles, turn profiles on.</string>
-    <string name="profile_trigger_configure">Configure trigger</string>
-    <string name="profile_triggers">Triggers</string>
-    <string name="profile_trigger_filter_all">All triggers</string>
-    <string name="profile_trigger_filter_wifi">Wi-Fi triggers</string>
-    <string name="profile_trigger_filter_bluetooth">Bluetooth triggers</string>
-    <string name="profile_write_nfc_tag">Write to NFC tag</string>
-    <string name="profile_write_touch_tag">Touch tag to write</string>
-    <string name="profile_write_success">Tag successfully written</string>
-    <string name="profile_write_failed">Tag writing failed!</string>
-    <string name="profile_selected">Profile selected: %1$s</string>
-    <string name="profile_nfc_text">Writing a profile to a NFC tag allows for tapping the tag to select the profile. Tapping a second time will select the previously selected profile.</string>
-    <string name="profile_unknown_nfc_tag">Unknown profile</string>
-    <string name="profile_add_nfc_text">This NFC tag refers to an unknown profile. Attaching this NFC tag to an existing profile will allow for selecting the profile in the future.</string>
-    <string name="profile_select">Select profile</string>
-
-    <!-- Add Profile -->
-    <string name="add_profile_dialog_title">Create new profile</string>
-    <string name="profile_name_title">Name</string>
-    <string name="profile_profile_name_prompt">Enter a name for the new profile</string>
-    <string name="menu_new_profile">New profile</string>
-    <string name="new_profile_name">&lt;new profile&gt;</string>
-
-    <!-- Rename Dialog  -->
-    <string name="rename_dialog_title">Rename</string>
-    <string name="rename_dialog_message">Enter a new name</string>
-    <string name="duplicate_profile_name">Duplicate profile name!</string>
-    <string name="duplicate_appgroup_name">Duplicate app group name!</string>
-
-    <!-- Reset Profiles -->
-    <string name="profile_reset_title">Reset</string>
-    <string name="profile_reset_message">Delete all user created profiles and app groups and restore them to default?</string>
-
-    <!-- Delete confimation messages -->
-    <string name="profile_delete_confirm">Delete this profile?</string>
-    <string name="profile_app_delete_confirm">Remove this app?</string>
-    <string name="profile_cannot_delete">An active profile cannot be deleted</string>
-
-    <!-- Profile network mode -->
-    <string name="profile_networkmode_2g">2G</string>
-    <string name="profile_networkmode_3g">3G</string>
-    <string name="profile_networkmode_2g3g">2G/3G</string>
-
-    <!-- Profile Config screen PreferenceGroup titles -->
-    <string name="profile_connectionoverrides_title">Connection overrides</string>
-    <string name="profile_volumeoverrides_title">Volume overrides</string>
-    <string name="connection_state_disabled">Disable</string>
-    <string name="connection_state_enabled">Enable</string>
-    <string name="volume_override_summary">Set to %1$s/%2$s</string>
-    <string name="volume_override_summary_no_override">Do not override</string>
-    <string name="profile_volume_override_checkbox_label">Override volume</string>
-
-    <!-- Menu item for managing profiles -->
-    <string name="profile_profiles_manage">Profiles</string>
-    <string name="profile_profile_manage">Manage profile</string>
-    <string name="profile_appgroups_manage">App groups</string>
-    <string name="profile_appgroup_manage">Manage app group</string>
-
-    <!-- Profile settings screen, section header for settings related to notification profiles -->
-    <string name="profile_settings">Profile settings</string>
-    <string name="profile_trigger_connect">On connect</string>
-    <string name="profile_trigger_disconnect">On disconnect</string>
-    <string name="profile_trigger_notrigger">No trigger</string>
-
-    <!-- Profile Settings sound modes labels -->
-    <string name="sound_mode">Notification mode</string>
-    <string name="ringer_mode">Ring mode</string>
-    <string name="lights_mode">Lights mode</string>
-    <string name="vibrate_mode">Vibrate mode</string>
-    <string name="choose_soundtone">Choose notification tone</string>
-    <string name="choose_ringtone">Choose ringtone</string>
 
     <!-- Sound settings screen, setting option name to pick ringtone (a list dialog comes up)-->
     <string name="soundtone_title">Notification tone</string>
