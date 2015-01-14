@@ -276,7 +276,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
 
     private ListPreference mScrollingCachePref;
 
-    private CheckBoxPreference mHeadsUpTicker;
+    private SwitchPreference mHeadsUpTicker;
 
     private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
 
@@ -353,7 +353,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         mAllPrefs.add(mPassword);
         mAdvancedReboot = findAndInitSwitchPref(ADVANCED_REBOOT_KEY);
         mDevelopmentShortcut = findAndInitSwitchPref(DEVELOPMENT_SHORTCUT_KEY);
-        mHeadsUpTicker = findAndInitCheckboxPref(HEADS_UP_TICKER_EXP_KEY);
+        mHeadsUpTicker = findAndInitSwitchPref(HEADS_UP_TICKER_EXP_KEY);
 
 
         if (!android.os.Process.myUserHandle().equals(UserHandle.OWNER)) {
@@ -698,6 +698,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         } else {
             mAdbOverNetwork.setSummary(R.string.adb_over_network_summary);
         }
+    }
 
     private void resetHeadsUpTickerOptions() {
         Settings.System.putInt(getActivity().getContentResolver(),

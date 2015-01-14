@@ -64,4 +64,24 @@
 
     <string name="recents_clear_all_dismiss_all_title">Clear all tasks</string>
     <string name="recents_clear_all_dismiss_all_summary">Choose whether to dismiss all tasks or ignore the foreground task</string>
+
+     <!--PA Version-->
+     <string name="pa_version">ParanoidAndroid version</string>
+     <string name="pa_version_default">Unknown</string>
+     <string name="psd_version">DarkoBas PSD version</string>
+     <string name="psd_version_default">Unknown</string>
+     <string name="sm_version">SaberMod version</string>
+     <string name="sm_version_default">Unknown</string>
+
+     <string name="notification_light_add">Add</string>
+
+    <!-- Partition Info -->
+    <string name="partition_info_title">Partition info</string>
+    <string name="partition_info_system">/system</string>
+    <string name="partition_info_data">/data</string>
+    <string name="partition_info_cache">/cache</string>
+    <string name="partition_info_sdcard">/sdcard (FAT)</string>
+    <string name="partition_info_sdext">/sd-ext (EXT)</string>
+    <string name="partition_info_used_of">/</string>
+
 </resources>

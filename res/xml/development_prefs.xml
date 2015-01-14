@@ -89,7 +89,7 @@
         android:entries="@array/entries_scrollingcache"
         android:entryValues="@array/values_scrollingcache" />
 
-    <CheckBoxPreference
+    <SwitchPreference
         android:key="heads_up_ticker_exp"
         android:title="@string/heads_up_ticker_exp_title"
         android:summary="@string/heads_up_ticker_exp_summary" />
