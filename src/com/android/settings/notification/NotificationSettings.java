@@ -174,7 +174,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
 
     private void updateRingIcon(int progress) {
         mRingPreference.showIcon(progress > 0
-                    ? R.drawable.ic_audio_ring_24dp
+                    ? R.drawable.ring_notif
                     : (mVibrator == null
                             ? R.drawable.ring_notif_mute
                             : R.drawable.ring_notif_vibrate));
