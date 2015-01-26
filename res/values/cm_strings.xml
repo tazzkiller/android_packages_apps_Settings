@@ -612,10 +612,6 @@
     <!-- Performance menu, graphics options category -->
     <string name="graphics_title">Graphics and rendering</string>
 
-    <!-- Themes Settings -->
-    <!-- Settings main menu entry -->
-    <string name="themes_settings_title">Themes</string>
-
     <!-- WiFi Ad-Hoc mode -->
     <string name="wifi_mode">Mode</string>
     <string name="wifi_mode_ibss">Ad-Hoc (IBSS) Network</string>
