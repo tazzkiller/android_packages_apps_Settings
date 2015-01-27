@@ -134,14 +134,14 @@ public final class SearchIndexableResources {
                         Ranking.getRankForClassName(MainSettings.class.getName()),
                         NO_DATA_RES_ID,
                         MainSettings.class.getName(),
-                        R.drawable.ic_remix_theme_settings));
+                        R.drawable.ic_remix_settings));
 
         sResMap.put(InterfaceSettings.class.getName(),
                 new SearchIndexableResource(
                         Ranking.getRankForClassName(MainSettings.class.getName()),
                         NO_DATA_RES_ID,
                         InterfaceSettings.class.getName(),
-                        R.drawable.ic_settings_interface));
+                        R.drawable.remix_settings_interface));
 
         sResMap.put(SoundSettings.class.getName(),
                 new SearchIndexableResource(
@@ -155,7 +155,7 @@ public final class SearchIndexableResources {
                         Ranking.getRankForClassName(ButtonSettings.class.getName()),
                         NO_DATA_RES_ID,
                         ButtonSettings.class.getName(),
-                        R.drawable.ic_settings_buttons));
+                        R.drawable.remix_settings_buttons));
 
         sResMap.put(DisplaySettings.class.getName(),
                 new SearchIndexableResource(

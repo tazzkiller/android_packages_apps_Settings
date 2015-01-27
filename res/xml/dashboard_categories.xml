@@ -87,7 +87,7 @@
                 android:id="@+id/main_settings"
                 android:title="@string/remix_settings_title"
                 android:fragment="com.android.settings.remix.MainSettings"
-                android:icon="@drawable/ic_remix_theme_settings"
+                android:icon="@drawable/ic_remix_settings"
                 />
 
     </dashboard-category>
