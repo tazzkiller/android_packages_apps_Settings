@@ -158,7 +158,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         final boolean showMenuWake = (deviceWakeKeys & KEY_MASK_MENU) != 0;
         final boolean showAssistWake = (deviceWakeKeys & KEY_MASK_ASSIST) != 0;
         final boolean showAppSwitchWake = (deviceWakeKeys & KEY_MASK_APP_SWITCH) != 0;
-        final boolean showVolumeWake = (deviceWakeKeys & KEY_MASK_VOLUME) != 0;
 
         boolean hasAnyBindableKey = false;
         final PreferenceCategory powerCategory =
@@ -333,10 +332,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         }
 
         if (Utils.hasVolumeRocker(getActivity())) {
-            if (!showVolumeWake) {
-                volumeCategory.removePreference(findPreference(Settings.System.VOLUME_WAKE_SCREEN));
-            }
-
             int cursorControlAction = Settings.System.getInt(resolver,
                     Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0);
             mVolumeKeyCursorControl = initActionList(KEY_VOLUME_KEY_CURSOR_CONTROL,
