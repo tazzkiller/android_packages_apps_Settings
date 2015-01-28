@@ -641,4 +641,7 @@
     <string name="notification_volume_option_title">Notification volume</string>
     <!-- Bluetooth settings.  A checkbox to set if we should accept all the file types regardless of their presence in MIME type whitelist -->
     <string name="bluetooth_accept_all_files">Accept all file types</string>
+
+    <string name="navigation_ring_title">Navigation ring targets</string>
+    <string name="navigation_ring_message">Tap the edit icon to open the navigation ring for editing.\n\nSelect a target to configure its behavior.\n\nTap the check mark icon to save your changes, or restore to reset the settings to defaults.</string>
 </resources>
