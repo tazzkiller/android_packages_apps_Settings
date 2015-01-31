@@ -25,7 +25,7 @@
         android:id="@+id/remix_sound_settings"
         android:title="@string/remix_sound_settings_title"
         android:fragment="com.android.settings.remix.SoundSettings"
-        android:icon="@drawable/ic_settings_sound" />
+        android:icon="@drawable/remix_settings_sound" />
 
     <!--Button Settings -->
     <PreferenceScreen

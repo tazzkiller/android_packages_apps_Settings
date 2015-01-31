@@ -1,20 +1,25 @@
-<!--
-Copyright (C) 2014 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-         http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
--->
-<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
-        android:src="@drawable/ic_settings_display_am"
-        android:autoMirrored="true"
-        android:tint="@*android:color/material_deep_teal_500" 
-        />
+    <path
+        android:fillColor="@*android:color/material_deep_teal_500"
+        android:pathData="M 21.966831,6.4493696 l -2.607034,0 0,1.6665403 1.198174,0 c 0.608935,0
+1.105676,0.4669534 1.105676,1.0393738 l 0,10.9991663 c 0,0.575641
+-0.496741,1.040984 -1.105676,1.040984 l -11.0661906,0 c -0.6123617,0
+-1.1056769,-0.465343 -1.1056769,-1.040984 l 0,-1.127128 -1.6914887,0 0,2.527183
+c 0,0.721362 0.6200698,1.306664 1.3865925,1.306664 l 13.8856237,0 c 0.76481,0
+1.386593,-0.585302 1.386593,-1.306664 l 0,-13.8000813 c 0,-0.7189472
+-0.621783,-1.3050541 -1.386593,-1.3050541 z m -4.394445,9.8591564 0,-13.7984715
+c 0,-0.7197522 -0.621782,-1.3066643 -1.388305,-1.3066643 l -13.8856241,0 c
+-0.7648098,0 -1.38659245,0.5869121 -1.38659245,1.3066643 l 0,13.7984715 c
+0,0.721362 0.62178265,1.305054 1.38659245,1.305054 l 13.8856241,0 c 0.766523,0
+1.388305,-0.583692 1.388305,-1.305054 z m -1.690632,-1.400055 c 0,0.575641
+-0.496741,1.040984 -1.105677,1.040984 l -11.0661905,0 c -0.6123617,0
+-1.1065334,-0.465343 -1.1065334,-1.040984 l 0,-10.9991666 c 0,-0.5724204
+0.4941717,-1.040984 1.1065334,-1.040984 l 11.0661905,0 c 0.608936,0
+1.105677,0.4685636 1.105677,1.040984 l 0,10.9991666 z" />
+</vector>
