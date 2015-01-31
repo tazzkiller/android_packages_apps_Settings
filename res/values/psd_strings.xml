@@ -101,4 +101,6 @@
     <string name="dialog_restart">Restart</string>
     <string name="dialog_cancel">Cancel</string>
     <string name="custom_density_warning">Restart the system and apply selected density?</string>
+    <!-- BitSyko Layers  -->
+    <string name="bitsyko_layers_str">Layers</string>
 </resources>

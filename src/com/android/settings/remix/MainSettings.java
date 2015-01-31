@@ -40,7 +40,7 @@ import java.util.List;
 public class MainSettings extends SettingsPreferenceFragment implements Indexable {
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_VOICE_WAKEUP = "voice_wakeup";
-    private static final String VOICE_WAKEUP_PACKAGE_NAME = "com.cyanogenmod.voicewakeup";
+    private static final String KEY_BITSYKO_LAYERS = "bitsyko_layers";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,7 +55,13 @@ public class MainSettings extends SettingsPreferenceFragment implements Indexabl
 		PreferenceScreen screen = getPreferenceScreen();
 		Preference pref = getPreferenceManager().findPreference(KEY_VOICE_WAKEUP);
 		screen.removePreference(pref);
+        } else
+             if (!isPackageInstalled("org.bitsyko.overlaymanager")) {
+                PreferenceScreen screen = getPreferenceScreen();
+                Preference pref = getPreferenceManager().findPreference(KEY_BITSYKO_LAYERS);
+                screen.removePreference(pref);
                 }
+
 	}
 
     private boolean isPackageInstalled(String packageName) {

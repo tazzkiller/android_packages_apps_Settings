@@ -95,4 +95,15 @@
          android:title="@string/display_settings_title"
          android:icon="@drawable/remix_settings_display" />
 
+    <PreferenceScreen
+        android:key="bitsyko_layers"
+        android:id="@+id/bitsyko_layers"
+        android:icon="@drawable/ic_bitsyko_layers"
+	android:title="@string/bitsyko_layers_str">   
+	<intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="org.bitsyko.overlaymanager"
+            android:targetClass="org.bitsyko.overlaymanager.main" />
+
+</PreferenceScreen>
 </PreferenceScreen>
