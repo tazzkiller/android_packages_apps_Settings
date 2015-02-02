@@ -50,6 +50,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment
     private ListPreference mStatusBarBattery;
     private SwitchPreference mRecentsClearAll;
     private ListPreference mRecentsClearAllLocation;
+    private Preference mHeadsUp;
  
 
     @Override
@@ -78,6 +79,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment
         mRecentsClearAllLocation.setValue(String.valueOf(location));
         mRecentsClearAllLocation.setOnPreferenceChangeListener(this);
         updateRecentsLocation(location);
+        mHeadsUp = findPreference(Settings.System.HEADS_UP_NOTIFICATION);
     }
 
     @Override
@@ -101,7 +103,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment
                     Settings.System.RECENTS_CLEAR_ALL_LOCATION, location, UserHandle.USER_CURRENT);
             updateRecentsLocation(location);
             return true;
-        }
+       }
         return false;
     }
 
@@ -133,6 +135,15 @@ public class InterfaceSettings extends SettingsPreferenceFragment
                             getActivity().getApplicationContext()).updateFromClassNameResource(
                                     InterfaceSettings.class.getName(), true, true);
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        boolean headsUpEnabled = Settings.System.getInt(
+                getContentResolver(), Settings.System.HEADS_UP_NOTIFICATION,1) != 0;
+        mHeadsUp.setSummary(headsUpEnabled
+                ? R.string.summary_heads_up_enabled : R.string.summary_heads_up_disabled);
+     }
 
     /**
      * For Search.
