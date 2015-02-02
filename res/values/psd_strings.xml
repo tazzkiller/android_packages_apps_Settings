@@ -111,4 +111,6 @@
     <!-- Lock screen -->
     <string name="lock_screen_weather_settings_title">Weather</string>
     <string name="lock_screen_weather_settings_summary">Customize Weather</string>
+
+    <string name="qs_brightness_slider_title">Show brightness slider</string>
 </resources>
