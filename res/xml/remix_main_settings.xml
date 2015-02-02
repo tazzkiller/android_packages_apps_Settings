@@ -91,9 +91,9 @@
     <!-- Display -->
     <PreferenceScreen
          android:key="display_settings"
-         android:fragment="com.android.settings.remix.DisplaySettings"
+         android:fragment="com.android.settings.remix.ScreenSettings"
          android:title="@string/screen_and_lockscreen_title"
-         android:icon="@drawable/remix_settings_display" />
+         android:icon="@drawable/remix_settings_screen" />
 
     <PreferenceScreen
         android:key="bitsyko_layers"

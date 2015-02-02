@@ -40,10 +40,17 @@ import android.widget.EditText;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class DisplaySettings extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Index;
+import com.android.settings.search.Indexable;
+import android.provider.SearchIndexableResource;
+import java.util.Arrays;
+import java.util.List;
 
-    private static final String TAG = "DisplaySettings";
+public class ScreenSettings extends SettingsPreferenceFragment implements
+        Preference.OnPreferenceChangeListener, Indexable {
+
+    private static final String TAG = "ScreenSettings";
 
     private static final int DIALOG_DENSITY = 0;
     private static final int DIALOG_DENSITY_WARNING = 1;
@@ -57,7 +64,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        addPreferencesFromResource(R.xml.remix_display_settings);
+        addPreferencesFromResource(R.xml.remix_screen_settings);
 
         mContext = getActivity().getApplicationContext();
         int newDensityValue;
@@ -230,4 +237,19 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             throw new IllegalArgumentException("unknown id " + id);
         }
     }
+
+    /**
+     * For Search.
+     */
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        new BaseSearchIndexProvider() {
+
+            @Override
+            public List<SearchIndexableResource> getXmlResourcesToIndex(
+                    Context context, boolean enabled) {
+                final SearchIndexableResource sir = new SearchIndexableResource(context);
+                sir.xmlResId = R.xml.remix_main_settings;
+                return Arrays.asList(sir);
+            }
+        };
 }
