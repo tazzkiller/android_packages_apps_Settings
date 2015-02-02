@@ -38,7 +38,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainSettings extends SettingsPreferenceFragment implements Indexable {
-    private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_VOICE_WAKEUP = "voice_wakeup";
     private static final String KEY_BITSYKO_LAYERS = "bitsyko_layers";
 
@@ -47,19 +46,12 @@ public class MainSettings extends SettingsPreferenceFragment implements Indexabl
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.remix_main_settings);
-        // Remove the lock clock preference if its not installed
-        if (!isPackageInstalled("com.cyanogenmod.lockclock")) {
-            removePreference(KEY_LOCK_CLOCK);
-        } else
-             if (!isPackageInstalled("com.cyanogenmod.voicewakeup")) {
+        if (!isPackageInstalled("com.cyanogenmod.voicewakeup")) {
 		PreferenceScreen screen = getPreferenceScreen();
 		Preference pref = getPreferenceManager().findPreference(KEY_VOICE_WAKEUP);
 		screen.removePreference(pref);
-        } else
-             if (!isPackageInstalled("org.bitsyko.overlaymanager")) {
-                PreferenceScreen screen = getPreferenceScreen();
-                Preference pref = getPreferenceManager().findPreference(KEY_BITSYKO_LAYERS);
-                screen.removePreference(pref);
+        } else if (!isPackageInstalled("org.bitsyko.overlaymanager")) {
+                removePreference(KEY_BITSYKO_LAYERS);
                 }
 
 	}

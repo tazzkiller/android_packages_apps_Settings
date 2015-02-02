@@ -1,19 +1,35 @@
-<!--
-Copyright (C) 2014 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-         http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
--->
-<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
-        android:src="@drawable/ic_audio_ring_24dp"
-        android:tint="@color/exposed_primary_text_light"
-        />
+    <group>
+        <path
+            android:fillColor="@*android:color/material_deep_teal_200"
+            android:pathData="M 12.356708,11.99058 c -1.903163,-0.04676 -3.8077901,0.253229
+-5.6198389,0.867584 -2.448583,0.812315 -4.7475254,2.15659 -6.55647912,4.004238
+-0.50254439,0.691451 0.13984724,1.323881 0.62442658,1.768538 0.77188744,0.726188
+1.48955664,1.554184 2.32425454,2.20233 1.3330474,0.250986 2.0457704,-1.419655
+3.226204,-1.835275 0.7314112,-0.247203 1.2991812,-0.904849 1.144782,-1.701801 l
+0,-2.602754 c 2.9633989,-1.008269 6.2116149,-0.854981 9.1929469,0
+0.02236,1.126227 -0.0492,2.282601 0.03469,3.403601 0.60743,1.007014
+2.039255,1.159991 2.80992,2.068856 0.52788,0.86464 1.675687,0.94593
+2.220183,0.100106 0.758811,-0.771327 1.548099,-1.514965 2.289565,-2.302436
+0.401934,-0.467106 -0.04954,-0.904102 -0.346904,-1.268009 -3.008963,-2.945713
+-7.15679,-4.602104 -11.34375,-4.704978 z" />
+        <path
+            android:fillColor="@*android:color/material_deep_teal_500"
+            android:pathData="M 19.593119,6.838461 l -3.607798,3.570445 1.387615,1.401483 c 1.132753,-1.255824
+2.309202,-2.5220302 3.607798,-3.6038136 L 19.593119,6.838461 z" />
+        <path
+            android:fillColor="@*android:color/material_deep_teal_500"
+            android:pathData="M 4.0865252,6.7383551 L 2.5948395,8.2065754 C 3.8886482,9.2598257
+4.9801301,10.537678 6.1679471,11.710283 L 7.5902521,10.3088 4.0865252,6.7383551
+z" />
+        <path
+            android:fillColor="@*android:color/material_deep_teal_500"
+            android:pathData="M 10.892775,5.0031856 l 0,4.971928 2.012041,0 0,-4.971928 -2.012041,0 z" />
+    </group>
+</vector>
