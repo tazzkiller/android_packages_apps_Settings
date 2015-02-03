@@ -35,7 +35,7 @@ import android.view.MenuItem;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import net.margaritov.preference.colorpicker.ColorPickerPreferencE;
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class LockScreenWeatherSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -66,9 +66,9 @@ public class LockScreenWeatherSettings extends SettingsPreferenceFragment implem
 
     private SwitchPreference mShowWeather;
     private SwitchPreference mShowLocation;
-    private CheckBoxPreference mShowTimestamp;
+    private SwitchPreference mShowTimestamp;
     private ListPreference mConditionIcon;
-    private CheckBoxPreference mColorizeAllIcons;
+    private SwitchPreference mColorizeAllIcons;
     private ColorPickerPreference mTextColor;
     private ColorPickerPreference mIconColor;
 
@@ -119,7 +119,7 @@ public class LockScreenWeatherSettings extends SettingsPreferenceFragment implem
             mShowLocation.setOnPreferenceChangeListener(this);
 
             mShowTimestamp =
-                    (CheckBoxPreference) findPreference(PREF_SHOW_TIMESTAMP);
+                    (SwitchPreference) findPreference(PREF_SHOW_TIMESTAMP);
             mShowTimestamp.setChecked(Settings.System.getInt(mResolver,
                     Settings.System.LOCK_SCREEN_SHOW_WEATHER_TIMESTAMP, 1) == 1);
             mShowTimestamp.setOnPreferenceChangeListener(this);
@@ -131,7 +131,7 @@ public class LockScreenWeatherSettings extends SettingsPreferenceFragment implem
             mConditionIcon.setOnPreferenceChangeListener(this);
 
             mColorizeAllIcons =
-                    (CheckBoxPreference) findPreference(PREF_COLORIZE_ALL_ICONS);
+                    (SwitchPreference) findPreference(PREF_COLORIZE_ALL_ICONS);
             mColorizeAllIcons.setChecked(colorizeAllIcons);
             mColorizeAllIcons.setOnPreferenceChangeListener(this);
 
@@ -171,7 +171,7 @@ public class LockScreenWeatherSettings extends SettingsPreferenceFragment implem
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.add(0, MENU_RESET, 0, R.string.reset)
-                .setIcon(R.drawable.ic_menu_reset) // use the KitKat backup icon
+                .setIcon(R.drawable.ic_menu_refresh_holo_dark) // use the KitKat backup icon
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
     }
 
