@@ -146,9 +146,14 @@
     </PreferenceCategory>
 
     <!-- Heads up notifications -->
+    <PreferenceCategory
+        android:key="heads_up_section"
+        android:title="@string/heads_up_section_title">
+
     <Preference
          android:key="heads_up_enabled"
-         android:fragment="com.android.settings.crdroid.HeadsUpSettings"
+         android:fragment="com.android.settings.remix.HeadsUpSettings"
          android:title="@string/category_heads_up" />
 
+    </PreferenceCategory>
 </PreferenceScreen>
