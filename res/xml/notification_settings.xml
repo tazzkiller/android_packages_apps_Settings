@@ -66,12 +66,6 @@
                 android:icon="@drawable/ring_notif"
                 android:title="@string/notification_volume_option_title" />
 
-        <!-- Also vibrate for calls -->
-        <SwitchPreference
-                android:key="vibrate_when_ringing"
-                android:title="@string/vibrate_when_ringing_title"
-                android:persistent="false" />
-
         <!-- Interruptions -->
         <PreferenceScreen
                 android:key="zen_mode"
@@ -102,6 +96,30 @@
                 android:persistent="false"
                 android:fragment="com.android.settings.notification.OtherSoundSettings" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+            android:key="vibrate"
+            android:title="@string/category_vibrate">
+
+        <!-- Also vibrate for calls -->
+        <SwitchPreference
+                android:key="vibrate_when_ringing"
+                android:title="@string/vibrate_when_ringing_title"
+                android:persistent="false" />
+
+        <!-- Vibrate on touch -->
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+                android:key="haptic_feedback_enabled"
+                android:title="@string/vibrate_on_touch_title"
+                android:defaultValue="true"/>
+
+        <!-- CMHW vibration intensity -->
+        <com.android.settings.hardware.VibratorIntensity
+                android:key="vibration_intensity"
+                android:title="@string/vibrator_intensity_title"
+                android:dialogTitle="@string/vibrator_intensity_title"
+                android:persistent="false" />
     </PreferenceCategory>
 
     <PreferenceCategory

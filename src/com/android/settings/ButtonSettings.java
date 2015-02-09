@@ -21,6 +21,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.hardware.CmHardwareManager;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.Handler;
@@ -29,7 +30,6 @@ import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
-import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.SeekBarPreference;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
@@ -50,10 +50,7 @@ import com.android.settings.search.Index;
 import com.android.settings.search.Indexable;
 import android.provider.SearchIndexableResource;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
-import org.cyanogenmod.hardware.KeyDisabler;
 
 public class ButtonSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
@@ -131,8 +128,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
     private Handler mHandler;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState, Context context) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.button_settings);
@@ -175,6 +171,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_APPSWITCH);
         final PreferenceCategory volumeCategory =
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_VOLUME);
+        final CmHardwareManager cmHardwareManager =
+                (CmHardwareManager) context.getSystemService(Context.CMHW_SERVICE);
 
         // Power button ends calls.
         mPowerEndCall = (SwitchPreference) findPreference(KEY_POWER_END_CALL);
@@ -199,7 +197,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         // Only visible on devices that does not have a navigation bar already,
         // and don't even try unless the existing keys can be disabled
         boolean needsNavigationBar = false;
-        if (isKeyDisablerSupported()) {
+        if (cmHardwareManager.isSupported(CmHardwareManager.FEATURE_KEY_DISABLE)) {
             try {
                 IWindowManager wm = WindowManagerGlobal.getWindowManagerService();
                 needsNavigationBar = wm.needsNavigationBar();
@@ -352,7 +350,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             if (hasNavBar) {
                 if (!Utils.isPhone(getActivity())) {
                 }
-            } else if (needsNavigationBar || !isKeyDisablerSupported()) {
+            } else if (!hasNavBar && (needsNavigationBar ||
+                    !cmHardwareManager.isSupported(CmHardwareManager.FEATURE_KEY_DISABLE))) {
                 // Hide navigation bar category
                 prefScreen.removePreference(mNavigationPreferencesCat);
             }
@@ -464,7 +463,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         Settings.Secure.putInt(context.getContentResolver(),
                 Settings.Secure.DEV_FORCE_SHOW_NAVBAR, enabled ? 1 : 0);
-        KeyDisabler.setActive(enabled);
+        CmHardwareManager cmHardwareManager =
+                (CmHardwareManager) context.getSystemService(Context.CMHW_SERVICE);
+        cmHardwareManager.set(CmHardwareManager.FEATURE_KEY_DISABLE, enabled);
 
         /* Save/restore button timeouts to disable them in softkey mode */
         Editor editor = prefs.edit();
@@ -539,7 +540,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     }
 
     public static void restoreKeyDisabler(Context context) {
-        if (!isKeyDisablerSupported()) {
+        CmHardwareManager cmHardwareManager =
+                (CmHardwareManager) context.getSystemService(Context.CMHW_SERVICE);
+        if (!cmHardwareManager.isSupported(CmHardwareManager.FEATURE_KEY_DISABLE)) {
             return;
         }
 
@@ -579,15 +582,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         getActivity().getApplicationContext()).updateFromClassNameResource(
         ButtonSettings.class.getName(), true, true);
         return super.onPreferenceTreeClick(preferenceScreen, preference);
-    }
-
-    private static boolean isKeyDisablerSupported() {
-        try {
-            return KeyDisabler.isSupported();
-        } catch (NoClassDefFoundError e) {
-            // Hardware abstraction framework not installed
-            return false;
-        }
     }
 
     private void handleTogglePowerButtonEndsCallPreferenceClick() {

@@ -25,6 +25,7 @@ import android.content.pm.PackageManager;
 import android.database.ContentObserver;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
+import android.hardware.CmHardwareManager;
 import android.media.AudioManager;
 import android.media.AudioSystem;
 import android.media.RingtoneManager;
@@ -39,6 +40,7 @@ import android.os.Vibrator;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
+import android.preference.PreferenceScreen;
 import android.preference.SeekBarVolumizer;
 import android.preference.TwoStatePreference;
 import android.preference.CheckBoxPreference;
@@ -48,14 +50,12 @@ import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.util.Log;
 
-import android.widget.SeekBar;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
-import com.android.settings.preference.SystemCheckBoxPreference;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -65,6 +65,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
     private static final String TAG = "NotificationSettings";
 
     private static final String KEY_SOUND = "sound";
+    private static final String KEY_VIBRATE = "vibrate";
     private static final String KEY_MEDIA_VOLUME = "media_volume";
     private static final String KEY_ALARM_VOLUME = "alarm_volume";
     private static final String KEY_RING_VOLUME = "ring_volume";
@@ -80,6 +81,10 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
     private static final String KEY_INCREASING_RING_VOLUME = "increasing_ring_volume";
     private static final String KEY_NOTIFICATION_LIGHT = "notification_light";
     private static final String KEY_BATTERY_LIGHT = "battery_light";
+
+    private static final String KEY_VIBRATION_INTENSITY = "vibration_intensity";
+    private static final String KEY_VIBRATE_ON_TOUCH = "vibrate_on_touch";
+ 
 
     private static final int SAMPLE_CUTOFF = 2000;  // manually cap sample playback at 2 seconds
 
@@ -137,6 +142,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         addPreferencesFromResource(R.xml.notification_settings);
 
         final PreferenceCategory sound = (PreferenceCategory) findPreference(KEY_SOUND);
+        final PreferenceCategory vibrate = (PreferenceCategory) findPreference(KEY_VIBRATE);
 
         if (mVoiceCapable) {
             mVolumeLinkNotification = (CheckBoxPreference) sound.findPreference(KEY_VOLUME_LINK_NOTIFICATION);
@@ -156,6 +162,15 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
 
         mNotificationAccess = findPreference(KEY_NOTIFICATION_ACCESS);
         refreshNotificationListeners();
+
+        CmHardwareManager cmHardwareManager =
+                (CmHardwareManager) getSystemService(Context.CMHW_SERVICE);
+        if (!cmHardwareManager.isSupported(CmHardwareManager.FEATURE_VIBRATOR)) {
+            Preference preference = vibrate.findPreference(KEY_VIBRATION_INTENSITY);
+            if (preference != null) {
+                vibrate.removePreference(preference);
+            }
+        }
 
         // Listen for updates from AudioManager
         mIntentFilter = new IntentFilter();
@@ -195,6 +210,11 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         if (mVoiceCapable) {
             mContext.unregisterReceiver(mRingModeChangedReceiver);
         }
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     // === Volumes ===
@@ -624,6 +644,11 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider() {
 
+        @Override
+        public void prepare() {
+            super.prepare();
+        }
+
         public List<SearchIndexableResource> getXmlResourcesToIndex(
                 Context context, boolean enabled) {
             final SearchIndexableResource sir = new SearchIndexableResource(context);
@@ -638,6 +663,15 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
                 rt.add(KEY_PHONE_RINGTONE);
                 rt.add(KEY_VIBRATE_WHEN_RINGING);
                 rt.add(KEY_VOLUME_LINK_NOTIFICATION);
+            }
+            Vibrator vib = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+            if (vib == null || !vib.hasVibrator()) {
+                rt.add(KEY_VIBRATE);
+            }
+            CmHardwareManager cmHardwareManager =
+                   (CmHardwareManager) context.getSystemService(Context.CMHW_SERVICE);
+            if (!cmHardwareManager.isSupported(CmHardwareManager.FEATURE_VIBRATOR)) {
+                rt.add(KEY_VIBRATION_INTENSITY);
             }
             return rt;
         }
