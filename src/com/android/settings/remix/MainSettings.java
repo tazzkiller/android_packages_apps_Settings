@@ -50,8 +50,10 @@ public class MainSettings extends SettingsPreferenceFragment implements Indexabl
 		PreferenceScreen screen = getPreferenceScreen();
 		Preference pref = getPreferenceManager().findPreference(KEY_VOICE_WAKEUP);
 		screen.removePreference(pref);
-        } else if (!isPackageInstalled("org.bitsyko.overlaymanager")) {
-                removePreference(KEY_BITSYKO_LAYERS);
+        } else if (!isPackageInstalled("com.lovejoy777.rroandlayersmanager")) {
+		PreferenceScreen screen = getPreferenceScreen();
+		Preference pref = getPreferenceManager().findPreference(KEY_BITSYKO_LAYERS);
+                screen.removePreference(pref);
                 }
 
 	}
