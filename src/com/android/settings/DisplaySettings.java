@@ -721,6 +721,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
     }
 
+    private static boolean isPostProcessingSupported(Context context) {
+        return Utils.isPackageInstalled(context, "com.qualcomm.display");
+    }
+
     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider() {
                 private boolean mHasTapToWake;
@@ -754,14 +758,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     if (!context.getResources().getBoolean(
                             com.android.internal.R.bool.config_dreamsSupported)) {
                         result.add(KEY_SCREEN_SAVER);
-                    }
-                    if (!context.getResources().getBoolean(
-                            com.android.internal.R.bool.config_intrusiveNotificationLed)) {
-                        result.add(KEY_NOTIFICATION_LIGHT);
-                    }
-                    if (!context.getResources().getBoolean(
-                            com.android.internal.R.bool.config_intrusiveBatteryLed)) {
-                        result.add(KEY_BATTERY_LIGHT);
                     }
                     if (!context.getResources().getBoolean(
                             com.android.internal.R.bool.config_proximityCheckOnWake)) {
