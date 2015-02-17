@@ -159,7 +159,7 @@
     <string name="heads_up_section_title">Heads up settings</string>
 
     <!-- Status bar - Battery Style -->
-    <string name="status_bar_battery_style_title">Battery status style</string>
+    <string name="status_bar_battery_style_title">Battery style</string>
     <string name="status_bar_battery_style_circle">Circle</string>
     <string name="status_bar_battery_style_dotted_circle">Dotted circle</string>
     <string name="status_bar_battery_style_text">Text</string>
