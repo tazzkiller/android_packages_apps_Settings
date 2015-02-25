@@ -48,6 +48,7 @@ import com.android.settings.voice.VoiceInputSettings;
 import com.android.settings.wifi.AdvancedWifiSettings;
 import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.WifiSettings;
+import com.android.settings.remix.BatteryStyleSettings;
 import com.android.settings.remix.MainSettings;
 import com.android.settings.remix.InterfaceSettings;
 import com.android.settings.remix.SoundSettings;
@@ -136,6 +137,13 @@ public final class SearchIndexableResources {
                         NO_DATA_RES_ID,
                         MainSettings.class.getName(),
                         R.drawable.ic_remix_settings));
+
+        sResMap.put(BatteryStyleSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(MainSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        BatteryStyleSettings.class.getName(),
+                        R.drawable.ic_settings_battery));
 
         sResMap.put(InterfaceSettings.class.getName(),
                 new SearchIndexableResource(

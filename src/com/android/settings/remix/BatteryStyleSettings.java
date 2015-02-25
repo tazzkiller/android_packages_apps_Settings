@@ -123,7 +123,7 @@ public class BatteryStyleSettings extends SettingsPreferenceFragment
                             new ArrayList<SearchIndexableResource>();
 
                     SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.interface_settings;
+                    sir.xmlResId = R.xml.battery_style_settings;
                     result.add(sir);
 
                     return result;

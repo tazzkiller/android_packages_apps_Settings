@@ -46,6 +46,7 @@ import com.android.settings.voice.VoiceInputSettings;
 import com.android.settings.wifi.AdvancedWifiSettings;
 import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.WifiSettings;
+import com.android.settings.remix.BatteryStyleSettings;
 import com.android.settings.remix.MainSettings;
 import com.android.settings.remix.InterfaceSettings;
 import com.android.settings.remix.SoundSettings;
@@ -86,6 +87,7 @@ public final class Ranking {
     public static final int RANK_SOUND = 24;
     public static final int RANK_BUTTONS = 25;
     public static final int RANK_SCREEN = 26;
+    public static final int RANK_BATSTYLE = 27;
     public static final int RANK_UNDEFINED = -1;
     public static final int RANK_OTHERS = 1024;
     public static final int BASE_RANK_DEFAULT = 2048;
@@ -116,6 +118,7 @@ public final class Ranking {
 
         // Remix
         sRankMap.put(MainSettings.class.getName(), RANK_MAIN);
+        sRankMap.put(BatteryStyleSettings.class.getName(), RANK_BATSTYLE);
         sRankMap.put(InterfaceSettings.class.getName(), RANK_INTERFACE);
         sRankMap.put(ButtonSettings.class.getName(), RANK_BUTTONS);
         sRankMap.put(DisplaySettings.class.getName(), RANK_SCREEN);
