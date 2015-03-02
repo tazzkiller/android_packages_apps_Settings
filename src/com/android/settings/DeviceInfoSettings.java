@@ -155,6 +155,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         Utils.updatePreferenceToSpecificActivityOrRemove(act, parentPreference, KEY_COPYRIGHT,
                 Utils.UPDATE_PREFERENCE_FLAG_SET_TITLE_TO_MATCHING_ACTIVITY);
 
+
         // These are contained by the root preference screen
         parentPreference = getPreferenceScreen();
         if (UserHandle.myUserId() == UserHandle.USER_OWNER) {
