@@ -220,8 +220,8 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
                     : (muted ? R.drawable.ring_ring_mute : R.drawable.ring_ring));
         mRingPreference .updateVolume();
 
-        final boolean linkEnabled = Settings.System.getInt(getContentResolver(),
-                Settings.System.VOLUME_LINK_NOTIFICATION, 1) == 1;
+        final boolean linkEnabled = Settings.Secure.getInt(getContentResolver(),
+                Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
         if (!linkEnabled) {
             mNotificationPreference.showIcon((vibrate && mVibrator != null)
                     ? R.drawable.ring_notif_vibrate
@@ -473,8 +473,8 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
 
     private void initVolumeLinkNotification() {
         if (mVoiceCapable) {
-            final boolean linkEnabled = Settings.System.getInt(getContentResolver(),
-                    Settings.System.VOLUME_LINK_NOTIFICATION, 1) == 1;
+            final boolean linkEnabled = Settings.Secure.getInt(getContentResolver(),
+                    Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
 
             mNotificationPreference.setEnabled(!linkEnabled);
             mVolumeLinkNotification.setChecked(linkEnabled);
@@ -489,8 +489,8 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
                         final int ringerVolume = mAudioManager.getStreamVolume(AudioSystem.STREAM_RING);
                         mAudioManager.setStreamVolume(AudioSystem.STREAM_NOTIFICATION, ringerVolume, 0);  
                     }
-                    Settings.System.putInt(getContentResolver(),
-                            Settings.System.VOLUME_LINK_NOTIFICATION, val ? 1 : 0);
+                    Settings.Secure.putInt(getContentResolver(),
+                            Settings.Secure.VOLUME_LINK_NOTIFICATION, val ? 1 : 0);
                     updateSlidersAndMutedStates();
                     return true;
                 }

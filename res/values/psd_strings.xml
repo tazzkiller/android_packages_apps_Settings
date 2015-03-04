@@ -176,4 +176,39 @@
     <!-- Linked / unlinked notification volume -->
     <string name="link_volume_option_title">Link ring and notification volumes</string>
     <string name="notification_volume_option_title">Notification volume</string>
+    <string name="volume_adjust_sound_title">Volume adjust sound</string>
+
+    <string name="category_general_title">General Options</string>
+    <string name="remix_settings_title">Remix Settings</string>
+
+    <!-- Host File Manager -->
+    <string name="hfm_disable_ads_title">Disable Ads</string>
+    <string name="hfm_disable_ads_summary">Change hosts file to disable ads</string>
+    <string name="hfm_pref_screen_title">Ad blocker</string>
+    <string name="hfm_update_hosts">Update hosts file</string>
+    <string name="hfm_update_hosts_summary">Download and apply fresh hosts</string>
+    <string name="hfm_dialog_wait">Working, please wait...</string>
+    <string name="hfm_dialog_failed">Updating hosts file failed. Please try again.</string>
+    <string name="hfm_dialog_success">/4 hosts sources successfully applied!</string>
+    <string name="hfm_dialog_conn_error">Error: No network connectivity</string>
+
+    <!-- Lock clock -->
+    <string name="lock_clock_title">Clock and weather widget</string>
+    <string name="lock_clock_summary">View or change how the \'cLock\' Home  widget will display. Change settings here for weather infomation display in QS.</string>
+
+    <!-- Clear all recents on navbar enabler strings -->
+    <string name="clear_all_recents_navbar_enabled_title">Clear all recents button on Navbar</string>
+    <string name="clear_all_recents_navbar_enabled_summary">Show clear all recents button in navigation bar</string>
+    <!-- Option to enable/disable scrolling cache -->
+    <string name="pref_scrollingcache_title">Scrolling cache</string>
+    <string name="pref_scrollingcache_summary">Scrolling cache may improve scrolling performance at the cost of memory</string>
+    <string name="pref_scrollingcache_force_enable">Force enable</string>
+    <string name="pref_scrollingcache_default_enable">Default enable</string>
+    <string name="pref_scrollingcache_default_disable">Default disable</string>
+    <string name="pref_scrollingcache_force_disable">Force disable</string>
+
+    <!-- UI debug setting: show CPU info? [CHAR LIMIT=25] -->
+    <string name="show_cpu_info">Show CPU info</string>
+    <!-- UI debug setting: show cpu usage summary [CHAR LIMIT=50] -->
+    <string name="show_cpu_info_summary">Screen overlay showing current CPU info</string>
 </resources>
