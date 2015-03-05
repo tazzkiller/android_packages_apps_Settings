@@ -53,6 +53,7 @@ import com.android.settings.remix.MainSettings;
 import com.android.settings.remix.InterfaceSettings;
 import com.android.settings.remix.SoundSettings;
 import com.android.settings.remix.ScreenSettings;
+import com.android.settings.remix.AmbientSettings;
 import com.android.settings.ButtonSettings;
 
 
@@ -137,6 +138,13 @@ public final class SearchIndexableResources {
                         NO_DATA_RES_ID,
                         MainSettings.class.getName(),
                         R.drawable.ic_remix_settings));
+
+        sResMap.put(AmbientSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(AmbientSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        AmbientSettings.class.getName(),
+                        R.drawable.ic_settings_display));
 
         sResMap.put(BatteryStyleSettings.class.getName(),
                 new SearchIndexableResource(
