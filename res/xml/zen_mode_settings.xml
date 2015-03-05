@@ -31,6 +31,7 @@
         android:summary="@string/interruptions_ignore_while_media_summary"
         android:persistent="false"
         android:switchTextOff=""
+        android:switchTextOn="" />
 
     <PreferenceCategory
         android:key="important"
