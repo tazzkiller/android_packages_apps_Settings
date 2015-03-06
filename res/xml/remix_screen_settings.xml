@@ -16,6 +16,12 @@
     android:title="@string/screen_and_lockscreen_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <SwitchPreference
+        android:key="block_on_secure_keyguard"
+        android:title="@string/block_on_secure_keyguard_title"
+        android:summary="@string/block_on_secure_keyguard_summary"
+        android:persistent="false" />
+
     <ListPreference
         android:key="lcd_density"
         android:title="@string/lcd_density"

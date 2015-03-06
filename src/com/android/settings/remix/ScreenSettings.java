@@ -29,13 +29,18 @@ import android.os.ServiceManager;
 import android.os.SystemProperties;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.PreferenceScreen;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.SwitchPreference;
+import android.provider.Settings;
 import android.text.Editable;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+
+import com.android.internal.widget.LockPatternUtils;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -55,9 +60,13 @@ public class ScreenSettings extends SettingsPreferenceFragment implements
     private static final int DIALOG_DENSITY = 0;
     private static final int DIALOG_DENSITY_WARNING = 1;
 
+    private static final String PREF_QUICK_PULLDOWN = "quick_pulldown";
+    private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
+
     private static final String KEY_LCD_DENSITY = "lcd_density";
 
     private ListPreference mLcdDensityPreference;
+    SwitchPreference mBlockOnSecureKeyguard;
 
     protected Context mContext;
 
@@ -65,6 +74,7 @@ public class ScreenSettings extends SettingsPreferenceFragment implements
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.remix_screen_settings);
+        PreferenceScreen prefs = getPreferenceScreen();
 
         mContext = getActivity().getApplicationContext();
         int newDensityValue;
@@ -84,6 +94,15 @@ public class ScreenSettings extends SettingsPreferenceFragment implements
         mLcdDensityPreference.setOnPreferenceChangeListener(this);
         updateLcdDensityPreferenceDescription(currentDensity);
 
+        final LockPatternUtils lockPatternUtils = new LockPatternUtils(getActivity());
+        mBlockOnSecureKeyguard = (SwitchPreference) findPreference(PREF_BLOCK_ON_SECURE_KEYGUARD);
+        if (lockPatternUtils.isSecure()) {
+            mBlockOnSecureKeyguard.setChecked(Settings.Secure.getInt(getContentResolver(),
+                    Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD, 1) == 1);
+            mBlockOnSecureKeyguard.setOnPreferenceChangeListener(this);
+        } else {
+            prefs.removePreference(mBlockOnSecureKeyguard);
+        }
     }
 
     @Override
@@ -102,7 +121,14 @@ public class ScreenSettings extends SettingsPreferenceFragment implements
                 writeLcdDensityPreference(value);
                 updateLcdDensityPreferenceDescription(value);
             }
-        }
+        return false;
+            }
+            if (preference == mBlockOnSecureKeyguard) {
+                Settings.Secure.putInt(getContentResolver(),
+                    Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD,
+                    (Boolean) objValue ? 1 : 0);
+                return true;
+            }
         return false;
     }
 
