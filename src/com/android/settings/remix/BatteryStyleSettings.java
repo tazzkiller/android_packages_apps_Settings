@@ -19,7 +19,6 @@ import android.content.Context;
 import android.content.ContentResolver;
 import android.os.Bundle;
 import android.content.ContentResolver;
-import android.content.res.Resources;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -27,11 +26,9 @@ import android.preference.PreferenceScreen;
 import android.provider.Settings;
 
 import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settings.search.Index;
 import com.android.settings.search.Indexable;
 import android.provider.SearchIndexableResource;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import com.android.settings.R;

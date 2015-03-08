@@ -22,10 +22,8 @@ import com.android.settings.search.Indexable;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.database.ContentObserver;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemProperties;
@@ -33,7 +31,6 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceScreen;
-import android.preference.PreferenceCategory;
 import android.preference.SwitchPreference;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;

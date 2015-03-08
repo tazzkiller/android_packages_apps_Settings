@@ -17,27 +17,22 @@
 package com.android.settings.remix;
 
 import android.content.Context;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.os.SystemProperties;
-import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
-import android.util.Log;
 
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Index;
 import com.android.settings.search.Indexable;
 import android.provider.SearchIndexableResource;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 

@@ -30,7 +30,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.net.NetworkUtils;
 import android.net.wifi.IWifiManager;
@@ -70,7 +69,6 @@ import android.widget.TextView;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.widget.SwitchBar;
-import dalvik.system.VMRuntime;
 
 import java.util.ArrayList;
 import java.util.Arrays;

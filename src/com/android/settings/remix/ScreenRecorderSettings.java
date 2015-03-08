@@ -20,16 +20,13 @@ import android.content.ContentResolver;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.ListPreference;
-import android.preference.PreferenceGroup;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.text.TextUtils;
 import com.android.settings.R;
-import android.provider.Settings.SettingNotFoundException;
 import com.android.settings.SettingsPreferenceFragment;
-import android.util.Log;
 
 public class ScreenRecorderSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {

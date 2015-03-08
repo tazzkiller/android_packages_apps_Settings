@@ -21,7 +21,6 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
-import android.content.DialogInterface.OnCancelListener;
 import android.os.Bundle;
 import android.preference.SwitchPreference;
 import android.preference.Preference;

@@ -17,10 +17,7 @@
 package com.android.settings.remix;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
@@ -32,7 +29,6 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Index;
 import com.android.settings.search.Indexable;
 import android.provider.SearchIndexableResource;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import java.util.List;
