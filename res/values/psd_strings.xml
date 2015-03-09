@@ -274,8 +274,8 @@
     <string name="shake_pulse_mode">Shake and pulse</string>
     <string name="pulse_only_mode">Pulse (default)</string>
 
-    <string name="block_on_secure_keyguard_title">Disable on lockscreen</string>
-    <string name="block_on_secure_keyguard_summary">Disable quick settings on secure lockscreen.</string>
+    <string name="block_on_secure_keyguard_title">Disable quick settings access</string>
+    <string name="block_on_secure_keyguard_summary">Disable access to quick settings on secure lockscreen.</string>
     <!-- Hardware tunables - Color calibration -->
     <string name="color_calibration_title">Color calibration</string>
     <string name="color_calibration_summary">Calibrate on-screen colors</string>
