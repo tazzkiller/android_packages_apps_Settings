@@ -22,11 +22,8 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.os.Binder;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Parcel;
-import android.os.RemoteException;
 import android.os.SELinux;
 import android.os.SystemClock;
 import android.os.SystemProperties;
@@ -80,7 +77,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String PROPERTY_EQUIPMENT_ID = "ro.ril.fccid";
     private static final String KEY_DEVICE_FEEDBACK = "device_feedback";
     private static final String KEY_SAFETY_LEGAL = "safetylegal";
-    private static final String KEY_PA_VERSION = "pa_version";
     private static final String KEY_PSD_VERSION = "psd_version";
     private static final String KEY_SM_VERSION = "sm_version";
 
@@ -105,7 +101,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
         findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
-        setValueSummary(KEY_PA_VERSION, "ro.pa.version");
         setValueSummary(KEY_PSD_VERSION, "ro.psd.modversion");
         setValueSummary(KEY_SM_VERSION, "ro.sm.arm");
         setValueSummary(KEY_BUILD_DATE, "ro.build.date");
