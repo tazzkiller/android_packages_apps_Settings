@@ -190,7 +190,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
 
     private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
 
-    private static final String SCROLLINGCACHE_DEFAULT = "1";
+    private static final String SCROLLINGCACHE_DEFAULT = "3";
 
     private IWindowManager mWindowManager;
     private IBackupManager mBackupManager;
