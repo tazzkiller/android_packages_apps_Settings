@@ -212,10 +212,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         PreferenceCategory advancedPrefs = (PreferenceCategory) findPreference(CATEGORY_ADVANCED);
 
         mTapToWake = (SwitchPreference) findPreference(KEY_TAP_TO_WAKE);
-        if (advancedPrefs != null && !mCmHardwareManager.isSupported(FEATURE_TAP_TO_WAKE)) {
+        if (advancedPrefs != null && mTapToWake != null && !mCmHardwareManager.isSupported(FEATURE_TAP_TO_WAKE)) {
             advancedPrefs.removePreference(mTapToWake);
             mTapToWake = null;
         }
+
+        Preference proximityWake = findPreference(KEY_PROXIMITY_WAKE);
 
         boolean proximityCheckOnWait = getResources().getBoolean(
                 com.android.internal.R.bool.config_proximityCheckOnWake);
