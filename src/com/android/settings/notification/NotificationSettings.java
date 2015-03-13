@@ -151,17 +151,10 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
             sound.removePreference(sound.findPreference(KEY_VOLUME_LINK_NOTIFICATION));
         }
 
-        initRingtones(sound);
-        initVibrateWhenRinging(sound);
-        initIncreasingRing(sound);
-
         final PreferenceCategory notification = (PreferenceCategory)
                 findPreference(KEY_NOTIFICATION);
         initPulse(notification);
         initLockscreenNotifications(notification);
-
-        mNotificationAccess = findPreference(KEY_NOTIFICATION_ACCESS);
-        refreshNotificationListeners();
 
         CmHardwareManager cmHardwareManager =
                 (CmHardwareManager) getSystemService(Context.CMHW_SERVICE);
@@ -186,6 +179,13 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
                 }
             }
         };
+        initRingtones(sound);
+        initVibrateWhenRinging(vibrate);
+        initIncreasingRing(sound);
+
+        mNotificationAccess = findPreference(KEY_NOTIFICATION_ACCESS);
+        refreshNotificationListeners();
+
     }
 
     @Override
@@ -195,6 +195,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         lookupRingtoneNames();
         initVolumeSeekbars();
         initVolumeLinkNotification();
+        updateNotificationPreferenceState();
         mSettingsObserver.register(true);
         if (mVoiceCapable) {
             updateSlidersAndMutedStates();
@@ -370,7 +371,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         mIncreasingRingVolume = (IncreasingRingVolumePreference)
                 root.findPreference(KEY_INCREASING_RING_VOLUME);
 
-        if (mIncreasingRing == null || mIncreasingRingVolume == null || !mVoiceCapable) {
+        if (!mVoiceCapable) {
             if (mIncreasingRing != null) {
                 root.removePreference(mIncreasingRing);
                 mIncreasingRing = null;
@@ -380,7 +381,9 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
                 mIncreasingRingVolume = null;
             }
         } else {
-            mIncreasingRingVolume.setCallback(mIncreasingRingVolumeCallback);
+            if (mIncreasingRingVolume != null) {
+                mIncreasingRingVolume.setCallback(mIncreasingRingVolumeCallback);
+            }
         }
     }
 
@@ -400,12 +403,14 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         mVibrateWhenRinging.setPersistent(false);
         updateVibrateWhenRinging();
         mVibrateWhenRinging.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                final boolean val = (Boolean) newValue;
-                return Settings.System.putInt(getContentResolver(),
-                        Settings.System.VIBRATE_WHEN_RINGING,
-                        val ? 1 : 0);
+        @Override
+            public boolean onPreferenceChange(Preference preference, Object objValue) {
+            if (preference == mVibrateWhenRinging) {
+                boolean doVibrate = (Boolean) objValue;
+                Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.VIBRATE_WHEN_RINGING, doVibrate ? 1 : 0);
+                }
+            return true;
             }
         });
     }
@@ -414,6 +419,23 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         if (mVibrateWhenRinging == null) return;
         mVibrateWhenRinging.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.VIBRATE_WHEN_RINGING, 0) != 0);
+    }
+
+    private void updateNotificationPreferenceState() {
+        mNotificationPreference = initVolumePreference(KEY_NOTIFICATION_VOLUME,
+                AudioManager.STREAM_NOTIFICATION);
+
+        if (mVoiceCapable) {
+            final boolean enabled = Settings.System.getInt(getContentResolver(),
+                    Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
+
+            if (mNotificationPreference != null) {
+                mNotificationPreference.setEnabled(!enabled);
+            }
+            if (mVolumeLinkNotification != null){
+                mVolumeLinkNotification.setChecked(enabled);
+            }
+        }
     }
 
     // === Pulse notification light ===
@@ -560,6 +582,9 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
                 Settings.Secure.getUriFor(Settings.Secure.LOCK_SCREEN_ALLOW_PRIVATE_NOTIFICATIONS);
         private final Uri LOCK_SCREEN_SHOW_URI =
                 Settings.Secure.getUriFor(Settings.Secure.LOCK_SCREEN_SHOW_NOTIFICATIONS);
+        private final Uri VOLUME_LINK_NOTIFICATION_URI =
+                Settings.Secure.getUriFor(Settings.Secure.VOLUME_LINK_NOTIFICATION);
+
 
         public SettingsObserver() {
             super(mHandler);
@@ -572,6 +597,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
                 cr.registerContentObserver(NOTIFICATION_LIGHT_PULSE_URI, false, this);
                 cr.registerContentObserver(LOCK_SCREEN_PRIVATE_URI, false, this);
                 cr.registerContentObserver(LOCK_SCREEN_SHOW_URI, false, this);
+                cr.registerContentObserver(VOLUME_LINK_NOTIFICATION_URI, false, this);
             } else {
                 cr.unregisterContentObserver(this);
             }
@@ -585,6 +611,9 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
             }
             if (NOTIFICATION_LIGHT_PULSE_URI.equals(uri)) {
                 updatePulse();
+            }
+            if (VOLUME_LINK_NOTIFICATION_URI.equals(uri)) {
+                updateNotificationPreferenceState();
             }
             if (LOCK_SCREEN_PRIVATE_URI.equals(uri) || LOCK_SCREEN_SHOW_URI.equals(uri)) {
                 updateLockscreenNotifications();
