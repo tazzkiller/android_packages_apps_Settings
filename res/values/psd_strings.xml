@@ -65,13 +65,18 @@
     <string name="recents_clear_all_dismiss_all_title">Clear all tasks</string>
     <string name="recents_clear_all_dismiss_all_summary">Choose whether to dismiss all tasks or ignore the foreground task</string>
 
-     <!--PA Version-->
-     <string name="pa_version">ParanoidAndroid version</string>
-     <string name="pa_version_default">Unknown</string>
-     <string name="psd_version">DarkoBas PSD version</string>
-     <string name="psd_version_default">Unknown</string>
-     <string name="sm_version">UBER version</string>
-     <string name="sm_version_default">Unknown</string>
+    <!--PA Version-->
+    <string name="psd_version">DarkoBas Uber Droid version</string>
+    <string name="psd_version_default">Unknown</string>
+    <!-- UBER GCC version info -->
+    <string name="uber_android">GCC android</string>
+    <string name="uber_android_default">Unknown</string>
+    <string name="uber_kernel">GCC kernel</string>
+    <string name="uber_kernel_default">Unknown</string>
+
+    <!-- UBER GCC build flags info -->
+    <string name="uber_flags">Optimizations</string>
+    <string name="uber_flags_default">None</string>
 
      <string name="notification_light_add">Add</string>
 
