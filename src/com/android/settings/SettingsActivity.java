@@ -117,6 +117,8 @@ import org.omnirom.omnigears.ButtonSettings;
 import com.brewcrewfoo.performance.activities.MainActivity;
 import org.omnirom.omnigears.batterylight.BatteryLightSettings;
 
+import org.dud.remixsettings.RemixMainSettings;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -244,6 +246,7 @@ public class SettingsActivity extends Activity
             R.id.nfc_payment_settings,
             R.id.home_settings,
             R.id.button_settings,
+            R.id.remix_settings,
             R.id.dashboard
     };
 
@@ -311,7 +314,8 @@ public class SettingsActivity extends Activity
             ApnSettings.class.getName(),
             ButtonSettings.class.getName(),
             MainActivity.class.getName(),
-            BatteryLightSettings.class.getName()
+            BatteryLightSettings.class.getName(),
+            RemixMainSettings.class.getName()
     };
 
 

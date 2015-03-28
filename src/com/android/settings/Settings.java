@@ -20,6 +20,8 @@ import com.android.settings.applications.AppOpsSummary;
 import org.omnirom.omnigears.ButtonSettings;
 import com.brewcrewfoo.performance.activities.MainActivity;
 import org.omnirom.omnigears.batterylight.BatteryLightSettings;
+
+import org.dud.remixsettings.RemixMainSettings;
 /**
  * Top-level Settings activity
  */
@@ -105,5 +107,6 @@ public class Settings extends SettingsActivity {
     public static class ButtonSettingsActivity extends SettingsActivity { /* empty */ }
     public static class MainActivityActivity extends SettingsActivity { /* empty */ }
     public static class BatteryLightSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class RemixMainSettingsActivity extends SettingsActivity { /* empty */ }
 }
 
