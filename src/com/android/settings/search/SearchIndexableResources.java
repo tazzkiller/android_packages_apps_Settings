@@ -54,6 +54,9 @@ import org.omnirom.omnigears.AmbientSettings;
 import org.omnirom.omnigears.ButtonSettings;
 import org.omnirom.omnigears.batterylight.BatteryLightSettings;
 
+import org.dud.remixsettings.RemixMainSettings;
+import org.dud.remixsettings.RemixInterfaceSettings;
+
 import java.util.Collection;
 import java.util.HashMap;
 
@@ -296,6 +299,22 @@ public final class SearchIndexableResources {
                         NO_DATA_RES_ID,
                         BatteryLightSettings.class.getName(),
                         R.drawable.ic_settings_notifications));
+
+        // remix additions
+        sResMap.put(RemixMainSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(RemixMainSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        RemixMainSettings.class.getName(),
+                        R.drawable.ic_remix_settings));
+
+        sResMap.put(RemixInterfaceSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(RemixInterfaceSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        RemixInterfaceSettings.class.getName(),
+                        R.drawable.ic_remix_interface_settings));
+
 
     }
 
