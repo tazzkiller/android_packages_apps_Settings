@@ -21,6 +21,7 @@
     <!-- About phone screen,  setting option name-->
     <string name="mod_version">Omni version</string>
     <string name="mod_version_default">Unknown</string>
+    <string name="settings_reset_button">Unknown</string>
 
     <!-- Main list strings -->
     <string name="header_category_interface">Interface</string>
