@@ -35,6 +35,7 @@
     <string name="adb_notify_summary">Display a notification when USB debugging is connected</string>
 
     <string name="volume_adjust_sound_title">Volume adjust sound</string>
+    <string name="screenshot_shutter_sound_title">Screenshot shutter sound</string>
 
     <!-- Advanced reboot options -->
     <string name="advanced_reboot_title">Advanced reboot</string>
@@ -85,4 +86,13 @@
     <string name="link_volume_option_title">Link ring and notification volumes</string>
     <string name="notification_volume_option_title">Notification volume</string>
     <string name="ring_notification_volume_option_tile">Ring and notification volume</string>
+
+    <!-- Unaccounted and overcounted battery stats -->
+    <string name="show_unac_and_overcounted_stats_title">Show unaccounted/overcounted stats</string>
+    <string name="show_unac_and_overcounted_stats_summary">Show in battery statistics unaccounted and over-counted usage.</string>
+
+    <!-- Keyguard: quick unlock -->
+    <string name="keyguard_quick_unlock">Quick unlock</string>
+    <string name="keyguard_quick_unlock_summary_pin">Unlock automatically when correct PIN is entered</string>
+    <string name="keyguard_quick_unlock_summary_password">Unlock automatically when correct password is entered</string>
 </resources>
