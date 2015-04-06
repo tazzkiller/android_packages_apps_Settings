@@ -84,6 +84,18 @@
                android:icon="@drawable/ic_remix_settings"
                /> 
 
+    <!-- Layers -->
+        <dashboard-tile
+            android:key="bitsyko_layers"
+            android:id="@+id/layers_settings"
+            android:icon="@drawable/ic_bitsyko_layers"
+            android:title="@string/bitsyko_layers_str">   
+	    <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.lovejoy777.rroandlayersmanager"
+                android:targetClass="com.lovejoy777.rroandlayersmanager.menu" />
+        </dashboard-tile>
+
         <!-- Bars
         <dashboard-tile
                android:id="@+id/interface_bars"

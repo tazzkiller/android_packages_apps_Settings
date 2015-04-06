@@ -1240,6 +1240,17 @@ public class SettingsActivity extends Activity
                     if (!supported) {
                         removeTile = true;
                     }
+                } else if (id == R.id.layers_settings) {
+                    boolean supported = false;
+                    try {
+                        getPackageManager().getPackageInfo("com.lovejoy777.rroandlayersmanager", PackageManager.GET_ACTIVITIES);
+                        supported = true;
+                    } catch (PackageManager.NameNotFoundException e) {
+                        supported = false;
+                    }
+                    if (!supported) {
+                        removeTile = true;
+                    }
                 } else if (id == R.id.advanced_settings) {
                     boolean supported = false;
                     try {

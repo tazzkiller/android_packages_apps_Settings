@@ -21,4 +21,6 @@
     <string name="remix_settings_title">Remix Settings</string>
     <string name="changelog_title">Changelog</string>
     <string name="changelog_error">Unable to load changelog</string>
+    <!-- BitSyko Layers  -->
+    <string name="bitsyko_layers_str">Layers</string>
 </resources>
