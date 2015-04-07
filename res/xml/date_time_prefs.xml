@@ -51,5 +51,13 @@
     <SwitchPreference android:key="24 hour"
         android:title="@string/date_time_24hour"
         />
+    <PreferenceCategory
+       android:title="@string/status_bar_style_title">
 
+       <PreferenceScreen
+           android:fragment="org.dud.remixsettings.StatusBarClockStyle"
+           android:key="clock_style_pref"
+           android:title="@string/status_bar_clock" />
+
+    </PreferenceCategory>
 </PreferenceScreen>
