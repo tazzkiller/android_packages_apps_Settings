@@ -13,4 +13,4 @@
 
 <bitmap xmlns:android="http://schemas.android.com/apk/res/android"
     android:src="@drawable/ic_remix_settings"
-    android:tint="@*android:color/material_deep_teal_500" />
+    android:tint="@color/theme_accent" />
