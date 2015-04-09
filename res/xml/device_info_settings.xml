@@ -120,6 +120,12 @@
                 android:title="@string/firmware_version"
                 android:summary="@string/device_info_default"/>
 
+        <!-- Device PSD version -->
+        <Preference android:key="dud_version"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/dud_version"
+                android:summary="@string/dud_version_default" />
+
         <!-- Mod version -->
         <Preference android:key="mod_version"
                 style="?android:preferenceInformationStyle"

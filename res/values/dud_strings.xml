@@ -28,4 +28,7 @@
     <string name="app_notification_show_on_keyguard_summary">Show notifications from this app on the lockscreen</string>
     <string name="app_notification_no_ongoing_on_keyguard_title">Disable ongoing on lockscreen</string>
     <string name="app_notification_no_ongoing_on_keyguard_summary">Never show ongoing notifications from this app on the lockscreen</string>
+     <!--DUD Version-->
+     <string name="dud_version">Darkobas ROM version</string>
+     <string name="dud_version_default">Unknown</string>
 </resources>
