@@ -53,6 +53,7 @@ import com.android.settings.wifi.WifiSettings;
 import org.omnirom.omnigears.AmbientSettings;
 import org.omnirom.omnigears.ButtonSettings;
 import org.omnirom.omnigears.batterylight.BatteryLightSettings;
+import org.omnirom.omnigears.interfacesettings.BarsSettings;
 import org.omnirom.omnigears.brightness.ButtonBrightnessSettings;
 
 import org.dud.remixsettings.RemixMainSettings;
@@ -316,13 +317,19 @@ public final class SearchIndexableResources {
                         RemixInterfaceSettings.class.getName(),
                         R.drawable.ic_remix_interface_settings));
 
+        sResMap.put(BarsSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(BarsSettings.class.getName()),
+                        NO_DATA_RES_ID,
+                        BarsSettings.class.getName(),
+                        R.drawable.ic_bars));
+
         sResMap.put(ButtonBrightnessSettings.class.getName(),
                 new SearchIndexableResource(
                         Ranking.getRankForClassName(ButtonBrightnessSettings.class.getName()),
                         NO_DATA_RES_ID,
                         ButtonBrightnessSettings.class.getName(),
                         R.drawable.ic_buttons));
-
     }
 
     private SearchIndexableResources() {
