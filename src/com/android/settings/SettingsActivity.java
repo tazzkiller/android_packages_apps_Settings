@@ -116,6 +116,7 @@ import com.android.settings.wifi.p2p.WifiP2pSettings;
 import org.omnirom.omnigears.ButtonSettings;
 import com.brewcrewfoo.performance.activities.MainActivity;
 import org.omnirom.omnigears.batterylight.BatteryLightSettings;
+import org.omnirom.omnigears.brightness.ButtonBrightnessSettings;
 
 import org.dud.remixsettings.RemixMainSettings;
 
@@ -316,6 +317,7 @@ public class SettingsActivity extends Activity
             MainActivity.class.getName(),
             BatteryLightSettings.class.getName(),
             RemixMainSettings.class.getName()
+            ButtonBrightnessSettings.class.getName()
     };
 
 
