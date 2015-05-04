@@ -25,13 +25,6 @@
             android:title="@string/zen_mode_option_title"
             android:persistent="false" />
 
-    <SwitchPreference
-       android:key="music_interruptions"
-        android:title="@string/interruptions_ignore_while_media_title"
-        android:summary="@string/interruptions_ignore_while_media_summary"
-        android:persistent="false"
-        android:switchTextOff="" />
-
     <PreferenceCategory
         android:key="none"
         android:title="@string/zen_mode_none_category" >
