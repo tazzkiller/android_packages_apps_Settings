@@ -12,5 +12,5 @@
 -->
 
 <bitmap xmlns:android="http://schemas.android.com/apk/res/android"
-    android:src="@drawable/ic_buttons"
-    android:tint="@*android:color/material_deep_teal_500" />
+    android:src="@drawable/ic_bars"
+    android:tint="@color/ic_settings_icons_exposed" />

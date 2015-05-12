@@ -12,5 +12,5 @@
 -->
 
 <bitmap xmlns:android="http://schemas.android.com/apk/res/android"
-    android:src="@drawable/ic_remix_settings"
+    android:src="@drawable/performance_settings"
     android:tint="@color/ic_settings_icons_exposed" />
