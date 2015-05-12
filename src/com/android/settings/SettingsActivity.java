@@ -318,7 +318,7 @@ public class SettingsActivity extends Activity
             ButtonSettings.class.getName(),
             MainActivity.class.getName(),
             BatteryLightSettings.class.getName(),
-            RemixMainSettings.class.getName()
+            RemixMainSettings.class.getName(),
             BarsSettings.class.getName(),
             ButtonBrightnessSettings.class.getName()
     };
