@@ -88,7 +88,7 @@
         <dashboard-tile
             android:key="bitsyko_layers"
             android:id="@+id/layers_settings"
-            android:icon="@drawable/ic_bitsyko_layers"
+            android:icon="@drawable/ic_bitsyko_layers_exposed"
             android:title="@string/bitsyko_layers_str">   
 	    <intent
                 android:action="android.intent.action.MAIN"
@@ -147,7 +147,7 @@
                 android:id="@+id/button_settings"
                 android:title="@string/button_settings"
                 android:fragment="org.omnirom.omnigears.ButtonSettings"
-                android:icon="@drawable/ic_buttons_tint_exposed"
+                android:icon="@drawable/ic_settings_button_exposed"
                 />
 
         <!-- Notifications -->
@@ -305,7 +305,7 @@
         <!-- SuperSU -->
         <dashboard-tile
             android:id="@+id/supersu_settings"
-            android:icon="@drawable/ic_settings_supersu"
+            android:icon="@drawable/ic_settings_supersu_exposed"
             android:title="@string/supersu_title">
             <intent
                 android:action="android.intent.action.MAIN"
@@ -317,8 +317,8 @@
         <dashboard-tile
                 android:id="@+id/performance_controls"
                 android:fragment="com.brewcrewfoo.performance.activities.MainActivity"
-                android:icon="@drawable/ic_settings_performance"
-                android:title="@string/performance_settings_exposed" />
+                android:icon="@drawable/performance_settings_exposed"
+                android:title="@string/performance_settings" />
 
         <!-- About Device -->
         <dashboard-tile

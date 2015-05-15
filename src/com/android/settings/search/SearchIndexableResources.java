@@ -286,7 +286,7 @@ public final class SearchIndexableResources {
                         Ranking.getRankForClassName(AmbientSettings.class.getName()),
                         NO_DATA_RES_ID,
                         AmbientSettings.class.getName(),
-                        R.drawable.ic_settings_display));
+                        R.drawable.ic_settings_display_exposed));
 
         sResMap.put(ButtonSettings.class.getName(),
                 new SearchIndexableResource(
@@ -322,14 +322,14 @@ public final class SearchIndexableResources {
                         Ranking.getRankForClassName(BarsSettings.class.getName()),
                         NO_DATA_RES_ID,
                         BarsSettings.class.getName(),
-                        R.drawable.ic_bars));
+                        R.drawable.ic_bars_exposed));
 
         sResMap.put(ButtonBrightnessSettings.class.getName(),
                 new SearchIndexableResource(
                         Ranking.getRankForClassName(ButtonBrightnessSettings.class.getName()),
                         NO_DATA_RES_ID,
                         ButtonBrightnessSettings.class.getName(),
-                        R.drawable.ic_buttons));
+                        R.drawable.ic_settings_button_exposed));
     }
 
     private SearchIndexableResources() {
