@@ -48,6 +48,7 @@ import com.android.settings.wifi.AdvancedWifiSettings;
 import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.WifiSettings;
 import org.dud.remixsettings.RemixMainSettings;
+import com.android.settings.WifiCallingSettings;
 
 import java.util.HashMap;
 
@@ -106,6 +107,7 @@ public final class Ranking {
 
         // Other wireless settinfs
         sRankMap.put(WirelessSettings.class.getName(), RANK_WIRELESS);
+        sRankMap.put(WifiCallingSettings.class.getName(), RANK_WIRELESS);
 
         // Home
         sRankMap.put(HomeSettings.class.getName(), RANK_HOME);

@@ -113,5 +113,6 @@ public class Settings extends SettingsActivity {
     public static class RemixMainSettingsActivity extends SettingsActivity { /* empty */ }
     public static class BarsSettingsActivity extends SettingsActivity { /* empty */ }
     public static class ButtonBrightnessSettings extends SettingsActivity { /* empty */ }
+    public static class WifiCallingSettingsActivity extends SettingsActivity { /* empty */ }
 }
 

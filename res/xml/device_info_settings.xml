@@ -20,6 +20,12 @@
         <PreferenceScreen android:key="dudbanner"
                           android:enabled="false"
                           android:layout="@layout/dudbanner_row" />
+        <!-- Mod version -->
+        <Preference android:key="mod_version"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/mod_version"
+                android:summary="@string/mod_version_default"
+		android:icon="@drawable/omnirom_logo" />
 
         <!-- System update settings - launches activity -->
         <PreferenceScreen android:key="system_update_settings"
