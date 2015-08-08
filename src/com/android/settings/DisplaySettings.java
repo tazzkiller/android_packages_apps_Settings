@@ -78,9 +78,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     private static final String KEY_DOZE_FRAGMENT = "doze_fragment";
 
-    private static final String KEY_TAP_TO_WAKE = "double_tap_wake_gesture";
-    private static final String KEY_PROXIMITY_WAKE = "proximity_on_wake";
-
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
     private static final String ROTATION_ANGLE_0 = "0";
@@ -156,14 +153,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mDozeFragement = (PreferenceScreen) findPreference(KEY_DOZE_FRAGMENT);
         if (!isDozeAvailable(activity)) {
             getPreferenceScreen().removePreference(mDozeFragement);
-        }
-
-        Preference proximityWake = findPreference(KEY_PROXIMITY_WAKE);
-        boolean proximityCheckOnWake = getResources().getBoolean(
-                com.android.internal.R.bool.config_proximityCheckOnWake);
-        if (proximityWake != null && !proximityCheckOnWake) {
-            getPreferenceScreen().removePreference(proximityWake);
-            Settings.System.putInt(getContentResolver(), Settings.System.PROXIMITY_ON_WAKE, 0);
         }
 
         // is replaced by new rotation setting
@@ -522,10 +511,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     }
                     if (!RotationPolicy.isRotationLockToggleVisible(context)) {
                         result.add(KEY_AUTO_ROTATE);
-                    }
-                    if (!context.getResources().getBoolean(
-                            com.android.internal.R.bool.config_proximityCheckOnWake)) {
-                        result.add(KEY_PROXIMITY_WAKE);
                     }
                     return result;
                 }
