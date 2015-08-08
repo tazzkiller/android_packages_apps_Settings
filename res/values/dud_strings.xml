@@ -31,4 +31,8 @@
      <!--DUD Version-->
      <string name="dud_version">Darkobas ROM version</string>
      <string name="dud_version_default">Unknown</string>
+    <!-- Proximity wake -->
+    <string name="proximity_wake_title">Prevent accidental wake-up</string>
+    <string name="proximity_wake_summary">Check the proximity sensor prior to waking up screen</string>
+
 </resources>
