@@ -15,4 +15,21 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/remix_settings_title" >
+
+    <PreferenceCategory
+            android:key="remix_lights_category"
+            android:title="@string/remix_lights_category">
+	<PreferenceScreen
+		android:key="remix_notificationlight_settings"
+		android:title="@string/remix_notlight_title"
+		android:fragment="com.android.settings.darkobas.NotificationLightSettings"
+		android:icon="@drawable/ic_remix_notification" />
+    	<PreferenceScreen
+		android:key="remix_batterylight_settings"
+		android:title="@string/remix_batlight_title"
+		android:fragment="com.android.settings.darkobas.BatteryLightSettings"
+		android:icon="@drawable/ic_remix_notification" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

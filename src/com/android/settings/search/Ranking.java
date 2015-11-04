@@ -52,6 +52,7 @@ import com.android.settings.users.UserSettings;
 import com.android.settings.wifi.AdvancedWifiSettings;
 import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.WifiSettings;
+import com.android.settings.darkobas.RemixMainSettings;
 
 import java.util.HashMap;
 
@@ -82,6 +83,8 @@ public final class Ranking {
     public static final int RANK_PRINTING = 20;
     public static final int RANK_DEVELOPEMENT = 21;
     public static final int RANK_DEVICE_INFO = 22;
+    public static final int RANK_REMIXMAIN = 23;
+    public static final int RANK_REMIXNOTIFICATION = 24;
 
     public static final int RANK_UNDEFINED = -1;
     public static final int RANK_OTHERS = 1024;
@@ -172,6 +175,9 @@ public final class Ranking {
         // Device infos
         sRankMap.put(DeviceInfoSettings.class.getName(), RANK_DEVICE_INFO);
         sRankMap.put(LegalSettings.class.getName(), RANK_DEVICE_INFO);
+
+        // Remix Settings
+        sRankMap.put(RemixMainSettings.class.getName(), RANK_REMIXMAIN);
 
         sBaseRankMap.put("com.android.settings", 0);
     }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.remixsettings;
+package com.android.settings.darkobas;
 
 import android.content.Context;
 import android.os.Bundle;

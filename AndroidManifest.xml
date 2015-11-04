@@ -2584,5 +2584,19 @@
                 android:value="com.android.settings.applications.WriteSettingsDetails" />
         </activity>
 
+        <!-- REMIX Main Settings -->
+        <activity android:name="Settings$MainSettingsActivity"
+            android:label="@string/remix_settings_title"
+            android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.darkobas.RemixMainSettings" />
+        </activity>
+
+        <activity
+             android:name=".darkobas.RemixMainSettings" />
     </application>
 </manifest>

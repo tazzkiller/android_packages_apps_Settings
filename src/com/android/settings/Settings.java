@@ -18,7 +18,7 @@ package com.android.settings;
 
 import com.android.settings.applications.AppOpsSummary;
 
-import com.android.settings.remixsettings.RemixMainSettings;
+import com.android.settings.darkobas.RemixMainSettings;
 /**
  * Top-level Settings activity
  */

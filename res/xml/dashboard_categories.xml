@@ -80,9 +80,9 @@
 
     <!-- Remix Settings -->
         <dashboard-tile
-                android:id="@+id/remix_settings"
+                android:id="@+id/remix_main_settings"
                 android:title="@string/remix_settings_title"
-                android:fragment="com.android.settings.remixsettings.RemixMainSettings"
+                android:fragment="com.android.settings.darkobas.RemixMainSettings"
                 android:icon="@drawable/ic_remix_settings"
                 />
 
