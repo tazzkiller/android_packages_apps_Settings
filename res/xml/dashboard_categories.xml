@@ -78,6 +78,14 @@
             android:key="@string/category_key_device"
             android:title="@string/header_category_device" >
 
+    <!-- Remix Settings -->
+        <dashboard-tile
+                android:id="@+id/remix_settings"
+                android:title="@string/remix_settings_title"
+                android:fragment="com.android.settings.remixsettings.RemixMainSettings"
+                android:icon="@drawable/ic_remix_settings"
+                />
+
         <!-- Home -->
         <dashboard-tile
                 android:id="@+id/home_settings"
