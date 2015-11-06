@@ -4,6 +4,7 @@
     <string name="remix_lights_category">Lights Settings</string>
     <string name="remix_notlight_title">Notification lights settings</string>
     <string name="remix_batlight_title">Battery light settings</string>
+    <string name="header_category_custom">Custom Settings</string>
 
     <!-- Display : Rotation  -->
     <string name="display_rotation_title">Rotation</string>
