@@ -32,4 +32,14 @@
 
     </PreferenceCategory>
 
+   <PreferenceCategory
+            android:key="remix_buttons_category"
+            android:title="@string/remix_buttons_category">
+        <PreferenceScreen
+                android:key="remix_button_settings"
+                android:title="@string/remix_buttons_title"
+                android:fragment="com.android.settings.darkobas.RemixButtonSettings"
+                android:icon="@drawable/ic_remix_notification" />
+
+    </PreferenceCategory>
 </PreferenceScreen>

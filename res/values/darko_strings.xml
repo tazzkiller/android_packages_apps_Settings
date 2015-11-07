@@ -5,6 +5,9 @@
     <string name="remix_notlight_title">Notification lights settings</string>
     <string name="remix_batlight_title">Battery light settings</string>
     <string name="header_category_custom">Custom Settings</string>
+    <string name="category_key_custom">Custom Settings</string>
+    <string name="remix_buttons_category">Buttons Customization</string>
+    <string name="remix_buttons_title">Remix Buttons</string>
 
     <!-- Display : Rotation  -->
     <string name="display_rotation_title">Rotation</string>
@@ -58,4 +61,8 @@
     <string name="profiles_add">Add</string>
     <!-- Add application dialog box title -->
     <string name="profile_choose_app">Choose app</string>
+
+    <!-- Swap volume buttons when the screen is rotated -->
+    <string name="swap_volume_buttons_title">Match rotation</string>
+    <string name="swap_volume_buttons_summary">Adjust volume buttons action based on current rotation</string>
 </resources>
