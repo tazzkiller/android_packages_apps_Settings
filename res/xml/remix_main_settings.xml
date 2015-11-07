@@ -39,7 +39,7 @@
                 android:key="remix_button_settings"
                 android:title="@string/remix_buttons_title"
                 android:fragment="com.android.settings.darkobas.RemixButtonSettings"
-                android:icon="@drawable/ic_remix_notification" />
+                android:icon="@drawable/ic_remix_buttons" />
 
     </PreferenceCategory>
 </PreferenceScreen>
