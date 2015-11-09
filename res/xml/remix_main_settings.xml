@@ -16,6 +16,16 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/remix_settings_title" >
 
+         <PreferenceScreen
+            android:key="offscreen_gestures"
+            android:title="@string/offscreen_gestures_title"
+            android:icon="@drawable/ic_remix_gestures" />
+            <intent
+                    android:action="android.intent.action.MAIN"
+                    android:targetClass="org.omnirom.device.DeviceSettings"
+                    android:targetPackage="org.omnirom.device" />
+        </PreferenceScreen>
+
     <PreferenceCategory
             android:key="remix_lights_category"
             android:title="@string/remix_lights_category">
