@@ -309,7 +309,7 @@ public final class SearchIndexableResources {
                         Ranking.getRankForClassName(RemixMainSettings.class.getName()),
                         R.xml.remix_main_settings,
                         RemixMainSettings.class.getName(),
-                        R.drawable.ic_remix_settings));
+                        R.drawable.ic_remix_icon));
     }
 
     private SearchIndexableResources() {
