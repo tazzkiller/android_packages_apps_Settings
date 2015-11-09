@@ -45,11 +45,13 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.settings.R;
 import com.android.settings.Utils;
+import com.android.settings.darkobas.ButtonBacklightBrightness;
 
 public class RemixButtonSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "SystemSettings";
 
+    private static final String KEY_BUTTON_BACKLIGHT = "button_backlight";
     private static final String KEY_HOME_LONG_PRESS = "hardware_keys_home_long_press";
     private static final String KEY_HOME_DOUBLE_TAP = "hardware_keys_home_double_tap";
     private static final String KEY_MENU_PRESS = "hardware_keys_menu_press";
@@ -212,6 +214,12 @@ public class RemixButtonSettings extends SettingsPreferenceFragment implements
             mSwapVolumeButtons = (CheckBoxPreference) findPreference(SWAP_VOLUME_BUTTONS);
             mSwapVolumeButtons.setChecked(Settings.System.getInt(resolver,
                    Settings.System.SWAP_VOLUME_BUTTONS, 0) != 0);
+
+        final ButtonBacklightBrightness backlight =
+                (ButtonBacklightBrightness) findPreference(KEY_BUTTON_BACKLIGHT);
+        if (!backlight.isButtonSupported() && !backlight.isKeyboardSupported()) {
+            prefScreen.removePreference(backlight);
+        }
     }
 
     @Override
