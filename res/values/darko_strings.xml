@@ -103,5 +103,6 @@
     <string name="backlight_timeout_title">Illumination timeout</string>
     <string name="backlight_timeout_unlimited">Don\'t turn off</string>
     <string name="backlight_summary_disabled">Disabled</string>
+    <string name="backlight_summary_enabled">Enabled</string>
     <string name="backlight_summary_enabled_with_timeout">Enabled for <xliff:g id="timeout">%s</xliff:g></string>
 </resources>
