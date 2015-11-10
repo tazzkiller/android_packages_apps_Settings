@@ -19,7 +19,7 @@
          <PreferenceScreen
             android:key="offscreen_gestures"
             android:title="@string/offscreen_gestures_title"
-            android:icon="@drawable/ic_remix_gestures" />
+            android:icon="@drawable/ic_remix_gestures" >
             <intent
                     android:action="android.intent.action.MAIN"
                     android:targetClass="org.omnirom.device.DeviceSettings"
