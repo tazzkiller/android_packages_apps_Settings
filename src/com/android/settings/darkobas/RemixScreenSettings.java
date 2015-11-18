@@ -26,6 +26,7 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.SwitchPreference;
 import android.view.Display;
 import android.view.IWindowManager;
 import android.view.WindowManager;
@@ -60,7 +61,7 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.remix_screen_settings);
 
         mContext = getActivity().getApplicationContext();
-        mQuickPulldown = (CheckBoxPreference) findPreference(KEY_QUICK_PULLDOWN);
+        mQuickPulldown = (SwitchPreference) findPreference(KEY_QUICK_PULLDOWN);
 
         mLcdDensityPreference = (ListPreference) findPreference(KEY_LCD_DENSITY);
         if (mLcdDensityPreference != null) {
