@@ -20,4 +20,10 @@
         android:key="lcd_density"
         android:title="@string/lcd_density"
         android:persistent="false" />
+
+    <com.android.settings.preference.SystemCheckBoxPreference
+        android:key="double_tap_sleep_gesture"
+        android:title="@string/double_tap_to_sleep_title"
+        android:summary="@string/double_tap_to_sleep_summary"
+        android:defaultValue="true" />
 </PreferenceScreen>
