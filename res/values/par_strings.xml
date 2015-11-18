@@ -17,7 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
      <!--PAR Version-->
-     <string name="par_version">AOSParadox Version</string>
+     <string name="par_version">Darkobas Version</string>
      <string name="par_version_default">Unknown unofficial build</string>
 
      <!--CAF Branch-->
