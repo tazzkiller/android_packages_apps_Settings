@@ -104,6 +104,11 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
     protected int getMetricsCategory() {
         return MetricsLogger.DONT_TRACK_ME_BRO;
     }
@@ -142,6 +147,11 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
             }
         }
         return true;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     private void updateLcdDensityPreferenceDescription(int currentDensity) {
