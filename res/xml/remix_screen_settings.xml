@@ -34,14 +34,14 @@
         android:persistent="false" />
 
     <com.android.settings.preference.SystemSettingSwitchPreference
-        android:key="recents_show_hide_search_bar"
+        android:key="recents_show_search_bar"
         android:title="@string/recents_show_searchbar"
         android:summary="@string/recents_show_searchbar_summary"
         settings:keywords="@string/keywords_recents_show_searchbar"
         android:defaultValue="false" />
 
     <com.android.settings.preference.SystemSettingSwitchPreference
-        android:key="double_tap_sleep_anywhere"
+        android:key="double_tap_sleep_lock_screen"
         android:title="@string/double_tap_sleep_anywhere_title"
         android:summary="@string/double_tap_sleep_anywhere_summary" />
 

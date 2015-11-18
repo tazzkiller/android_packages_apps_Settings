@@ -764,12 +764,12 @@ public class RemixButtonSettings extends SettingsPreferenceFragment implements O
 //    }
 
     private void updateDisableHWKeyEnablement(boolean harwareKeysDisable) {
-//        boolean enableHWKeyRebinding = Settings.System.getInt(getContentResolver(),
-//                    Settings.System.HARDWARE_KEY_REBINDING, 0) == 1;
+        boolean enableHWKeyRebinding = Settings.System.getInt(getContentResolver(),
+                    Settings.System.HARDWARE_KEY_REBINDING, 0) == 1;
 
 //        mVirtualKeyHapticFeedback.setEnabled(!harwareKeysDisable);
 //        mForceShowOverflowMenu.setEnabled(!harwareKeysDisable);
-        mEnableCustomBindings.setEnabled(!harwareKeysDisable);
+//        mEnableCustomBindings.setEnabled(!harwareKeysDisable);
         mButtonBrightness.setEnabled(!harwareKeysDisable);
 //        mKeysHomeCategory.setEnabled(!harwareKeysDisable && enableHWKeyRebinding);
 //        mKeysBackCategory.setEnabled(!harwareKeysDisable && enableHWKeyRebinding);

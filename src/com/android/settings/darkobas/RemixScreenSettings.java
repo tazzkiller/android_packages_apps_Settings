@@ -26,6 +26,7 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.view.Display;
 import android.view.IWindowManager;
@@ -52,6 +53,7 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
     private static final String KEY_QUICK_PULLDOWN = "status_bar_quick_qs_pulldown";
 
     private ListPreference mLcdDensityPreference;
+    private SwitchPreference mQuickPulldown;
 
     protected Context mContext;
 
@@ -61,7 +63,6 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.remix_screen_settings);
 
         mContext = getActivity().getApplicationContext();
-        mQuickPulldown = (SwitchPreference) findPreference(KEY_QUICK_PULLDOWN);
 
         mLcdDensityPreference = (ListPreference) findPreference(KEY_LCD_DENSITY);
         if (mLcdDensityPreference != null) {
