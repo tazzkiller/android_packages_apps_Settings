@@ -168,4 +168,8 @@
     <!-- tap-to-sleep -->
     <string name="double_tap_to_sleep_title">Double-tap to sleep</string>
     <string name="double_tap_to_sleep_summary">Double tap status bar to put the device to sleep</string>
+
+    
+    <string name="title_quick_pulldown">Quick pulldown</string>
+    <string name="quick_pulldown_summary">Enable quick pulldown on the right side of the status bar</string>
 </resources>

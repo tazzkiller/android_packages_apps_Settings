@@ -48,6 +48,7 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
     private static final int DIALOG_DENSITY_WARNING = 1;
 
     private static final String KEY_LCD_DENSITY = "lcd_density";
+    private static final String KEY_QUICK_PULLDOWN = "status_bar_quick_qs_pulldown";
 
     private ListPreference mLcdDensityPreference;
 
@@ -59,6 +60,7 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.remix_screen_settings);
 
         mContext = getActivity().getApplicationContext();
+        mQuickPulldown = (CheckBoxPreference) findPreference(KEY_QUICK_PULLDOWN);
 
         mLcdDensityPreference = (ListPreference) findPreference(KEY_LCD_DENSITY);
         if (mLcdDensityPreference != null) {
