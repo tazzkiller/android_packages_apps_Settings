@@ -26,7 +26,6 @@
         <item>@string/keys_action_last_app</item>
         <item>@string/keys_action_kill_app</item>
         <item>@string/keys_action_sleep</item>
-        <item>@string/keys_action_omniswitch</item>
     </string-array>
 
     <string-array name="keys_action_values" translatable="false">
@@ -41,7 +40,6 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
-        <item>11</item>
     </string-array>
     <string-array name="navbar_recents_style_entries" translatable="false">
         <item>@string/keys_action_app_switch</item>

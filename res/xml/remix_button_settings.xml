@@ -113,11 +113,11 @@
             android:summary="@string/button_brightness_summary"
             android:fragment="com.android.settings.darkobas.ButtonBrightnessSettings" />
 
-     <!--    <SwitchPreference
+        <SwitchPreference
             android:key="keys_enable_custom"
             android:title="@string/keys_enable_custom_title"
             android:persistent="false" />
-     -->
+
     </PreferenceCategory>
 
     <PreferenceCategory

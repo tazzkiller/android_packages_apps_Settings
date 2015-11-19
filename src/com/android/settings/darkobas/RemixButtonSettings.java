@@ -15,21 +15,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-/*
- * Copyright (C) 2013 The CyanogenMod project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.android.settings.darkobas;
 
 import android.content.ContentResolver;
@@ -229,11 +214,11 @@ public class RemixButtonSettings extends SettingsPreferenceFragment implements O
 
         final int deviceKeys = getResources().getInteger(
                 com.android.internal.R.integer.config_deviceHardwareKeys);
-        final boolean hasBackKey = false; //(deviceKeys & KEY_MASK_BACK) != 0;
-        final boolean hasHomeKey = false; //(deviceKeys & KEY_MASK_HOME) != 0;
-        final boolean hasMenuKey = false; //(deviceKeys & KEY_MASK_MENU) != 0;
-        final boolean hasAssistKey = false; //(deviceKeys & KEY_MASK_ASSIST) != 0;
-        final boolean hasAppSwitchKey = false; //(deviceKeys & KEY_MASK_APP_SWITCH) != 0;
+        final boolean hasBackKey = (deviceKeys & KEY_MASK_BACK) != 0;
+        final boolean hasHomeKey = (deviceKeys & KEY_MASK_HOME) != 0;
+        final boolean hasMenuKey = (deviceKeys & KEY_MASK_MENU) != 0;
+        final boolean hasAssistKey = (deviceKeys & KEY_MASK_ASSIST) != 0;
+        final boolean hasAppSwitchKey = (deviceKeys & KEY_MASK_APP_SWITCH) != 0;
 
         final PreferenceCategory keysCategory =
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_KEYS);
@@ -769,13 +754,13 @@ public class RemixButtonSettings extends SettingsPreferenceFragment implements O
 
 //        mVirtualKeyHapticFeedback.setEnabled(!harwareKeysDisable);
 //        mForceShowOverflowMenu.setEnabled(!harwareKeysDisable);
-//        mEnableCustomBindings.setEnabled(!harwareKeysDisable);
+        mEnableCustomBindings.setEnabled(!harwareKeysDisable);
         mButtonBrightness.setEnabled(!harwareKeysDisable);
-//        mKeysHomeCategory.setEnabled(!harwareKeysDisable && enableHWKeyRebinding);
-//        mKeysBackCategory.setEnabled(!harwareKeysDisable && enableHWKeyRebinding);
-//        mKeysMenuCategory.setEnabled(!harwareKeysDisable && enableHWKeyRebinding);
-//        mKeysAppSwitchCategory.setEnabled(!harwareKeysDisable && enableHWKeyRebinding);
-//        mKeysAssistCategory.setEnabled(!harwareKeysDisable && enableHWKeyRebinding);
+        mKeysHomeCategory.setEnabled(!harwareKeysDisable && enableHWKeyRebinding);
+        mKeysBackCategory.setEnabled(!harwareKeysDisable && enableHWKeyRebinding);
+        mKeysMenuCategory.setEnabled(!harwareKeysDisable && enableHWKeyRebinding);
+        mKeysAppSwitchCategory.setEnabled(!harwareKeysDisable && enableHWKeyRebinding);
+        mKeysAssistCategory.setEnabled(!harwareKeysDisable && enableHWKeyRebinding);
     }
 
     private void doOmniSwitchConfig() {
