@@ -16,6 +16,7 @@
 
 package com.android.settings.darkobas;
 
+import android.content.ContentResolver;
 import android.app.IActivityManager;
 import android.app.ActivityManagerNative;
 import android.app.ProgressDialog;
@@ -24,6 +25,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.provider.Settings;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
@@ -50,10 +52,11 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
     private static final int DIALOG_DENSITY_WARNING = 1;
 
     private static final String KEY_LCD_DENSITY = "lcd_density";
-    private static final String KEY_QUICK_PULLDOWN = "status_bar_quick_qs_pulldown";
 
+    private static final String PRE_QUICK_PULLDOWN = "quick_pulldown";
+
+    private ListPreference mQuickPulldown;
     private ListPreference mLcdDensityPreference;
-    private SwitchPreference mQuickPulldown;
 
     protected Context mContext;
 
@@ -63,6 +66,20 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.remix_screen_settings);
 
         mContext = getActivity().getApplicationContext();
+        ContentResolver resolver = getActivity().getContentResolver();
+        PreferenceScreen prefSet = getPreferenceScreen();
+
+	mQuickPulldown = (ListPreference) findPreference(PRE_QUICK_PULLDOWN);
+        if (!Utils.isPhone(getActivity())) {
+            prefSet.removePreference(mQuickPulldown);
+        } else {
+            // Quick Pulldown
+            mQuickPulldown.setOnPreferenceChangeListener(this);
+            int statusQuickPulldown = Settings.System.getInt(getContentResolver(),
+                    Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN, 1);
+            mQuickPulldown.setValue(String.valueOf(statusQuickPulldown));
+            updateQuickPulldownSummary(statusQuickPulldown);
+        }
 
         mLcdDensityPreference = (ListPreference) findPreference(KEY_LCD_DENSITY);
         if (mLcdDensityPreference != null) {
@@ -139,6 +156,7 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         final String key = preference.getKey();
+        ContentResolver resolver = getActivity().getContentResolver();
         if (KEY_LCD_DENSITY.equals(key)) {
             try {
                 int value = Integer.parseInt((String) objValue);
@@ -147,8 +165,15 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
             } catch (NumberFormatException e) {
                 Log.e(TAG, "could not persist display density setting", e);
             }
+        } else if (preference == mQuickPulldown) {
+            int statusQuickPulldown = Integer.valueOf((String) objValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN,
+                    statusQuickPulldown);
+            updateQuickPulldownSummary(statusQuickPulldown);
+            return true;
         }
-        return true;
+        return false;
     }
 
     @Override
@@ -199,5 +224,21 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
             }
         };
         task.execute();
+    }
+
+    private void updateQuickPulldownSummary(int value) {
+        Resources res = getResources();
+
+        if (value == 0) {
+            // quick pulldown deactivated
+            mQuickPulldown.setSummary(res.getString(R.string.quick_pulldown_off));
+        } else {
+            Locale l = Locale.getDefault();
+            boolean isRtl = TextUtils.getLayoutDirectionFromLocale(l) == View.LAYOUT_DIRECTION_RTL;
+            String direction = res.getString(value == 2
+                    ? (isRtl ? R.string.quick_pulldown_right : R.string.quick_pulldown_left)
+                    : (isRtl ? R.string.quick_pulldown_left : R.string.quick_pulldown_right));
+            mQuickPulldown.setSummary(res.getString(R.string.summary_quick_pulldown, direction));
+        }
     }
 }

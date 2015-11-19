@@ -169,9 +169,12 @@
     <string name="double_tap_to_sleep_title">Double-tap to sleep</string>
     <string name="double_tap_to_sleep_summary">Double tap status bar to put the device to sleep</string>
 
-    
+    <!-- Status bar quick qs pulldown -->
     <string name="title_quick_pulldown">Quick pulldown</string>
-    <string name="quick_pulldown_summary">Enable quick pulldown on the right side of the status bar</string>
+    <string name="summary_quick_pulldown">%1$s edge of the status bar pulls down Quick Settings</string>
+    <string name="quick_pulldown_off">Off</string>
+    <string name="quick_pulldown_left">Left</string>
+    <string name="quick_pulldown_right">Right</string>
 
     <!-- Show/Hide Search Bar -->
     <string name="recents_show_searchbar">Disable Search Bar in Recents</string>
