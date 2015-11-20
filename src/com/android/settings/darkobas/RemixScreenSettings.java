@@ -17,6 +17,7 @@
 package com.android.settings.darkobas;
 
 import android.content.ContentResolver;
+import android.content.res.Resources;
 import android.app.IActivityManager;
 import android.app.ActivityManagerNative;
 import android.app.ProgressDialog;
@@ -38,6 +39,10 @@ import android.view.WindowManagerImpl;
 import android.widget.Toast;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import com.android.settings.Utils;
+import java.util.Locale;
+import android.text.TextUtils;
+import android.view.View;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -156,7 +161,6 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         final String key = preference.getKey();
-        ContentResolver resolver = getActivity().getContentResolver();
         if (KEY_LCD_DENSITY.equals(key)) {
             try {
                 int value = Integer.parseInt((String) objValue);
@@ -165,15 +169,18 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
             } catch (NumberFormatException e) {
                 Log.e(TAG, "could not persist display density setting", e);
             }
-        } else if (preference == mQuickPulldown) {
-            int statusQuickPulldown = Integer.valueOf((String) objValue);
-            Settings.System.putInt(getContentResolver(),
+        } else if (PRE_QUICK_PULLDOWN.equals(key)) {
+            try {
+                int statusQuickPulldown = Integer.valueOf((String) objValue);
+                Settings.System.putInt(getContentResolver(),
                     Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN,
                     statusQuickPulldown);
-            updateQuickPulldownSummary(statusQuickPulldown);
-            return true;
+                    updateQuickPulldownSummary(statusQuickPulldown);
+            } catch (NumberFormatException e) {
+                Log.e(TAG, "Could not set quick pulldown", e);;
+            }
         }
-        return false;
+        return true;
     }
 
     @Override
