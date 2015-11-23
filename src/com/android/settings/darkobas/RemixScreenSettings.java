@@ -159,6 +159,7 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
         return DisplayMetrics.DENSITY_DEVICE;
     }
 
+    @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         final String key = preference.getKey();
         if (KEY_LCD_DENSITY.equals(key)) {
