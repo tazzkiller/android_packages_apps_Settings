@@ -23,7 +23,6 @@ import android.app.AlertDialog;
 import android.app.AppOpsManager;
 import android.app.AppOpsManager.PackageOps;
 import android.app.Dialog;
-import android.app.UiModeManager;
 import android.app.admin.DevicePolicyManager;
 import android.app.backup.IBackupManager;
 import android.bluetooth.BluetoothAdapter;
@@ -172,8 +171,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
 
     private static final String TERMINAL_APP_PACKAGE = "com.android.terminal";
 
-    private static final String KEY_NIGHT_MODE = "night_mode";
-
     private static final int RESULT_DEBUG_APP = 1000;
     private static final int RESULT_MOCK_LOCATION_APP = 1001;
 
@@ -253,8 +250,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private ListPreference mAppProcessLimit;
 
     private SwitchPreference mShowAllANRs;
-
-    private DropDownPreference mNightModePreference;
 
     private ColorModePreference mColorModePreference;
     private SwitchPreference mAdvancedReboot;
@@ -411,34 +406,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         if (hdcpChecking != null) {
             mAllPrefs.add(hdcpChecking);
             removePreferenceForProduction(hdcpChecking);
-        }
-
-        mNightModePreference = (DropDownPreference) findPreference(KEY_NIGHT_MODE);
-        final UiModeManager uiManager = (UiModeManager) getSystemService(
-                Context.UI_MODE_SERVICE);
-        final int currentNightMode = uiManager.getNightMode();
-        mNightModePreference.setSelectedValue(String.valueOf(currentNightMode));
-        mNightModePreference.setCallback(new DropDownPreference.Callback() {
-            @Override
-            public boolean onItemSelected(int pos, Object newValue) {
-                try {
-                    final int value = Integer.parseInt((String) newValue);
-                    final UiModeManager uiManager = (UiModeManager) getSystemService(
-                            Context.UI_MODE_SERVICE);
-                    uiManager.setNightMode(value);
-                    return true;
-                } catch (NumberFormatException e) {
-                    Log.e(TAG, "could not persist night mode setting", e);
-                    return false;
-                }
-            }
-        });
-
-        // make sure we dont leave an unremovable bugreport in power menu
-        final ContentResolver cr = getActivity().getContentResolver();
-        if (Settings.Secure.getInt(cr,
-                Settings.Secure.BUGREPORT_IN_POWER_MENU, 0) == 1) {
-            Settings.Secure.putInt(cr, Settings.Secure.BUGREPORT_IN_POWER_MENU, 0);
         }
 
         mColorModePreference = (ColorModePreference) findPreference(KEY_COLOR_MODE);
