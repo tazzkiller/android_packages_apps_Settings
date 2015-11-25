@@ -16,6 +16,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/remix_settings_title" >
 
+    <PreferenceCategory
+            android:key="remix_device_category"
+            android:title="@string/remix_device_category">
+
          <PreferenceScreen
             android:key="offscreen_gestures"
             android:title="@string/offscreen_gestures_title"
@@ -25,6 +29,7 @@
                     android:targetClass="org.omnirom.device.DeviceSettings"
                     android:targetPackage="org.omnirom.device" />
         </PreferenceScreen>
+    </PreferenceCategory>
 
     <PreferenceCategory
             android:key="remix_lights_category"
@@ -53,9 +58,15 @@
 
     </PreferenceCategory>
 
-    <PreferenceScreen
-         android:key="remix_screen_settings"
-         android:fragment="com.android.settings.darkobas.RemixScreenSettings"
-         android:title="@string/remix_screen_settings_title"
-         android:icon="@drawable/ic_remix_screen_settings" />
+    <PreferenceCategory
+            android:key="remix_interface_category"
+            android:title="@string/remix_interface_category">
+
+        <PreferenceScreen
+             android:key="remix_screen_settings"
+             android:fragment="com.android.settings.darkobas.RemixScreenSettings"
+             android:title="@string/remix_screen_settings_title"
+             android:icon="@drawable/ic_remix_screen_settings" />
+    </PreferenceCategory>
+
 </PreferenceScreen>
