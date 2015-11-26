@@ -72,6 +72,7 @@ public class ButtonBrightnessSettings extends SettingsPreferenceFragment impleme
     private ManualButtonBrightnessDialog mManualBrightnessDialog;
     private IPowerManager mPowerService;
     private SeekBarPreference mButtonTimoutBar;
+    private int min = 2;
 
     @Override
     protected int getMetricsCategory() {
@@ -234,6 +235,7 @@ public class ButtonBrightnessSettings extends SettingsPreferenceFragment impleme
             if (which == DialogInterface.BUTTON_POSITIVE) {
                 try {
                     int newBacklight = Integer.valueOf(mBacklightInput.getText().toString());
+                    if (newBacklight < 2 ) { newBacklight = min; }
                     Settings.System.putInt(getContext().getContentResolver(),
                             Settings.System.CUSTOM_BUTTON_BRIGHTNESS, newBacklight);
                 } catch (NumberFormatException e) {
