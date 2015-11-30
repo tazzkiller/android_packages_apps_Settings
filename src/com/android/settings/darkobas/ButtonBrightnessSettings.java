@@ -61,7 +61,7 @@ public class ButtonBrightnessSettings extends SettingsPreferenceFragment impleme
         Preference.OnPreferenceChangeListener, Indexable {
     private static final String TAG = "ButtonBrightnessSettings";
 
-//    private static final String KEY_BUTTON_NO_BRIGHTNESS = "button_no_brightness";
+    private static final String KEY_BUTTON_NO_BRIGHTNESS = "button_no_brightness";
     private static final String KEY_BUTTON_LINK_BRIGHTNESS = "button_link_brightness";
     private static final String KEY_BUTTON_MANUAL_BRIGHTNESS = "button_manual_brightness";
     private static final String KEY_BUTTON_TIMEOUT = "button_timeout";
@@ -85,9 +85,9 @@ public class ButtonBrightnessSettings extends SettingsPreferenceFragment impleme
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
 
- //       mNoButtonBrightness = (CheckBoxPreference) findPreference(KEY_BUTTON_NO_BRIGHTNESS);
- //       mNoButtonBrightness.setChecked(Settings.System.getInt(resolver,
- //               Settings.System.CUSTOM_BUTTON_DISABLE_BRIGHTNESS, 0) != 0);
+        mNoButtonBrightness = (CheckBoxPreference) findPreference(KEY_BUTTON_NO_BRIGHTNESS);
+        mNoButtonBrightness.setChecked(Settings.System.getInt(resolver,
+                Settings.System.CUSTOM_BUTTON_DISABLE_BRIGHTNESS, 0) != 0);
 
         mLinkButtonBrightness = (CheckBoxPreference) findPreference(KEY_BUTTON_LINK_BRIGHTNESS);
         mLinkButtonBrightness.setChecked(Settings.System.getInt(resolver,
@@ -107,15 +107,15 @@ public class ButtonBrightnessSettings extends SettingsPreferenceFragment impleme
     }
 
     private void updateEnablement() {
-//        if (mNoButtonBrightness.isChecked()){
-//            mLinkButtonBrightness.setEnabled(false);
-//            mButtonTimoutBar.setEnabled(false);
-//            mManualButtonBrightness.setEnabled(false);
-        if (mLinkButtonBrightness.isChecked()){
-//            mNoButtonBrightness.setEnabled(false);
+        if (mNoButtonBrightness.isChecked()){
+            mLinkButtonBrightness.setEnabled(false);
+            mButtonTimoutBar.setEnabled(false);
+            mManualButtonBrightness.setEnabled(false);
+        } else if (mLinkButtonBrightness.isChecked()){
+            mNoButtonBrightness.setEnabled(false);
             mManualButtonBrightness.setEnabled(false);
         } else {
-//            mNoButtonBrightness.setEnabled(true);
+            mNoButtonBrightness.setEnabled(true);
             mLinkButtonBrightness.setEnabled(true);
             mButtonTimoutBar.setEnabled(true);
             mManualButtonBrightness.setEnabled(true);
@@ -141,12 +141,12 @@ public class ButtonBrightnessSettings extends SettingsPreferenceFragment impleme
         if (preference == mManualButtonBrightness) {
             showButtonManualBrightnessDialog();
             return true;
-//        } else if (preference == mNoButtonBrightness) {
-//            boolean checked = ((CheckBoxPreference)preference).isChecked();
-//            Settings.System.putInt(getActivity().getContentResolver(),
-//                    Settings.System.CUSTOM_BUTTON_DISABLE_BRIGHTNESS, checked ? 1:0);
-//            updateEnablement();
-//            return true;
+        } else if (preference == mNoButtonBrightness) {
+            boolean checked = ((CheckBoxPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.CUSTOM_BUTTON_DISABLE_BRIGHTNESS, checked ? 1:0);
+            updateEnablement();
+            return true;
         } else if (preference == mLinkButtonBrightness) {
             boolean checked = ((CheckBoxPreference)preference).isChecked();
             Settings.System.putInt(getActivity().getContentResolver(),
