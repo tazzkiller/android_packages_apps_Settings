@@ -21,6 +21,12 @@
         android:title="@string/lcd_density"
         android:persistent="false" />
 
+    <PreferenceScreen
+        android:key="lock_screen_weather_settings"
+        android:title="@string/lock_screen_weather_settings_title"
+	android:summary="@string/lock_screen_weather_settings_summary"
+        android:fragment="com.android.settings.darkobas.LockScreenWeatherSettings" />
+
     <com.android.settings.preference.SystemSettingSwitchPreference
         android:key="double_tap_sleep_gesture"
         android:title="@string/double_tap_to_sleep_title"
