@@ -63,4 +63,11 @@
         android:title="@string/powermenu_lockscreen_title"
         android:summary="@string/powermenu_lockscreen_summary"
         android:defaultValue="true" />
+
+    <com.android.settings.preference.SystemSettingSwitchPreference
+        android:key="recents_full_screen"
+        android:title="@string/recents_show_fullscreen"
+        android:summaryOn="@string/recents_fullscreen_summary_enabled"
+        android:summaryOff="@string/recents_fullscreen_summary_disabled"
+        android:defaultValue="false" />
 </PreferenceScreen>
