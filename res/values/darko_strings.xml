@@ -251,4 +251,7 @@
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">Default</string>
     <string name="color_picker_dialog_title">Color</string>
+
+    <string name="powermenu_lockscreen_title">Power menu on lock screen</string>
+    <string name="powermenu_lockscreen_summary">Show power menu on the lock screen</string>
 </resources>
