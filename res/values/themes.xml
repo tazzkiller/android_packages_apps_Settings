@@ -96,7 +96,7 @@
         <item name="@*android:preferenceFragmentListStyle">@style/PreferenceFragmentListSinglePane</item>
         <item name="@*android:preferenceFragmentStyle">@style/PreferenceFragmentStyle</item>
         <item name="@*android:preferenceFragmentPaddingSide">@dimen/settings_side_margin</item>
-
+        <item name="android:navigationBarColor">?android:attr/colorBackground</item>
         <item name="apnPreferenceStyle">@style/ApnPreference</item>
 
         <item name="fingerprint_layout_theme">@style/FingerprintLayoutTheme</item>

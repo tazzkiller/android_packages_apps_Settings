@@ -259,4 +259,17 @@
     <string name="recents_show_fullscreen">Recents in fullscreen</string>
     <string name="recents_fullscreen_summary_enabled">Recents in fullscreen is enabled</string>
     <string name="recents_fullscreen_summary_disabled">Recents in fullscreen is disabled</string>
+
+     <!-- Navigation Bar Height -->
+     <string name="navigation_bar_height">Navigation bar height</string>
+
+     <!-- Weather LockClock -->
+     <string name="lock_clock_title">LockClock Settings</string>
+     <string name="lock_clock_clock_section_title">Clock Settings</string>
+     <string name="lock_clock_clock_section_summary">Adjust LockClock widget clock display settings</string>
+     <string name="lock_clock_weather_section_title">Weather Settings</string>
+     <string name="lock_clock_weather_section_summary">Adjust LockClock widget weather display settings</string>
+     <string name="lock_clock_calendar_section_title">Calendar Settings</string>
+     <string name="lock_clock_calendar_section_summary">Adjust LockClock widget calendar display settings</string>
+
 </resources>
