@@ -30,6 +30,7 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.preference.ListPreference;
+import android.preference.SeekBarPreference;
 import android.preference.SwitchPreference;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
@@ -93,6 +94,7 @@ public class RemixButtonSettings extends SettingsPreferenceFragment implements O
 //    private static final String FORCE_SHOW_OVERFLOW_MENU = "force_show_overflow_menu";
     private static final String KEYS_BRIGHTNESS_KEY = "button_brightness";
     private static final String KEYS_SHOW_NAVBAR_KEY = "navigation_bar_show";
+    private static final String KEY_NAVIGATION_BAR_HEIGHT = "navigation_bar_height";
     private static final String KEYS_DISABLE_HW_KEY = "hardware_keys_disable";
     private static final String NAVIGATION_BAR_RECENTS_STYLE = "navbar_recents_style";
 
@@ -125,6 +127,7 @@ public class RemixButtonSettings extends SettingsPreferenceFragment implements O
     private CheckBoxPreference mSwapVolumeButtons;
 //    private ListPreference mVolumeKeyCursorControl;
     private SwitchPreference mEnableCustomBindings;
+    private SeekBarPreference mNavigationBarHeight;
     private ListPreference mBackPressAction;
     private ListPreference mBackLongPressAction;
     private ListPreference mHomePressAction;
@@ -273,6 +276,8 @@ public class RemixButtonSettings extends SettingsPreferenceFragment implements O
                    KEYS_SHOW_NAVBAR_KEY);
             mDisabkeHWKeys = (SwitchPreference) prefScreen.findPreference(
                     KEYS_DISABLE_HW_KEY);
+            mNavigationBarHeight = (SeekBarPreference) prefScreen.findPreference(
+                    KEY_NAVIGATION_BAR_HEIGHT);
 
             if (hasBackKey) {
                 int backPressAction = Settings.System.getInt(resolver,
@@ -455,6 +460,18 @@ public class RemixButtonSettings extends SettingsPreferenceFragment implements O
                         Settings.System.NAVIGATION_BAR_SHOW, showNavBarDefault ? 1:0) == 1;
             mEnableNavBar.setChecked(showNavBar);
 
+            if (!showNavBar) {
+                mNavigationBarHeight.setEnabled(false);
+                } else {
+                mNavigationBarHeight.setEnabled(true);
+            }
+
+            mNavigationBarHeight = (SeekBarPreference) findPreference(KEY_NAVIGATION_BAR_HEIGHT);
+            mNavigationBarHeight.setProgress((int)(Settings.System.getFloat(getContentResolver(),
+                    Settings.System.NAVIGATION_BAR_HEIGHT, 1f) * 100));
+            mNavigationBarHeight.setTitle(getResources().getText(R.string.navigation_bar_height) + " " + mNavigationBarHeight.getProgress() + "%");
+            mNavigationBarHeight.setOnPreferenceChangeListener(this);
+
             boolean harwareKeysDisable = Settings.System.getInt(resolver,
                         Settings.System.HARDWARE_KEYS_DISABLE, 0) == 1;
             mDisabkeHWKeys.setChecked(harwareKeysDisable);
@@ -508,6 +525,7 @@ public class RemixButtonSettings extends SettingsPreferenceFragment implements O
             boolean checked = ((SwitchPreference)preference).isChecked();
             Settings.System.putInt(getContentResolver(),
                     Settings.System.NAVIGATION_BAR_SHOW, checked ? 1:0);
+            mNavigationBarHeight.setEnabled(true);
             return true;
         } else if (preference == mDisabkeHWKeys) {
             boolean checked = ((SwitchPreference)preference).isChecked();
@@ -677,6 +695,11 @@ public class RemixButtonSettings extends SettingsPreferenceFragment implements O
 //            int value = Integer.valueOf((String) newValue);
 //            Settings.System.putInt(getContentResolver(), Settings.System.VOLUME_KEYS_DEFAULT, value);
 //            return true;
+        } else if (preference == mNavigationBarHeight) {
+            Settings.System.putFloat(getActivity().getContentResolver(),
+                    Settings.System.NAVIGATION_BAR_HEIGHT, (Integer)newValue / 100f);
+            mNavigationBarHeight.setTitle(getResources().getText(R.string.navigation_bar_height) + " " + (Integer)newValue + "%");
+            return true;
         }
         return false;
     }
