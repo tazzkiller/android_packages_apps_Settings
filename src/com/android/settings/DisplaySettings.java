@@ -99,6 +99,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private SwitchPreference mDozePreference;
     private SwitchPreference mTapToWakePreference;
     private SwitchPreference mAutoBrightnessPreference;
+    private SwitchPreference mCameraGesturePreference;
+    private SwitchPreference mCameraDoubleTapPowerGesturePreference;
 
     private ContentObserver mAccelerometerRotationObserver =
             new ContentObserver(new Handler()) {
@@ -115,8 +117,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             updateDisplayRotationPreferenceDescription();
         }
     };
-    private SwitchPreference mCameraGesturePreference;
-    private SwitchPreference mCameraDoubleTapPowerGesturePreference;
 
     @Override
     protected int getMetricsCategory() {
@@ -179,6 +179,21 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mTapToWakePreference.setOnPreferenceChangeListener(this);
         } else {
             removePreference(KEY_TAP_TO_WAKE);
+        }
+
+        if (isCameraGestureAvailable(getResources())) {
+            mCameraGesturePreference = (SwitchPreference) findPreference(KEY_CAMERA_GESTURE);
+            mCameraGesturePreference.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(KEY_CAMERA_GESTURE);
+        }
+
+        if (isCameraDoubleTapPowerGestureAvailable(getResources())) {
+            mCameraDoubleTapPowerGesturePreference
+                    = (SwitchPreference) findPreference(KEY_CAMERA_DOUBLE_TAP_POWER_GESTURE);
+            mCameraDoubleTapPowerGesturePreference.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(KEY_CAMERA_DOUBLE_TAP_POWER_GESTURE);
         }
 
         if (RotationPolicy.isRotationLockToggleVisible(activity)) {

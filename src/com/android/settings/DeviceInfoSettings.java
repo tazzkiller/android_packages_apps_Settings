@@ -187,7 +187,9 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         removePreferenceIfBoolFalse(KEY_UPDATE_SETTING,
                 R.bool.config_additional_system_update_setting_enable);
 
-        // Remove regulatory information if none present or config_show_regulatory_info is disabled
+        // Remove manual entry if none present.
+        removePreferenceIfBoolFalse(KEY_MANUAL, R.bool.config_show_manual);
+
         final Intent intent = new Intent(Settings.ACTION_SHOW_REGULATORY_INFO);
         if (getPackageManager().queryIntentActivities(intent, 0).isEmpty()
                 || !getResources().getBoolean(R.bool.config_show_regulatory_info)) {
