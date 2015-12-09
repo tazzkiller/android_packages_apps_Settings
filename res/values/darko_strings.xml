@@ -272,4 +272,8 @@
      <string name="lock_clock_calendar_section_title">Calendar Settings</string>
      <string name="lock_clock_calendar_section_summary">Adjust LockClock widget calendar display settings</string>
 
+    <!-- Quick Unlock (PIN) -->
+    <string name="unlock_quick_unlock_control_title">Quick unlock</string>
+    <string name="unlock_quick_unlock_control_summary">Unlock the lockscreen automatically when the correct PIN/password is entered</string>
+
 </resources>
