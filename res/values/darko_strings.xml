@@ -291,4 +291,9 @@
     <string name="status_bar_brightness_control_title">Brightness control</string>
     <string name="status_bar_brightness_control_summary">Adjust brightness by sliding across status bar</string>
     <string name="status_bar_brightness_control_info">Automatic brightness must be disabled</string>
+
+    <!--Time Contexual Header -->
+    <string name="status_bar_custom_header_title">Time Contextual Header</string>
+    <string name="status_bar_custom_header_summary">Enable notification panel header image</string>
+    <string name="daylight_header_pack_title">Header image pack</string>
 </resources>
