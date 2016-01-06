@@ -19,6 +19,7 @@
 
     <PreferenceCategory
         android:key="general_section"
+        android:layout="@layout/remix_category"
         android:title="@string/notification_light_general_title">
 
         <com.android.settings.preference.SystemSettingSwitchPreference
@@ -40,6 +41,7 @@
 
     <PreferenceCategory
         android:key="phone_list"
+        android:layout="@layout/remix_category"
         android:title="@string/notification_light_phonelist_title" >
 
         <com.android.settings.darkobas.ApplicationLightPreference
@@ -58,6 +60,7 @@
 
     <PreferenceCategory
         android:key="applications_list"
+        android:layout="@layout/remix_category"
         android:title="@string/notification_light_applist_title"
         android:dependency="notification_light_pulse_custom_enable" >
     </PreferenceCategory>

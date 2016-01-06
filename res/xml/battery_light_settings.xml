@@ -19,6 +19,7 @@
 
     <PreferenceCategory
         android:key="general_section"
+        android:layout="@layout/remix_category"
         android:title="@string/notification_light_general_title">
 
         <com.android.settings.preference.SystemSettingSwitchPreference
@@ -36,6 +37,7 @@
 
     <PreferenceCategory
         android:key="colors_list"
+        android:layout="@layout/remix_category"
         android:title="@string/battery_light_list_title"
         android:dependency="battery_light_enabled" >
 

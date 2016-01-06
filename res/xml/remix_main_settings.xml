@@ -18,12 +18,12 @@
 
     <PreferenceCategory
             android:key="remix_device_category"
+            android:layout="@layout/remix_category_device"
             android:title="@string/remix_device_category">
 
          <PreferenceScreen
             android:key="offscreen_gestures"
-            android:title="@string/offscreen_gestures_title"
-            android:icon="@drawable/ic_remix_gestures" >
+            android:title="@string/offscreen_gestures_title" >
             <intent
                     android:action="android.intent.action.MAIN"
                     android:targetClass="org.omnirom.device.DeviceSettings"
@@ -32,41 +32,41 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+            android:id="@+id/ic_remix_notification"
             android:key="remix_lights_category"
+            android:layout="@layout/remix_category_lights"
             android:title="@string/remix_lights_category">
 	<PreferenceScreen
 		android:key="remix_notificationlight_settings"
 		android:title="@string/remix_notlight_title"
-		android:fragment="com.android.settings.darkobas.NotificationLightSettings"
-		android:icon="@drawable/ic_remix_notification" />
+		android:fragment="com.android.settings.darkobas.NotificationLightSettings" />
     	<PreferenceScreen
 		android:key="remix_batterylight_settings"
 		android:title="@string/remix_batlight_title"
-		android:fragment="com.android.settings.darkobas.BatteryLightSettings"
-		android:icon="@drawable/ic_remix_notification" />
+		android:fragment="com.android.settings.darkobas.BatteryLightSettings" />
 
     </PreferenceCategory>
 
    <PreferenceCategory
             android:key="remix_buttons_category"
+            android:layout="@layout/remix_category_buttons"
             android:title="@string/remix_buttons_category">
         <PreferenceScreen
                 android:key="remix_button_settings"
                 android:title="@string/remix_buttons_title"
-                android:fragment="com.android.settings.darkobas.RemixButtonSettings"
-                android:icon="@drawable/ic_remix_buttons" />
+                android:fragment="com.android.settings.darkobas.RemixButtonSettings" />
 
     </PreferenceCategory>
 
     <PreferenceCategory
             android:key="remix_interface_category"
+            android:layout="@layout/remix_category_interface"
             android:title="@string/remix_interface_category">
 
         <PreferenceScreen
              android:key="remix_screen_settings"
              android:fragment="com.android.settings.darkobas.RemixScreenSettings"
-             android:title="@string/remix_screen_settings_title"
-             android:icon="@drawable/ic_remix_screen_settings" />
+             android:title="@string/remix_screen_settings_title" />
     </PreferenceCategory>
 
 </PreferenceScreen>

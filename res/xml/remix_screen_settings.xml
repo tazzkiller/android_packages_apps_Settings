@@ -23,6 +23,7 @@
 
     <PreferenceCategory
         android:key="cat_lockscreen"
+        android:layout="@layout/remix_category"
         android:title="@string/cat_lockscreen_title">
 
         <PreferenceScreen
@@ -57,6 +58,7 @@
 
     <PreferenceCategory
         android:key="cat_statusbar"
+        android:layout="@layout/remix_category"
         android:title="@string/cat_statusbar_title">
 
         <SwitchPreference
@@ -92,6 +94,7 @@
 
     <PreferenceCategory
         android:key="cat_misc"
+        android:layout="@layout/remix_category"
         android:title="@string/cat_misc_title">
 
         <com.android.settings.preference.SystemSettingSwitchPreference
@@ -118,6 +121,7 @@
 
     <PreferenceCategory
         android:key="more_cat_lock_clock"
+        android:layout="@layout/remix_category"
         android:title="@string/lock_clock_title">
 
         <PreferenceScreen

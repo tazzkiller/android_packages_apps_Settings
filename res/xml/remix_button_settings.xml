@@ -41,6 +41,7 @@
 
     <PreferenceCategory
         android:key="button_volume_keys"
+        android:layout="@layout/remix_category"
         android:title="@string/button_volume_keys_title" >
 
         <CheckBoxPreference
@@ -81,6 +82,7 @@
 
     <PreferenceCategory
         android:key="button_keys"
+        android:layout="@layout/remix_category"
         android:title="@string/button_keys_title" >
 
         <SwitchPreference
@@ -127,7 +129,8 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-       android:key="button_keys_back"
+        android:key="button_keys_back"
+        android:layout="@layout/remix_category"
         android:title="@string/button_keys_back_title" >
 
         <ListPreference
@@ -151,6 +154,7 @@
 
     <PreferenceCategory
         android:key="button_keys_home"
+        android:layout="@layout/remix_category"
         android:title="@string/button_keys_home_title">
 
         <ListPreference
@@ -196,6 +200,7 @@
 
     <PreferenceCategory
         android:key="button_keys_menu"
+        android:layout="@layout/remix_category"
         android:title="@string/button_keys_menu_title">
 
         <ListPreference
@@ -219,6 +224,7 @@
 
     <PreferenceCategory
         android:key="button_keys_assist"
+        android:layout="@layout/remix_category"
         android:title="@string/button_keys_assist_title">
 
         <ListPreference
@@ -242,6 +248,7 @@
 
     <PreferenceCategory
         android:key="button_keys_appSwitch"
+        android:layout="@layout/remix_category"
         android:title="@string/button_keys_appSwitch_title">
 
         <ListPreference
