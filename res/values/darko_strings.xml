@@ -4,14 +4,17 @@
     <string name="remix_lights_category">Lights Settings</string>
     <string name="remix_device_category">Device Settings</string>
     <string name="remix_interface_category">Interface Settings</string>
-    <string name="remix_notlight_title">Notification lights settings</string>
-    <string name="remix_batlight_title">Battery light settings</string>
+    <string name="remix_notlight_title">Notification Lights Settings</string>
+    <string name="remix_batlight_title">Battery Light Settings</string>
     <string name="header_category_custom">Custom Settings</string>
     <string name="category_key_custom">Custom Settings</string>
-    <string name="remix_buttons_category">Buttons Customization</string>
-    <string name="remix_buttons_title">Remix Buttons</string>
-    <string name="remix_screen_settings_title">Remix Interface</string>
-    <string name="reset">reset</string>
+    <string name="remix_buttons_category">Buttons Customization Settings</string>
+    <string name="remix_buttons_title">Remix Button Settings</string>
+    <string name="remix_screen_settings_title">Remix Interface Settings</string>
+    <string name="reset">Reset</string>
+    <string name="cat_lockscreen_title">Lockscreen Settings</string>
+    <string name="cat_statusbar_title">Statusbar Settings</string>
+    <string name="cat_misc_title">Miscellaneous Settings</string>
 
     <!-- Display : Rotation  -->
     <string name="display_rotation_title">Rotation</string>
@@ -181,12 +184,12 @@
 
     <!-- Show/Hide Search Bar -->
     <string name="recents_show_searchbar">Search Bar in Recents</string>
-    <string name="recents_show_searchbar_summary">Disable or enable the Google search bar in the recents menu</string>
+    <string name="recents_show_searchbar_summary">Enable the Google search bar in the recents menu</string>
     <string name="keywords_recents_show_searchbar">recent recents disable search bar searchbar hide</string>
 
     <!-- Double tap to sleep on lockscreen -->
     <string name="double_tap_sleep_anywhere_title">DT2S on Lockscreen</string>
-    <string name="double_tap_sleep_anywhere_summary">Double tap lockscreen to put the device to sleep</string>
+    <string name="double_tap_sleep_anywhere_summary">Double tap on top or bottom of the lockscreen to put the device to sleep</string>
     <!-- Toast Icons -->
     <string name="toast_icon_title">Toast icon</string>
     <string name="toast_icon_summary">Display the app icon corresponding with the toast</string>
