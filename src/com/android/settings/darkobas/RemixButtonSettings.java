@@ -72,7 +72,7 @@ public class RemixButtonSettings extends SettingsPreferenceFragment implements O
     private static final String BUTTON_HOME_ANSWERS_CALL = "button_home_answers_call";
 //    private static final String BUTTON_VOLUME_DEFAULT = "button_volume_default_screen";
 //    private static final String BUTTON_VOLUME_MUSIC_CONTROL = "button_volume_music_control";
-//    private static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
+    private static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
     private static final String SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
 //    private static final String CATEGORY_HEADSETHOOK = "button_headsethook";
 //    private static final String BUTTON_HEADSETHOOK_LAUNCH_VOICE = "button_headsethook_launch_voice";
@@ -125,7 +125,7 @@ public class RemixButtonSettings extends SettingsPreferenceFragment implements O
     private CheckBoxPreference mHomeAnswerCall;
 //    private CheckBoxPreference mVolumeMusicControl;
     private CheckBoxPreference mSwapVolumeButtons;
-//    private ListPreference mVolumeKeyCursorControl;
+    private ListPreference mVolumeKeyCursorControl;
     private SwitchPreference mEnableCustomBindings;
     private SeekBarPreference mNavigationBarHeight;
     private ListPreference mBackPressAction;
@@ -202,15 +202,14 @@ public class RemixButtonSettings extends SettingsPreferenceFragment implements O
             mSwapVolumeButtons = (CheckBoxPreference) findPreference(SWAP_VOLUME_BUTTONS);
             mSwapVolumeButtons.setChecked(Settings.System.getInt(resolver,
                    Settings.System.SWAP_VOLUME_BUTTONS, 0) != 0);
-//
-//          mVolumeKeyCursorControl = (ListPreference) findPreference(VOLUME_KEY_CURSOR_CONTROL);
-//          if (mVolumeKeyCursorControl != null) {
-//              mVolumeKeyCursorControl.setValue(Integer.toString(Settings.System.getInt(
-//                      getContentResolver(), Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0)));
-//              mVolumeKeyCursorControl.setSummary(mVolumeKeyCursorControl.getEntry());
-//              mVolumeKeyCursorControl.setOnPreferenceChangeListener(this);
-//          }
-//
+
+          mVolumeKeyCursorControl = (ListPreference) findPreference(VOLUME_KEY_CURSOR_CONTROL);
+          if (mVolumeKeyCursorControl != null) {
+              mVolumeKeyCursorControl.setValue(Integer.toString(Settings.System.getInt(
+                      getContentResolver(), Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0)));
+              mVolumeKeyCursorControl.setSummary(mVolumeKeyCursorControl.getEntry());
+              mVolumeKeyCursorControl.setOnPreferenceChangeListener(this);
+          }
         } else {
             prefScreen.removePreference(volumeCategory);
         }
@@ -562,14 +561,14 @@ public class RemixButtonSettings extends SettingsPreferenceFragment implements O
                     Settings.System.HARDWARE_KEYS_DISABLE, 0) == 1;
             updateDisableHWKeyEnablement(harwareKeysDisable);
             return true;
-//        } else if (preference == mVolumeKeyCursorControl) {
-//            String volumeKeyCursorControl = (String) newValue;
-//            int val = Integer.parseInt(volumeKeyCursorControl);
-//            Settings.System.putInt(getContentResolver(),
-//                    Settings.System.VOLUME_KEY_CURSOR_CONTROL, val);
-//            int index = mVolumeKeyCursorControl.findIndexOfValue(volumeKeyCursorControl);
-//            mVolumeKeyCursorControl.setSummary(mVolumeKeyCursorControl.getEntries()[index]);
-//            return true;
+        } else if (preference == mVolumeKeyCursorControl) {
+            String volumeKeyCursorControl = (String) newValue;
+            int val = Integer.parseInt(volumeKeyCursorControl);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.VOLUME_KEY_CURSOR_CONTROL, val);
+            int index = mVolumeKeyCursorControl.findIndexOfValue(volumeKeyCursorControl);
+            mVolumeKeyCursorControl.setSummary(mVolumeKeyCursorControl.getEntries()[index]);
+            return true;
         } else if (preference == mBackPressAction) {
             int value = Integer.valueOf((String) newValue);
             int index = mBackPressAction.findIndexOfValue((String) newValue);
