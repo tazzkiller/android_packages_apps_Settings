@@ -37,6 +37,7 @@
 
     <!-- Whether to show a preference item for mobile plan -->
     <bool name="config_show_mobile_plan">true</bool>
+
    <!-- Whether to show a check box or switch for manual provision -->
    <bool name="config_custom_multi_sim_checkbox">false</bool>
 

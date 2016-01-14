@@ -2884,6 +2884,8 @@
     <string name="write_settings_description" msgid="6868293938839954623">"此权限允许应用修改系统设置。"</string>
     <string name="write_settings_on" msgid="8230580416068832239">"允许"</string>
     <string name="write_settings_off" msgid="5156104383386336233">"不允许"</string>
+
+    <string name="primary_sub_select_title">默认4G/3G SIM卡</string>
     <string name="camera_gesture_title" msgid="1075838577642393011">"扭转两次即可打开相机"</string>
     <string name="camera_gesture_desc" msgid="1831390075255870960">"扭转手腕两次即可打开相机应用"</string>
     <string name="camera_double_tap_power_gesture_title" msgid="1651873760405034645">"按电源按钮两次即可打开相机"</string>

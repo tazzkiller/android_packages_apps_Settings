@@ -57,6 +57,7 @@
 
     <!-- Volume rocker support. Some devices do not have a volume rocker. -->
     <bool name="config_has_volume_rocker">true</bool>
+
     <!-- DDS Switch setting -->
     <bool name="config_dds_switch_alert_dialog_supported" translatable="false">false</bool>
 
