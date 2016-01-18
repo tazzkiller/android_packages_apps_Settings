@@ -95,6 +95,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private ListPreference mScreenTimeoutPreference;
     private ListPreference mNightModePreference;
     private Preference mScreenSaverPreference;
+    private CheckBoxPreference mAccelerometer;
     private SwitchPreference mLiftToWakePreference;
     private SwitchPreference mDozePreference;
     private SwitchPreference mTapToWakePreference;
@@ -249,6 +250,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             removePreference(KEY_CAMERA_DOUBLE_TAP_POWER_GESTURE);
         }
 
+        mAccelerometer = (CheckBoxPreference) findPreference(DisplayRotation.KEY_ACCELEROMETER);
+        if (mAccelerometer != null) {
+            mAccelerometer.setPersistent(false);
+        }
+
         mNightModePreference = (ListPreference) findPreference(KEY_NIGHT_MODE);
         if (mNightModePreference != null) {
             final UiModeManager uiManager = (UiModeManager) getSystemService(
@@ -284,6 +290,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     private static boolean isAutomaticBrightnessAvailable(Resources res) {
         return res.getBoolean(com.android.internal.R.bool.config_automatic_brightness_available);
+    }
+
+    private void updateAccelerometerRotationSwitch() {
+        if (mAccelerometer != null) {
+            mAccelerometer.setChecked(!RotationPolicy.isRotationLocked(getActivity()));
+        }
     }
 
     private void updateDisplayRotationPreferenceDescription() {
@@ -416,7 +428,20 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     @Override
     public void onResume() {
         super.onResume();
+        updateDisplayRotationPreferenceDescription();
+
+        RotationPolicy.registerRotationPolicyListener(getActivity(),
+                mRotationPolicyListener);
+
+        final ContentResolver resolver = getContentResolver();
+
+        // Display rotation observer
+        resolver.registerContentObserver(
+                Settings.System.getUriFor(Settings.System.ACCELEROMETER_ROTATION), true,
+                mAccelerometerRotationObserver);
+
         updateState();
+        updateAccelerometerRotationSwitch();
     }
 
     @Override
@@ -521,6 +546,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preference == mAccelerometer) {
+            RotationPolicy.setRotationLockForAccessibility(getActivity(),
+                    !mAccelerometer.isChecked());
+        }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
