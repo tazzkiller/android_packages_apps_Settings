@@ -56,14 +56,21 @@
             android:summary="@string/button_volume_default_summary"
             android:entries="@array/button_volume_default_entries"
             android:entryValues="@array/button_volume_default_values"
-            android:persistent="false"/> -->
+            android:persistent="false"/>
 
         <CheckBoxPreference
-            android:key="volume_keys_control_media_stream"
-            android:title="@string/volume_keys_control_media_stream"
-            android:summary="@string/volume_keys_control_media_stream_summary"
-            android:defaultValue="false"
-            android:persistent="false" />
+            android:key="button_volume_music_control"
+            android:title="@string/button_volume_music_control_title"
+            android:summary="@string/button_volume_music_control_summary"
+            android:persistent="false"/>
+
+        <ListPreference
+            android:key="volume_key_cursor_control"
+            android:persistent="false"
+            android:dialogTitle="@string/volume_key_cursor_control_title"
+            android:title="@string/volume_key_cursor_control_title"
+            android:entries="@array/volume_key_cursor_control_entries"
+            android:entryValues="@array/volume_key_cursor_control_values" /> -->
 
         <CheckBoxPreference
             android:key="swap_volume_buttons"
