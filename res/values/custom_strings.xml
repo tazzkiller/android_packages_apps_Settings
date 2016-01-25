@@ -17,5 +17,13 @@
     <string name="notifications_no_keyguard">Hidden when locked</string>
     <string name="notifications_four_items"><xliff:g id="notif_state" example="Priority">%1$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%2$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%3$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%4$s</xliff:g></string>
 
-</resources>
+    <string name="other_category">Other</string>
 
+    <!-- Dashboard columns -->
+    <string name="dashboard_columns_title">Settings columns</string>
+    <string name="dashboard_columns_phone_default">Default</string>
+    <string name="dashboard_columns_two">Two</string>
+    <string name="dashboard_columns_tablet_default">Default</string>
+    <string name="dashboard_columns_three">Three</string>
+    <string name="dashboard_columns_four">Four</string>
+</resources>

@@ -163,4 +163,15 @@
             </intent>
         </PreferenceScreen>
     </PreferenceCategory>
+
+        <PreferenceCategory
+            android:key="category_other"
+            android:layout="@layout/remix_category"
+            android:title="@string/other_category">
+
+            <ListPreference
+                android:key="dashboard_columns"
+                android:title="@string/dashboard_columns_title"
+                android:dialogTitle="@string/dashboard_columns_title" />
+        </PreferenceCategory>
 </PreferenceScreen>

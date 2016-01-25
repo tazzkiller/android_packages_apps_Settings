@@ -23,6 +23,7 @@ import android.app.ActivityManagerNative;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.AsyncTask;
@@ -33,6 +34,7 @@ import android.provider.Settings;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.view.Display;
@@ -53,6 +55,7 @@ import java.util.ArrayList;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import android.provider.Settings.SettingNotFoundException;
+import com.android.internal.util.omni.DeviceUtils;
 import com.android.internal.logging.MetricsLogger;
 
 public class RemixScreenSettings extends SettingsPreferenceFragment implements
@@ -74,10 +77,13 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
     private static final String DAYLIGHT_HEADER_PACK = "daylight_header_pack";
     private static final String DEFAULT_HEADER_PACKAGE = "com.android.systemui";
 
+    private static final String DASHBOARD_COLUMNS = "dashboard_columns";
+
     private ListPreference mDaylightHeaderPack;
     private CheckBoxPreference mCustomHeaderImage;
     private ListPreference mQuickPulldown;
     private ListPreference mLcdDensityPreference;
+    private ListPreference mDashboardColumns;
 
     protected Context mContext;
 
@@ -178,6 +184,27 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
         mDaylightHeaderPack.setSummary(mDaylightHeaderPack.getEntry());
         mDaylightHeaderPack.setOnPreferenceChangeListener(this);
         mDaylightHeaderPack.setEnabled(customHeaderImage);
+
+        mDashboardColumns = (ListPreference) findPreference(DASHBOARD_COLUMNS);
+        int dashboardValue = getResources().getInteger(R.integer.dashboard_num_columns);
+
+        final boolean isTablet = DeviceUtils.isTablet(getActivity());
+        if (!isTablet) {
+            // layout-land has a value of 2 but we dont want this to be the default
+            // for phones so set 1 as the default to display
+            dashboardValue = 1;
+        }
+        mDashboardColumns.setEntries(getResources().getStringArray(isTablet ?
+                R.array.dashboard_columns_tablet_entries : R.array.dashboard_columns_phone_entries));
+        mDashboardColumns.setEntryValues(getResources().getStringArray(isTablet ?
+                R.array.dashboard_columns_tablet_values : R.array.dashboard_columns_phone_values));
+
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        if (!prefs.contains(DASHBOARD_COLUMNS)) {
+            mDashboardColumns.setValue(Integer.toString(dashboardValue));
+        }
+        mDashboardColumns.setSummary(mDashboardColumns.getEntry());
+        mDashboardColumns.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -249,6 +276,12 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
                     Settings.System.STATUS_BAR_DAYLIGHT_HEADER_PACK, value);
             int valueIndex = mDaylightHeaderPack.findIndexOfValue(value);
             mDaylightHeaderPack.setSummary(mDaylightHeaderPack.getEntries()[valueIndex]);
+            return true;
+        } else if (preference == mDashboardColumns) {
+            String value = (String) objValue;
+            int valueIndex = mDashboardColumns.findIndexOfValue(value);
+            mDashboardColumns.setSummary(mDashboardColumns.getEntries()[valueIndex]);
+            return true;
         }
         return true;
     }
