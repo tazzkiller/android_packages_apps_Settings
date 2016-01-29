@@ -78,12 +78,14 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
     private static final String DEFAULT_HEADER_PACKAGE = "com.android.systemui";
 
     private static final String DASHBOARD_COLUMNS = "dashboard_columns";
+    private static final String SHOW_OPERATOR_NAME = "show_operator_name";
 
     private ListPreference mDaylightHeaderPack;
     private CheckBoxPreference mCustomHeaderImage;
     private ListPreference mQuickPulldown;
     private ListPreference mLcdDensityPreference;
     private ListPreference mDashboardColumns;
+    private CheckBoxPreference mShowOperatorName;
 
     protected Context mContext;
 
@@ -109,6 +111,11 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
         mContext = getActivity().getApplicationContext();
         ContentResolver resolver = getActivity().getContentResolver();
         PreferenceScreen prefSet = getPreferenceScreen();
+
+        mShowOperatorName = (CheckBoxPreference) findPreference(SHOW_OPERATOR_NAME);
+        mShowOperatorName.setOnPreferenceChangeListener(this);
+        boolean showOperatorName = Settings.System.getInt(getContentResolver(), SHOW_OPERATOR_NAME, 0) == 1;
+        mShowOperatorName.setChecked(showOperatorName);
 
 	mQuickPulldown = (ListPreference) findPreference(PRE_QUICK_PULLDOWN);
         if (!Utils.isPhone(getActivity())) {
@@ -268,6 +275,11 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
         } else if (preference == mStatusBarBrightnessControl) {
             boolean value = (Boolean) objValue;
             Settings.System.putInt(getContentResolver(), STATUS_BAR_BRIGHTNESS_CONTROL,
+                    value ? 1 : 0);
+            return true;
+        } else if (preference == mShowOperatorName) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(getContentResolver(), SHOW_OPERATOR_NAME,
                     value ? 1 : 0);
             return true;
         } else if (preference == mDaylightHeaderPack) {
