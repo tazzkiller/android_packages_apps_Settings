@@ -56,6 +56,13 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import android.provider.Settings.SettingNotFoundException;
 import com.android.internal.util.omni.DeviceUtils;
+import com.android.internal.util.du.AbstractAsyncSuCMDProcessor;
+import com.android.internal.util.du.CMDProcessor;
+import com.android.internal.util.du.Helpers;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.DataOutputStream;
 import com.android.internal.logging.MetricsLogger;
 
 public class RemixScreenSettings extends SettingsPreferenceFragment implements
@@ -80,12 +87,15 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
     private static final String DASHBOARD_COLUMNS = "dashboard_columns";
     private static final String SHOW_OPERATOR_NAME = "show_operator_name";
 
+    private static final String SELINUX = "selinux";
+
     private ListPreference mDaylightHeaderPack;
     private CheckBoxPreference mCustomHeaderImage;
     private ListPreference mQuickPulldown;
     private ListPreference mLcdDensityPreference;
     private ListPreference mDashboardColumns;
     private CheckBoxPreference mShowOperatorName;
+    private SwitchPreference mSelinux;
 
     protected Context mContext;
 
@@ -212,6 +222,18 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
         }
         mDashboardColumns.setSummary(mDashboardColumns.getEntry());
         mDashboardColumns.setOnPreferenceChangeListener(this);
+
+        //SELinux
+        mSelinux = (SwitchPreference) findPreference(SELINUX);
+        mSelinux.setOnPreferenceChangeListener(this);
+
+        if (CMDProcessor.runShellCommand("getenforce").getStdout().contains("Enforcing")) {
+            mSelinux.setChecked(true);
+            mSelinux.setSummary(R.string.selinux_enforcing_title);
+        } else {
+            mSelinux.setChecked(false);
+            mSelinux.setSummary(R.string.selinux_permissive_title);
+        }
     }
 
     @Override
@@ -294,8 +316,17 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
             int valueIndex = mDashboardColumns.findIndexOfValue(value);
             mDashboardColumns.setSummary(mDashboardColumns.getEntries()[valueIndex]);
             return true;
+        } else if (preference == mSelinux) {
+            if (objValue.toString().equals("true")) {
+                CMDProcessor.runSuCommand("setenforce 1");
+                mSelinux.setSummary(R.string.selinux_enforcing_title);
+            } else if (objValue.toString().equals("false")) {
+                CMDProcessor.runSuCommand("setenforce 0");
+                mSelinux.setSummary(R.string.selinux_permissive_title);
+            }
+            return true;
         }
-        return true;
+        return false;
     }
 
     @Override
