@@ -32,12 +32,6 @@
             android:summary="@string/lock_screen_weather_settings_summary"
             android:fragment="com.android.settings.darkobas.LockScreenWeatherSettings" />
 
-        <PreferenceScreen
-            android:key="lockscreen_wallpaper_changer"
-            android:title="@string/lockscreen_wallpaper_title"
-            android:layout="@layout/preference_lockscreenwp"
-            android:fragment="com.android.settings.darkobas.RemixLockscreenSettings" />
-
         <com.android.settings.preference.SecureSettingSwitchPreference
             android:key="lockscreen_visualizer"
             android:title="@string/lockscreen_visualizer_title"
@@ -60,6 +54,11 @@
         android:key="cat_statusbar"
         android:layout="@layout/remix_category"
         android:title="@string/cat_statusbar_title">
+
+    <com.android.settings.preference.SystemCheckBoxPreference
+            android:title="@string/show_operator_name_title"
+            android:key="show_operator_name"
+            android:summary="@string/show_operator_name_summary" />
 
         <SwitchPreference
             android:key="status_bar_brightness_control"
@@ -173,5 +172,22 @@
                 android:key="dashboard_columns"
                 android:title="@string/dashboard_columns_title"
                 android:dialogTitle="@string/dashboard_columns_title" />
+
+        </PreferenceCategory>
+        <!-- SELinux -->
+        <PreferenceCategory
+            android:key="selinux_switch_category"
+            android:title="@string/selinux_switch_title" >
+
+        <Preference
+            android:key="selinux_switch"
+            android:title="@string/selinux_switch_title"
+            android:summary="@string/selinux_switch_summary"
+            android:selectable="false"/>
+
+        <SwitchPreference
+            android:key="selinux"
+            android:title="@string/selinux_title"
+            android:defaultValue="false" />
         </PreferenceCategory>
 </PreferenceScreen>
