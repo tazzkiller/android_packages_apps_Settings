@@ -18,4 +18,8 @@
 
     <dimen name="dashboard_cell_gap_x_compact">8dp</dimen>
 
+    <dimen name="alert_dialog_padding_material">20dp</dimen>
+    <dimen name="color_preference_width">18dip</dimen>
+    <dimen name="color_preference_height">18dip</dimen>
+
 </resources>
