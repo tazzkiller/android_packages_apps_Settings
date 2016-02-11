@@ -60,7 +60,6 @@
                 android:title="@string/battery_title"
                 android:summary="@string/statusbar_battery_summary"
                 android:fragment="com.android.settings.darkobas.StatusbarBatterySettings" />
-
     <com.android.settings.preference.SystemCheckBoxPreference
             android:title="@string/show_operator_name_title"
             android:key="show_operator_name"
