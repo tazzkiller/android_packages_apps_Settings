@@ -178,16 +178,12 @@
                 android:title="@string/dashboard_columns_title"
                 android:dialogTitle="@string/dashboard_columns_title" />
 
-        <com.android.settings.preference.GlobalSettingSwitchPreference
-                android:key="dnd_in_power_menu"
-                android:title="@string/dnd_in_power_menu_title"
-                android:summary="@string/dnd_in_power_menu_summary" />
-
         </PreferenceCategory>
         <!-- SELinux -->
         <PreferenceCategory
             android:key="selinux_switch_category"
             android:title="@string/selinux_switch_title" >
+
         <Preference
             android:key="selinux_switch"
             android:title="@string/selinux_switch_title"
