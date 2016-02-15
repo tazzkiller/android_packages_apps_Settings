@@ -314,13 +314,6 @@
     <string name="show_operator_name_title">Show operator name</string>
     <string name="show_operator_name_summary">Show operator name in status bar</string>
 
-    <!-- Selinux Switch -->
-    <string name="selinux_switch_title">Selinux Switch options</string>
-    <string name="selinux_switch_summary">SELinux is a set of kernel modifications and user-space tools. Changing modes can cause unwanted effects. Use at your own risk.</string>
-    <string name="selinux_title">Selinux Mode</string>
-    <string name="selinux_permissive_title">Permissive</string>
-    <string name="selinux_enforcing_title">Enforcing</string>
-    <string name="selinux_permissive_toast_title">Selinux set to permissive</string>
     <!-- Setting Checkbox title whether to enable doze powersave -->
     <string name="doze_powersave_title">Doze powersave</string>
     <!-- setting Checkbox summary whether to enable doze powersave  -->
