@@ -73,6 +73,13 @@
             android:title="@string/lockscreen_wallpaper_title"
             android:fragment="com.android.settings.darkobas.RemixLockscreenSettings" />
 
+           <PreferenceScreen
+                android:key="global_actions"
+                android:title="@string/global_actions_title"
+                android:summary="@string/global_actions_summary"
+                android:fragment="com.android.settings.darkobas.GlobalActionsSettings" />
+
+
     </PreferenceCategory>
 
 </PreferenceScreen>
