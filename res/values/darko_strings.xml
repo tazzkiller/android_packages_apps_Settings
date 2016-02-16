@@ -333,4 +333,8 @@
     <string name="global_actions_title">Power menu</string>
     <string name="global_actions_summary">Actions shown in power menu</string>
     <string name="global_actions_header">Some actions are only visible depending on the setup or only if the device is unlocked</string>
+    <!-- Volume Keys Media Control -->
+    <string name="volume_keys_control_media_stream">Media control</string>
+    <string name="volume_keys_control_media_stream_summary">Volume keys control media volume rather than notifications</string>
+
 </resources>
