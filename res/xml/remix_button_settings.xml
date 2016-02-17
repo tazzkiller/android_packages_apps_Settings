@@ -59,6 +59,12 @@
             android:persistent="false"/> -->
 
         <CheckBoxPreference
+            android:key="volume_music_controls"
+            android:title="@string/volume_music_controls_title"
+            android:summary="@string/volume_music_controls_summary"
+            android:persistent="false"/>
+
+        <CheckBoxPreference
             android:key="volume_keys_control_media_stream"
             android:title="@string/volume_keys_control_media_stream"
             android:summary="@string/volume_keys_control_media_stream_summary"

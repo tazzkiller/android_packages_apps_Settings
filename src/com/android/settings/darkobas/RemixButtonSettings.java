@@ -74,6 +74,7 @@ public class RemixButtonSettings extends SettingsPreferenceFragment implements O
     private static final String KEY_VOL_MEDIA = "volume_keys_control_media_stream";
     private static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
     private static final String SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
+    private static final String KEY_VOLBTN_MUSIC_CTRL = "volume_music_controls";
 //    private static final String CATEGORY_HEADSETHOOK = "button_headsethook";
 //    private static final String BUTTON_HEADSETHOOK_LAUNCH_VOICE = "button_headsethook_launch_voice";
 
@@ -125,6 +126,7 @@ public class RemixButtonSettings extends SettingsPreferenceFragment implements O
     private CheckBoxPreference mHomeAnswerCall;
     private CheckBoxPreference mVolumeKeysControlMedia;
     private CheckBoxPreference mSwapVolumeButtons;
+    private CheckBoxPreference mVolBtnMusicCtrl;
     private ListPreference mVolumeKeyCursorControl;
     private SwitchPreference mEnableCustomBindings;
     private SeekBarPreference mNavigationBarHeight;
@@ -195,6 +197,12 @@ public class RemixButtonSettings extends SettingsPreferenceFragment implements O
 //          mVolumeDefault.setValue(Integer.toString(currentDefault));
 //          mVolumeDefault.setOnPreferenceChangeListener(this);
 //
+            // volume music control
+            mVolBtnMusicCtrl = (CheckBoxPreference) findPreference(KEY_VOLBTN_MUSIC_CTRL);
+            mVolBtnMusicCtrl.setChecked(Settings.System.getInt(getContentResolver(),
+                    Settings.System.VOLUME_MUSIC_CONTROLS, 1) != 0);
+            mVolBtnMusicCtrl.setOnPreferenceChangeListener(this);
+
             mVolumeKeysControlMedia = (CheckBoxPreference) findPreference(KEY_VOL_MEDIA);
             mVolumeKeysControlMedia.setChecked(Settings.System.getInt(getContentResolver(),
                     Settings.System.VOLUME_KEYS_CONTROL_MEDIA_STREAM, 0) != 0);
@@ -568,6 +576,11 @@ public class RemixButtonSettings extends SettingsPreferenceFragment implements O
                     Settings.System.VOLUME_KEY_CURSOR_CONTROL, val);
             int index = mVolumeKeyCursorControl.findIndexOfValue(volumeKeyCursorControl);
             mVolumeKeyCursorControl.setSummary(mVolumeKeyCursorControl.getEntries()[index]);
+            return true;
+        } else if (preference == mVolBtnMusicCtrl) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.VOLUME_MUSIC_CONTROLS,
+                    (Boolean) newValue ? 1 : 0);
             return true;
         } else if (preference == mBackPressAction) {
             int value = Integer.valueOf((String) newValue);
