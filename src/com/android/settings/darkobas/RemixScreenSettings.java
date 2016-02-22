@@ -58,8 +58,15 @@ import android.provider.Settings.SettingNotFoundException;
 import com.android.internal.util.omni.DeviceUtils;
 import com.android.internal.logging.MetricsLogger;
 
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Index;
+import com.android.settings.search.Indexable;
+import android.provider.SearchIndexableResource;
+import java.util.Arrays;
+import java.util.List;
+
 public class RemixScreenSettings extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
+        Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String TAG = "RemixScreenSettings";
     private static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
@@ -408,4 +415,18 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
             entries.add(label);
         }
     }
+    /**
+     * For Search.
+     */
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        new BaseSearchIndexProvider() {
+
+            @Override
+            public List<SearchIndexableResource> getXmlResourcesToIndex(
+                    Context context, boolean enabled) {
+                final SearchIndexableResource sir = new SearchIndexableResource(context);
+                sir.xmlResId = R.xml.remix_screen_settings;
+                return Arrays.asList(sir);
+            }
+	};
 }

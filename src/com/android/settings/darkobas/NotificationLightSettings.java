@@ -48,13 +48,18 @@ import com.android.settings.cyanogenmod.PackageListAdapter;
 import com.android.settings.cyanogenmod.PackageListAdapter.PackageItem;
 import com.android.settings.preference.SystemSettingSwitchPreference;
 
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Index;
+import com.android.settings.search.Indexable;
+import android.provider.SearchIndexableResource;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class NotificationLightSettings extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener, AdapterView.OnItemLongClickListener {
+        Preference.OnPreferenceChangeListener, AdapterView.OnItemLongClickListener, Indexable {
     private static final String TAG = "NotificationLightSettings";
     private static final String NOTIFICATION_LIGHT_PULSE_DEFAULT_COLOR = "notification_light_pulse_default_color";
     private static final String NOTIFICATION_LIGHT_PULSE_DEFAULT_LED_ON = "notification_light_pulse_default_led_on";
@@ -535,4 +540,19 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         }
 
     }
+
+    /**
+     * For Search.
+     */
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        new BaseSearchIndexProvider() {
+
+            @Override
+            public List<SearchIndexableResource> getXmlResourcesToIndex(
+                    Context context, boolean enabled) {
+                final SearchIndexableResource sir = new SearchIndexableResource(context);
+                sir.xmlResId = R.xml.notification_light_settings;
+                return Arrays.asList(sir);
+            }
+	};
 }

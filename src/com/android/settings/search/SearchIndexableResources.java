@@ -54,6 +54,10 @@ import com.android.settings.wifi.AdvancedWifiSettings;
 import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.WifiSettings;
 import com.android.settings.darkobas.RemixMainSettings;
+import com.android.settings.darkobas.RemixLockscreenSettings;
+import com.android.settings.darkobas.RemixScreenSettings;
+import com.android.settings.darkobas.RemixButtonSettings;
+import com.android.settings.darkobas.NotificationLightSettings;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -310,6 +314,34 @@ public final class SearchIndexableResources {
                         R.xml.remix_main_settings,
                         RemixMainSettings.class.getName(),
                         R.drawable.ic_remix_icon));
+        sResMap.put(RemixLockscreenSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(RemixLockscreenSettings.class.getName()),
+                        R.xml.remix_main_settings,
+                        RemixLockscreenSettings.class.getName(),
+                        R.drawable.ic_remix_icon));
+        sResMap.put(RemixScreenSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(RemixScreenSettings.class.getName()),
+                        R.xml.remix_main_settings,
+                        RemixScreenSettings.class.getName(),
+                        R.drawable.ic_remix_icon));
+        sResMap.put(RemixButtonSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(RemixButtonSettings.class.getName()),
+                        R.xml.remix_main_settings,
+                        RemixButtonSettings.class.getName(),
+                        R.drawable.ic_remix_icon));
+        sResMap.put(NotificationLightSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(NotificationLightSettings.class.getName()),
+                        R.xml.remix_main_settings,
+                        NotificationLightSettings.class.getName(),
+                        R.drawable.ic_remix_icon));
+
+
+
+
     }
 
     private SearchIndexableResources() {

@@ -20,6 +20,7 @@ package com.android.settings.darkobas;
 import android.app.Activity;
 import android.app.WallpaperManager;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -33,7 +34,14 @@ import com.android.settings.R;
 import com.android.internal.logging.MetricsLogger;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class RemixLockscreenSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Index;
+import com.android.settings.search.Indexable;
+import android.provider.SearchIndexableResource;
+import java.util.Arrays;
+import java.util.List;
+
+public class RemixLockscreenSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener, Indexable {
     public static final int IMAGE_PICK = 1;
     public static final int SET_KEYGUARD_WALLPAPER = 2;
 
@@ -126,4 +134,19 @@ public class RemixLockscreenSettings extends SettingsPreferenceFragment implemen
     protected int getMetricsCategory() {
         return MetricsLogger.DONT_TRACK_ME_BRO;
     }
+
+    /**
+     * For Search.
+     */
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        new BaseSearchIndexProvider() {
+
+            @Override
+            public List<SearchIndexableResource> getXmlResourcesToIndex(
+                    Context context, boolean enabled) {
+                final SearchIndexableResource sir = new SearchIndexableResource(context);
+                sir.xmlResId = R.xml.remix_lockscreen_settings;
+                return Arrays.asList(sir);
+            }
+	};
 }

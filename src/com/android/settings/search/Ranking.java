@@ -53,6 +53,10 @@ import com.android.settings.wifi.AdvancedWifiSettings;
 import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.WifiSettings;
 import com.android.settings.darkobas.RemixMainSettings;
+import com.android.settings.darkobas.RemixLockscreenSettings;
+import com.android.settings.darkobas.RemixScreenSettings;
+import com.android.settings.darkobas.RemixButtonSettings;
+import com.android.settings.darkobas.NotificationLightSettings;
 
 import java.util.HashMap;
 
@@ -84,7 +88,10 @@ public final class Ranking {
     public static final int RANK_DEVELOPEMENT = 21;
     public static final int RANK_DEVICE_INFO = 22;
     public static final int RANK_REMIXMAIN = 23;
-    public static final int RANK_REMIXNOTIFICATION = 24;
+    public static final int RANK_REMIXLOCKSCREEN = 24;
+    public static final int RANK_REMIXSCREEN = 25;
+    public static final int RANK_REMIXBUTTON = 26;
+    public static final int RANK_REMIXNOTIFICATION = 27;
 
     public static final int RANK_UNDEFINED = -1;
     public static final int RANK_OTHERS = 1024;
@@ -178,6 +185,10 @@ public final class Ranking {
 
         // Remix Settings
         sRankMap.put(RemixMainSettings.class.getName(), RANK_REMIXMAIN);
+        sRankMap.put(RemixLockscreenSettings.class.getName(), RANK_REMIXLOCKSCREEN);
+        sRankMap.put(RemixScreenSettings.class.getName(), RANK_REMIXSCREEN);
+        sRankMap.put(RemixButtonSettings.class.getName(), RANK_REMIXBUTTON);
+        sRankMap.put(NotificationLightSettings.class.getName(), RANK_REMIXNOTIFICATION);
 
         sBaseRankMap.put("com.android.settings", 0);
     }
