@@ -56,13 +56,6 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import android.provider.Settings.SettingNotFoundException;
 import com.android.internal.util.omni.DeviceUtils;
-import com.android.internal.util.du.AbstractAsyncSuCMDProcessor;
-import com.android.internal.util.du.CMDProcessor;
-import com.android.internal.util.du.Helpers;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.DataOutputStream;
 import com.android.internal.logging.MetricsLogger;
 
 public class RemixScreenSettings extends SettingsPreferenceFragment implements
@@ -87,15 +80,12 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
     private static final String DASHBOARD_COLUMNS = "dashboard_columns";
     private static final String SHOW_OPERATOR_NAME = "show_operator_name";
 
-    private static final String SELINUX = "selinux";
-
     private ListPreference mDaylightHeaderPack;
     private CheckBoxPreference mCustomHeaderImage;
     private ListPreference mQuickPulldown;
     private ListPreference mLcdDensityPreference;
     private ListPreference mDashboardColumns;
     private CheckBoxPreference mShowOperatorName;
-    private SwitchPreference mSelinux;
 
     protected Context mContext;
 
@@ -186,8 +176,12 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
             settingHeaderPackage = DEFAULT_HEADER_PACKAGE;
         }
         mDaylightHeaderPack = (ListPreference) findPreference(DAYLIGHT_HEADER_PACK);
-        mDaylightHeaderPack.setEntries(getAvailableHeaderPacksEntries());
-        mDaylightHeaderPack.setEntryValues(getAvailableHeaderPacksValues());
+
+        List<String> entries = new ArrayList<String>();
+        List<String> values = new ArrayList<String>();
+        getAvailableHeaderPacks(entries, values);
+        mDaylightHeaderPack.setEntries(entries.toArray(new String[entries.size()]));
+        mDaylightHeaderPack.setEntryValues(values.toArray(new String[values.size()]));
 
         int valueIndex = mDaylightHeaderPack.findIndexOfValue(settingHeaderPackage);
         if (valueIndex == -1) {
@@ -222,18 +216,6 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
         }
         mDashboardColumns.setSummary(mDashboardColumns.getEntry());
         mDashboardColumns.setOnPreferenceChangeListener(this);
-
-        //SELinux
-        mSelinux = (SwitchPreference) findPreference(SELINUX);
-        mSelinux.setOnPreferenceChangeListener(this);
-
-        if (CMDProcessor.runShellCommand("getenforce").getStdout().contains("Enforcing")) {
-            mSelinux.setChecked(true);
-            mSelinux.setSummary(R.string.selinux_enforcing_title);
-        } else {
-            mSelinux.setChecked(false);
-            mSelinux.setSummary(R.string.selinux_permissive_title);
-        }
     }
 
     @Override
@@ -316,17 +298,8 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
             int valueIndex = mDashboardColumns.findIndexOfValue(value);
             mDashboardColumns.setSummary(mDashboardColumns.getEntries()[valueIndex]);
             return true;
-        } else if (preference == mSelinux) {
-            if (objValue.toString().equals("true")) {
-                CMDProcessor.runSuCommand("setenforce 1");
-                mSelinux.setSummary(R.string.selinux_enforcing_title);
-            } else if (objValue.toString().equals("false")) {
-                CMDProcessor.runSuCommand("setenforce 0");
-                mSelinux.setSummary(R.string.selinux_permissive_title);
-            }
-            return true;
         }
-        return false;
+        return true;
     }
 
     @Override
@@ -402,39 +375,37 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
         }
     }
 
-    private String[] getAvailableHeaderPacksValues() {
-        List<String> headerPacks = new ArrayList<String>();
+    private void getAvailableHeaderPacks(List<String> entries, List<String> values) {
         Intent i = new Intent();
         PackageManager packageManager = getPackageManager();
         i.setAction("org.omnirom.DaylightHeaderPack");
         for (ResolveInfo r : packageManager.queryIntentActivities(i, 0)) {
             String packageName = r.activityInfo.packageName;
             if (packageName.equals(DEFAULT_HEADER_PACKAGE)) {
-                headerPacks.add(0, packageName);
+                values.add(0, packageName);
             } else {
-                headerPacks.add(packageName);
+                values.add(packageName);
             }
-        }
-        return headerPacks.toArray(new String[headerPacks.size()]);
-    }
-
-    private String[] getAvailableHeaderPacksEntries() {
-        List<String> headerPacks = new ArrayList<String>();
-        Intent i = new Intent();
-        PackageManager packageManager = getPackageManager();
-        i.setAction("org.omnirom.DaylightHeaderPack");
-        for (ResolveInfo r : packageManager.queryIntentActivities(i, 0)) {
-            String packageName = r.activityInfo.packageName;
             String label = r.activityInfo.loadLabel(getPackageManager()).toString();
             if (label == null) {
                 label = r.activityInfo.packageName;
             }
             if (packageName.equals(DEFAULT_HEADER_PACKAGE)) {
-                headerPacks.add(0, label);
+                entries.add(0, label);
             } else {
-                headerPacks.add(label);
+                entries.add(label);
             }
         }
-        return headerPacks.toArray(new String[headerPacks.size()]);
+        i.setAction("org.omnirom.DaylightHeaderPack1");
+        for (ResolveInfo r : packageManager.queryIntentActivities(i, 0)) {
+            String packageName = r.activityInfo.packageName;
+            values.add(packageName  + "/" + r.activityInfo.name);
+
+            String label = r.activityInfo.loadLabel(getPackageManager()).toString();
+            if (label == null) {
+                label = packageName;
+            }
+            entries.add(label);
+        }
     }
 }

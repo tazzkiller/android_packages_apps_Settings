@@ -272,7 +272,7 @@
      <string name="lock_clock_clock_section_summary">查看或更改时钟插件显示方式</string>
      <string name="lock_clock_weather_section_title">天气面板</string>
      <string name="lock_clock_weather_section_summary">查看或更改时钟插件中的天气显示方式</string>
-     <string name="lock_clock_calendar_section_title">日历时间<</string>
+     <string name="lock_clock_calendar_section_title">日历时间</string>
      <string name="lock_clock_calendar_section_summary">查看或更改时钟插件中的日历显示方式</string>
 
     <!-- Quick Unlock (PIN) -->
