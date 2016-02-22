@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- BitSyko Layers -->
+    <string name="bitsyko_layers">层面主题</string>
+
+    <!-- SuperSU header name - the app hides itself from launcher based on this resource name being present in com.android.settings -->
+    <string name="supersu_title">超级权限</string>
+
+    <!-- Advanced reboot options -->
+    <string name="advanced_reboot_title">高级重启</string>
+    <string name="advanced_reboot_summary">解锁情况下，在电源菜单加入选项以重启至恢复模式、引导模式或执行软重启</string>
+
+    <!-- app notifications hide on lockscreen -->
+    <string name="app_notification_no_keyguard_title">锁定时隐藏</string>
+    <string name="app_notification_no_keyguard_summary">当设备锁定时隐藏这个应用的通知</string>
+    <string name="filter_notif_no_keyguard">锁定时隐藏</string>
+    <string name="notifications_no_keyguard">锁定时隐藏</string>
+    <string name="notifications_four_items"><xliff:g id="notif_state" example="Priority">%1$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%2$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%3$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%4$s</xliff:g></string>
+
+    <string name="other_category">其他</string>
+
+    <!-- Dashboard columns -->
+    <string name="dashboard_columns_title">设置界面列数</string>
+    <string name="dashboard_columns_phone_default">默认</string>
+    <string name="dashboard_columns_two">两列</string>
+    <string name="dashboard_columns_tablet_default">默认</string>
+    <string name="dashboard_columns_three">三列</string>
+    <string name="dashboard_columns_four">四列</string>
+
+    <string name="heads_up_notifications_enabled_title">浮动通知</string>
+    <string name="heads_up_notifications_enabled_summary">允许或禁用浮动通知</string>
+
+    <string name="battery_title">电池图标样式</string>
+    <string name="statusbar_battery_summary">设置状态栏电池电量显示样式</string>
+    <string name="battery_style_title">样式</string>
+    <string name="battery_percent_title">显示百分比</string>
+    <string name="battery_percent_none">从不</string>
+    <string name="battery_percent_always">总是</string>
+    <string name="battery_percent_expanded">扩展</string>
+    <string name="statusbar_percent_inside_title">重叠百分比</string>
+    <string name="statusbar_percent_inside_summary">在电池图像的顶部显示百分比</string>
+    <string name="statusbar_charging_image_title">充电指示灯</string>
+    <string name="statusbar_category_charging_title">充电</string>
+    <string name="statusbar_charging_image_summary">在充电时显示充电指标,隐藏百分比的覆盖</string>
+    <string name="statusbar_battery_charging_color_title">颜色</string>
+    <string name="statusbar_battery_charging_color_enable_title">颜色时候的充电</string>
+    <string name="statusbar_battery_charging_color_enable_summary"></string>
+</resources>
