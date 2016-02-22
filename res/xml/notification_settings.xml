@@ -52,7 +52,7 @@
         <!-- Notification volume -->
         <com.android.settings.notification.VolumeSeekBarPreference
                 android:key="notification_volume"
-                android:icon="@*android:drawable/ic_audio_notification_new"
+                android:icon="@*android:drawable/ic_audio_notification"
                 android:title="@string/notification_volume_option_title" />
 
         <!-- Also vibrate for calls -->

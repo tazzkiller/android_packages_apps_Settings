@@ -248,12 +248,12 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
                     || mAudioManager.getStreamVolume(AudioSystem.STREAM_NOTIFICATION) == 0;
             mNotificationPreference.showIcon(mSuppressor != null ||
                     mRingerMode == AudioManager.RINGER_MODE_SILENT
-                    ? com.android.internal.R.drawable.ic_audio_notification_mute_new
+                    ? com.android.internal.R.drawable.ic_audio_notification_mute
                     : mRingerMode == AudioManager.RINGER_MODE_VIBRATE
                     ? com.android.internal.R.drawable.ic_audio_ring_notif_vibrate
                     : muted
-                    ? com.android.internal.R.drawable.ic_audio_notification_mute_new
-                    : com.android.internal.R.drawable.ic_audio_notification_new);
+                    ? com.android.internal.R.drawable.ic_audio_notification_mute
+                    : com.android.internal.R.drawable.ic_audio_notification);
             mNotificationPreference.setEnabled(mRingerMode != AudioManager.RINGER_MODE_SILENT
                     && mRingerMode != AudioManager.RINGER_MODE_VIBRATE);
         }
