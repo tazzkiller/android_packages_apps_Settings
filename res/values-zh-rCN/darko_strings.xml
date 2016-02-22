@@ -318,17 +318,38 @@
     
     <string name="show_operator_name_title">显示运营商的名字</string>
     <string name="show_operator_name_summary">在状态栏显示运营商的名字</string>
-
-    <!-- Selinux Switch -->
-    <string name="selinux_switch_title">Selinux切换选项</string>
-    <string name="selinux_switch_summary">SELinux是设置修改内核和用户空间的工具,更改模式可能会导致不可预料的结果，是否启用由你决定.</string>
-    <string name="selinux_title">Selinux 模式</string>
-    <string name="selinux_permissive_title">Permissive</string>
-    <string name="selinux_enforcing_title">Enforcing</string>
-    <string name="selinux_permissive_toast_title">Selinux模式设置为permissive</string>
+    
     <!-- Setting Checkbox title whether to enable doze powersave -->
     <string name="doze_powersave_title">Doze 省电</string>
     <!-- setting Checkbox summary whether to enable doze powersave  -->
     <string name="doze_powersave_summary">睡眠时允许设备进入一种超低能耗状态</string>
+
+    <!-- global acions config -->
+    <string name="global_actions_power_title">关机</string>
+    <string name="global_actions_reboot_title">重启</string>
+    <string name="global_actions_lockdown_title">立即锁定</string>
+    <string name="global_actions_settings_title">设置</string>
+    <string name="global_actions_airplane_title">飞行模式</string>
+    <string name="global_actions_users_title">用户</string>
+    <string name="global_actions_voiceassist_title">语音助手</string>
+    <string name="global_actions_silent_title">静音模式</string>
+    <string name="global_actions_dnd_title">请勿打扰</string>
+    <string name="global_actions_title">电源菜单</string>
+    <string name="global_actions_summary">电源菜单上的快捷方式</string>
+    <string name="global_actions_header">一些快捷方式是否可见取决于在设置或仅当设备已解锁</string>
+    
+    <!-- Volume Keys Media Control -->
+    <string name="volume_keys_control_media_stream">媒体控制</string>
+    <string name="volume_keys_control_media_stream_summary">音量键控制媒体音量，而不是通知音量</string>
+
+    <!-- Volume rocker music seek options -->
+    <string name="volume_music_controls_title">播放控制</string>
+    <string name="volume_music_controls_summary">屏幕关闭时，长按音量键将改变音乐曲目</string>
+    <string name="volume_button_toggle_info">音量键唤醒必须被禁止</string>
+
+    <!-- Linked / unlinked notification volume -->
+    <string name="link_volume_option_title">链接铃声和通知的音量</string>
+    <string name="notification_volume_option_title">通知音量</string>
+    <string name="ring_notification_volume_option_title">铃声和通知音量</string>
 
 </resources>
