@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-​​- BitSyko Layers -->
+    <string name="bitsyko_layers">Layers主題</string>
+
+    <!-​​- SuperSU header name - the app hides itself from launcher based on this resource name being present in com.android.settings -->
+    <string name="supersu_title">SuperSu</string>
+
+    <!-​​- Advanced reboot opt​​ions -->
+    <string name="advanced_reboot_title">進階重啟</string>
+    <string name="advanced_reboot_summary">解鎖情況下，在電源選單加入選項以重新啟動至Recovery模式、BootLoader模式或執行軟重啟</string>
+
+    <!-​​- app no​​tifications hide on lockscreen -->
+    <string name="app_notification_no_keyguard_title">鎖定時隱藏</string>
+    <string name="app_notification_no_keyguard_summary">當裝置鎖定時隱藏這個程式的通知</string>
+    <string name="filter_notif_no_keyguard">鎖定時隱藏</string>
+    <string name="notifications_no_keyguard">鎖定時隱藏</string>
+    <string name="notifications_four_items"><xliff:g id="notif_state" example="Priority">%1$s</xliff:g> / <xliff:g id="notif_state" example="Priority">% 2$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%3$s</xliff:g> / <xliff:g id="notif_state" example="Priority" >%4$s</xliff:g></string>
+
+    <string name="other_category">其他</string>
+
+    <!-​​- Dashboard columns -->
+    <string name="d​​ashboard_columns_title">設置界面列數</string>
+    <string name="d​​ashboard_columns_phone_default">預設</string>
+    <string name="d​​ashboard_columns_two">兩列</string>
+    <string name="d​​ashboard_columns_tablet_default">預設</string>
+    <string name="d​​ashboard_columns_three">三列</string>
+    <string name="d​​ashboard_columns_four">四列</string>
+
+    <string name="heads_up_notifications_enabled_title">浮動通知</string>
+    <string name="heads_up_notifications_enabled_summary">允許或禁用浮動通知</string>
+
+    <string name="battery_title">電池圖案樣式</string>
+    <string name="statusbar_battery_summary">設置狀態欄電池電量顯示樣式</string>
+    <string name="battery_style_title">樣式</string>
+    <string name="battery_percent_title">顯示百分比</string>
+    <string name="battery_percent_none">從不</string>
+    <string name="battery_percent_always">總是</string>
+    <string name="battery_percent_expanded">擴展</string>
+    <string name="statusbar_percent_inside_title">重疊百分比</string>
+    <string name="statusbar_percent_inside_summary">在電池圖案的頂部顯示百分比</string>
+    <string name="statusbar_charging_image_title">充電指示燈</string>
+    <string name="statusbar_category_charging_title">充電</string>
+    <string name="statusbar_charging_image_summary">在充電時顯示充電指標,隱藏百分比的覆蓋</string>
+    <string name="statusbar_battery_charging_color_title">顏色</string>
+    <string name="statusbar_battery_charging_color_enable_title">顏色時的充電</string>
+    <string name="statusbar_battery_charging_color_enable_summary"></string>
+</resources>
