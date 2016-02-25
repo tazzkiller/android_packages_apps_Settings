@@ -319,12 +319,12 @@ multiple font sizes in a limited amount of space. -->
 <string name="show_operator_name_title">顯示運營商的名字</string>
 <string name="show_operator_name_summary">在狀態列顯示運營商的名字</string>
 
-<!-​​- Setting Checkbox title whether to enable doze powersave -->
+<!-- Setting Checkbox title whether to enable doze powersave -->
 <string name="d​​oze_powersave_title">Doze 省電</string>
-<!-​​- setting Checkbox summary whether to enable doze powersave -->
+<!-- setting Checkbox summary whether to enable doze powersave -->
 <string name="d​​oze_powersave_summary">睡眠時允許設備進入一種超低能耗狀態</string>
 
-<!-​​- global acions config -->
+<!-- global acions config -->
 <string name="global_actions_power_title">關機</string>
 <string name="global_actions_reboot_title">重啟</string>
 <string name="global_actions_lockdown_title">立即鎖定</string>
@@ -338,16 +338,16 @@ multiple font sizes in a limited amount of space. -->
 <string name="global_actions_summary">電源選單上的快捷方式</string>
 <string name="global_actions_header">一些快捷方式是否可見取決於在設定或僅當設備已解鎖</string>
 
-<!-​​- Volume Keys Media Control -->
+<!-- Volume Keys Media Control -->
 <string name="volume_keys_control_media_stream">媒體音量控制</string>
 <string name="volume_keys_control_media_stream_summary">音量鍵控制媒體音量，而不是通知音量</string>
 
-<!-​​- Volume rocker music seek options -->
+<!-- Volume rocker music seek options -->
 <string name="volume_music_controls_title">播放控制</string>
 <string name="volume_music_controls_summary">螢幕關閉時，長按音量鍵將改變音樂曲目</string>
 <string name="volume_button_toggle_info">音量鍵喚醒必須被禁止</string>
 
-<!-​​- Linked / unlinked notification volume -->
+<!-- Linked / unlinked notification volume -->
 <string name="link_volume_option_title">鏈接鈴聲和通知的音量</string>
 <string name="notification_volume_option_title">通知音量</string>
 <string name="ring_notification_volume_option_title">鈴聲和通知音量</string>
