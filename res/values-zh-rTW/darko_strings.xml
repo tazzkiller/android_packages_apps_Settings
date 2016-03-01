@@ -2,7 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 <string name="remix_settings_title">綜合設定</string>
 <string name="remix_lights_category">燈光設定</string>
-<string name="remix_device_category">ˊ裝置設定</string>
+<string name="remix_device_category">裝置設定</string>
 <string name="remix_interface_category">界面設定</string>
 <string name="remix_notlight_title">通知指示燈設定</string>
 <string name="remix_batlight_title">電池指示燈設定</string>
@@ -168,7 +168,7 @@ multiple font sizes in a limited amount of space. -->
 <string name="omniswitch_dialog_running">OmniSwitch 當前未啟用. 請啟用它，並勾選上 \u2019設定開機啟動\u2019 .</string>
 <string name="omniswitch_dialog_unavail">OmniSwitch 未安裝.</string>
 <string name="omniswitch_title">最近任務風格</string>
-<string name="omniswitch_dialog_running">對不起,現在沒有OmniSwitch</string>
+<string name="omniswitch_dialog_running">對不起,沒有OmniSwitch</string>
 <string name="ok">OK</string>
 
 <!-- tap-to-sleep -->
