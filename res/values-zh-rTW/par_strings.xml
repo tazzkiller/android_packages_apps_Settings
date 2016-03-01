@@ -21,6 +21,6 @@
      <string name="par_version_default">未知的非官方組建</string>
 
      <!--CAF Branch-->
-     <string name="par_branch">CAF 分支</string>
+     <string name="par_branch">CodeAurora 分支</string>
      <string name="par_branch_default">未知</string>
 </resources>
