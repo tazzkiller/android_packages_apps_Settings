@@ -172,6 +172,11 @@
                 android:key="dashboard_columns"
                 android:title="@string/dashboard_columns_title"
                 android:dialogTitle="@string/dashboard_columns_title" />
+            <CheckBoxPreference
+                android:key="dashboard_divider_show"
+                android:title="@string/dashboard_divider_show_title"
+                android:summary="@string/dashboard_divider_show_summary"
+                android:defaultValue="true" />
 
         </PreferenceCategory>
 </PreferenceScreen>

@@ -30,7 +30,7 @@ import com.android.internal.util.omni.DeviceUtils;
 
 public class DashboardContainerView extends ViewGroup {
 
-    public static final String PREF_DASHBOARD_COLUMNS = "dashboard_columns";
+    private static final String PREF_DASHBOARD_COLUMNS = "dashboard_columns";
     private float mCellGapX;
     private float mCellGapY;
 

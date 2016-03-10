@@ -85,6 +85,8 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
     private static final String DEFAULT_HEADER_PACKAGE = "com.android.systemui";
 
     private static final String DASHBOARD_COLUMNS = "dashboard_columns";
+    private static final String DASHBOARD_DIVIDER_SHOW = "dashboard_divider_show";
+
     private static final String SHOW_OPERATOR_NAME = "show_operator_name";
 
     private ListPreference mDaylightHeaderPack;
@@ -92,6 +94,7 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
     private ListPreference mQuickPulldown;
     private ListPreference mLcdDensityPreference;
     private ListPreference mDashboardColumns;
+    private CheckBoxPreference mDashBoardDividerShow;
     private CheckBoxPreference mShowOperatorName;
 
     protected Context mContext;
@@ -223,6 +226,11 @@ public class RemixScreenSettings extends SettingsPreferenceFragment implements
         }
         mDashboardColumns.setSummary(mDashboardColumns.getEntry());
         mDashboardColumns.setOnPreferenceChangeListener(this);
+
+        mDashBoardDividerShow = (CheckBoxPreference) findPreference(DASHBOARD_DIVIDER_SHOW);
+        if (!prefs.contains(DASHBOARD_DIVIDER_SHOW)) {
+            mDashBoardDividerShow.setChecked(true);
+        }
     }
 
     @Override

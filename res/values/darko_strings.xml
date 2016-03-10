@@ -277,7 +277,7 @@
 
     <!-- Quick Unlock (PIN) -->
     <string name="unlock_quick_unlock_control_title">Quick unlock</string>
-    <string name="unlock_quick_unlock_control_summary">Unlock the lockscreen automatically when the correct PIN/password is entered</string>
+    <string name="unlock_quick_unlock_control_summary">Unlock the lockscreen automatically when the correct PIN/password is entered. USE ONLY IF YOUR PIN IS 4 DIGITS LONG!!!</string>
 
     <!-- Media ducking -->
     <string name="interruptions_ignore_while_media_title">Prevent audio ducking</string>
