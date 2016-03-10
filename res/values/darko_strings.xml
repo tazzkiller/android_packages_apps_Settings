@@ -314,12 +314,6 @@
     <string name="show_operator_name_title">Show operator name</string>
     <string name="show_operator_name_summary">Show operator name in status bar</string>
 
-    <!-- Setting Checkbox title whether to enable doze powersave -->
-    <string name="doze_powersave_title">Doze powersave</string>
-    <!-- setting Checkbox summary whether to enable doze powersave  -->
-    <string name="doze_powersave_summary">Allows the device to enter an ultra-low power state while sleeping</string>
-
-
     <!-- global acions config -->
     <string name="global_actions_power_title">Power</string>
     <string name="global_actions_reboot_title">Reboot</string>
