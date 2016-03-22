@@ -77,6 +77,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_LIFT_TO_WAKE = "lift_to_wake";
     private static final String KEY_DOZE = "doze";
     private static final String KEY_TAP_TO_WAKE = "tap_to_wake";
+    private static final String KEY_PROXIMITY_WAKE = "proximity_on_wake";
     private static final String KEY_AUTO_BRIGHTNESS = "auto_brightness";
     private static final String KEY_AUTO_ROTATE = "auto_rotate";
     private static final String KEY_NIGHT_MODE = "night_mode";
@@ -99,6 +100,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private SwitchPreference mLiftToWakePreference;
     private SwitchPreference mDozePreference;
     private SwitchPreference mTapToWakePreference;
+    private SwitchPreference mProximityWakePreference;
     private SwitchPreference mAutoBrightnessPreference;
     private SwitchPreference mCameraGesturePreference;
     private SwitchPreference mCameraDoubleTapPowerGesturePreference;
@@ -180,6 +182,15 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mTapToWakePreference.setOnPreferenceChangeListener(this);
         } else {
             removePreference(KEY_TAP_TO_WAKE);
+        }
+
+        mProximityWakePreference = (SwitchPreference) findPreference(KEY_PROXIMITY_WAKE);
+        boolean proximityCheckOnWake = getResources().getBoolean(
+                com.android.internal.R.bool.config_proximityCheckOnWake);
+        if (mProximityWakePreference != null && proximityCheckOnWake) {
+            mProximityWakePreference.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(KEY_PROXIMITY_WAKE);
         }
 
         if (isCameraGestureAvailable(getResources())) {
@@ -510,6 +521,14 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     getContentResolver(), CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED, 0);
             mCameraDoubleTapPowerGesturePreference.setChecked(value == 0);
         }
+        // Update proximity wake if it is available.
+        if (mProximityWakePreference != null) {
+            boolean defaultValue = getResources().getBoolean(
+                com.android.internal.R.bool.config_proximityCheckOnWakeEnabledByDefault);
+            boolean enabled = Settings.System.getInt(getContentResolver(),
+                    Settings.System.PROXIMITY_ON_WAKE, defaultValue ? 1 : 0) == 1;
+            mProximityWakePreference.setChecked(enabled);
+        }
     }
 
     private void updateScreenSaverSummary() {
@@ -605,6 +624,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 Log.e(TAG, "could not persist night mode setting", e);
             }
         }
+        if (preference == mProximityWakePreference) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(getContentResolver(), Settings.System.PROXIMITY_ON_WAKE,
+                    value ? 1 : 0);
+        }
         return true;
     }
 
@@ -662,6 +686,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     }
                     if (!isTapToWakeAvailable(context.getResources())) {
                         result.add(KEY_TAP_TO_WAKE);
+                    }
+                    if (!context.getResources().getBoolean(
+                            com.android.internal.R.bool.config_proximityCheckOnWake)) {
+                        result.add(KEY_PROXIMITY_WAKE);
                     }
                     if (!isCameraGestureAvailable(context.getResources())) {
                         result.add(KEY_CAMERA_GESTURE);
