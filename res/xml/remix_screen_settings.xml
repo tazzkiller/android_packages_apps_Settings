@@ -178,5 +178,11 @@
                 android:summary="@string/dashboard_divider_show_summary"
                 android:defaultValue="true" />
 
+            <com.android.settings.preference.SystemSettingSwitchPreference
+               android:key="double_tap_vibrate"
+               android:title="@string/dbl_tap_vib_title"
+               android:summary="@string/dbl_tap_vib_summary"
+               android:defaultValue="true" />
+
         </PreferenceCategory>
 </PreferenceScreen>
