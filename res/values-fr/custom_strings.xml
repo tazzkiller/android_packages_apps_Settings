@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- BitSyko Layers -->
+    <string name="bitsyko_layers">Layers</string>
+
+    <!-- SuperSU header name - the app hides itself from launcher based on this resource name being present in com.android.settings -->
+    <string name="supersu_title">SuperSU</string>
+
+    <!-- Advanced reboot options -->
+    <string name="advanced_reboot_title">Redémarrage avancé</string>
+    <string name="advanced_reboot_summary">Lorsque déverrouillé, inclure dans le menu marche/arrêt les options de redémarrage en mode récupération, bootloader et redémarrage logiciel</string>
+
+    <!-- app notifications hide on lockscreen -->
+    <string name="app_notification_no_keyguard_title">Cacher lorsque l\'appareil est verrouillé</string>
+    <string name="app_notification_no_keyguard_summary">Cacher les notifications de cette application lorsque l\'appareil est verrouillé</string>
+    <string name="filter_notif_no_keyguard">Cacher lorsque l\'appareil est verrouillé</string>
+    <string name="notifications_no_keyguard">Cacher lorsque l\'appareil est verrouillé</string>
+    <string name="notifications_four_items"><xliff:g id="notif_state" example="Priority">%1$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%2$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%3$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%4$s</xliff:g></string>
+
+    <string name="other_category">Autres</string>
+
+    <!-- Dashboard columns -->
+    <string name="dashboard_columns_title">Paramètres colonnes</string>
+    <string name="dashboard_columns_phone_default">Par défaut</string>
+    <string name="dashboard_columns_two">Deux</string>
+    <string name="dashboard_columns_tablet_default">Par défaut</string>
+    <string name="dashboard_columns_three">Trois</string>
+    <string name="dashboard_columns_four">Quatre</string>
+    <string name="dashboard_divider_show_title">Afficher le diviseur de colonnes</string>
+    <string name="dashboard_divider_show_summary"></string>
+
+    <string name="heads_up_notifications_enabled_title">Autoriser le coup d\'oeil</string>
+    <string name="heads_up_notifications_enabled_summary">Autoriser ou désactiver le coup d\'oeil pour toutes les notifications</string>
+
+    <string name="battery_title">Affichage de la batterie</string>
+    <string name="statusbar_battery_summary">Définir le style d\'affichage de la batterie dans la barre d\'état</string>
+    <string name="battery_style_title">Style</string>
+    <string name="battery_percent_title">Afficher pourcentage</string>
+    <string name="battery_percent_none">Jamais</string>
+    <string name="battery_percent_always">Toujours</string>
+    <string name="battery_percent_expanded">Étendu</string>
+    <string name="statusbar_percent_inside_title">Overlay Pourcentage</string>
+    <string name="statusbar_percent_inside_summary">Afficher le pourcentage au-dessus de l\'image de la batterie</string>
+    <string name="statusbar_charging_image_title">Indicateur de charge</string>
+    <string name="statusbar_category_charging_title">En charge</string>
+    <string name="statusbar_charging_image_summary">Afficher le Bolt pendant la charge. Cacher l\'overlay pourcentage.</string>
+    <string name="statusbar_battery_charging_color_title">Couleur</string>
+    <string name="statusbar_battery_charging_color_enable_title">Colorer pendant la charge</string>
+    <string name="statusbar_battery_charging_color_enable_summary"></string>
+    <string name="status_bar_ime_notification_title">Montrer la notification</string>
+    <string name="status_bar_ime_notification_summary">Si la barre de navigation n\'est pas disponible</string>
+    <string name="navigation_bar_ime_button_title">Afficher le bouton de la barre de navigation</string>
+    <string name="navigation_bar_ime_button_summary">Input switcher dans la barre de navigation</string>
+    <string name="input_method_category">Input method switcher</string>
+
+</resources>
