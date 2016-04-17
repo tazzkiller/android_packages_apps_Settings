@@ -4,7 +4,7 @@
     <string name="remix_lights_category">Paramètres Voyants</string>
     <string name="remix_device_category">Paramètres Appareil</string>
     <string name="remix_interface_category">Paramètres Interface</string>
-    <string name="remix_notlight_title">Voyants des notifications</string>
+    <string name="remix_notlight_title">Voyant des notifications</string>
     <string name="remix_batlight_title">Voyant batterie</string>
     <string name="header_category_custom">Paramètres personnalisés</string>
     <string name="category_key_custom">Paramètres personnalisés</string>
@@ -15,6 +15,7 @@
     <string name="cat_lockscreen_title">Paramètres de l\'écran de verrouillage</string>
     <string name="cat_statusbar_title">Paramètres de la barre d\'état</string>
     <string name="cat_misc_title">Paramètres Divers</string>
+    <string name="offscreen_gestures_title">Gestes écran éteint</string>
 
     <!-- Display : Rotation  -->
     <string name="display_rotation_title">Rotation</string>
@@ -128,7 +129,7 @@
     <string name="button_backlight_title">Rétroéclairage</string>
     <string name="button_backlight_enabled">Rétroéclairage des boutons</string>
     <string name="keyboard_backlight_enabled">Rétroéclairage du clavier</string>
-    <string name="button_backlight_seekbar_title">Luminosité du bouton</string>
+    <string name="button_backlight_seekbar_title">Luminosité des boutons</string>
     <string name="keyboard_backlight_seekbar_title">Luminosité du clavier</string>
     <string name="backlight_timeout_title">Temporisation éclairage</string>
     <string name="backlight_timeout_unlimited">Ne pas éteindre</string>
@@ -296,7 +297,7 @@
     <string name="status_bar_brightness_control_info">La luminosité automatique doit être désactivée</string>
 
     <!--Time Contexual Header -->
-    <string name="status_bar_custom_header_title"> Temps Contextuel de l\'entête</string>
+    <string name="status_bar_custom_header_title">Temps Contextuel de l\'entête</string>
     <string name="status_bar_custom_header_summary">Activer l\'image d\'entête du panneau de notification</string>
     <string name="daylight_header_pack_title">Pack image de l\'entête </string>
 
